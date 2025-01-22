@@ -1,1 +1,3 @@
-import Category from "./category.js";
+import { Category, categoryObj } from "./category.js";
+
+console.log(categoryObj.General.description);
