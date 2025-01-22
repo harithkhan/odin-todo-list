@@ -15,8 +15,3 @@ export class Category {
         return this._toDo;
     }
 };
-
-//Initialize Category Object
-export let categoryObj = {};
-categoryObj["General"] = new Category("General", "General/default category.");
-

@@ -1,9 +1,4 @@
-import { assignToDo } from "./todo-assign.js";
-import { Category, categoryObj } from "./category.js";
-import ToDo from "./todo-class.js";
+import { categoryObj } from "./category-obj";
 
-let cleanHouse = new ToDo("Clean House", "Mop floors.");
-let chores = new Category("Chores", "Non-work related tasks.");
-categoryObj.chores = chores;
-assignToDo(cleanHouse, chores);
-console.log(categoryObj);
+categoryObj.addCategory("Chores", "Things to do around the house");
+console.log(categoryObj.categories);
