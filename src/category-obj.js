@@ -23,11 +23,14 @@ export const categoryObj = (function() {
 
     const setDescription = (key, newDescription) => categories[key].description = newDescription;
 
+    const setDue = (key, newDue) => categories[key].due = newDue;
+
     return { 
         getCategories,
         addCategory,
         deleteCategory,
         renameTitle,
-        setDescription
+        setDescription,
+        setDue
     };
 })();

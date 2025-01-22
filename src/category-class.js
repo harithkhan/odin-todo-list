@@ -1,7 +1,8 @@
 export class Category {
-    constructor(title, description) {
+    constructor(title, description, due = "N/A") {
         this._title = title;
         this._description = description;
+        this._due = due;
         this._toDo= {};
     };
     get title() {
@@ -9,6 +10,9 @@ export class Category {
     };
     get description() {
         return this._description;
+    };
+    get due() {
+        return this._due;
     };
     get toDo() {
         return this._toDo;
@@ -18,5 +22,8 @@ export class Category {
     };
     set description(newDescription) {
         this._description = newDescription;
+    };
+    set due(newDue) {
+        this._due = newDue;
     };
 };
