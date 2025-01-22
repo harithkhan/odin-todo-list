@@ -6,6 +6,8 @@ export const categoryObj = (function() {
     let categories = {};
     categories["General"] = new Category("General", "General/default category.");
 
+    const getCategories = () => categories;
+
     const addCategory = function(title, description) {
         categories[title] = new Category(title, description);
     };
@@ -20,7 +22,7 @@ export const categoryObj = (function() {
     };
 
     return { 
-        categories,
+        getCategories,
         addCategory,
         deleteCategory,
         refreshCategoryKey
