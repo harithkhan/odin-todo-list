@@ -1,7 +1,7 @@
-import { categoryObj as cat} from "./category-obj";
+import * as hub from "./category-obj";
 
-cat.addCategory("Chores", "Things to do around the house");
-cat.renameTitle("Chores", "House Chores");
-cat.setDescription("House Chores", "This is the new description.");
-cat.setDue("House Chores", "3:55pm Thursday, 23 Jan 2025");
-console.log(cat.getCategories());
+hub.addCategory("Chores", "Things to do around the house");
+hub.renameTitle("Chores", "House Chores");
+hub.setDescription("House Chores", "This is the new description.");
+hub.setDue("House Chores", "3:55pm Thursday, 23 Jan 2025");
+console.log(hub.getData());
