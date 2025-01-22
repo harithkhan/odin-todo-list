@@ -12,9 +12,17 @@ export const categoryObj = (function() {
 
     const deleteCategory = (title) => delete categories[title];    
 
+    const refreshCategoryKey = function(oldKey, newKey) {
+        if (oldKey !== newKey) {
+            categories[newKey] = categories[oldKey];
+            delete categories[oldKey];
+        };
+    };
+
     return { 
         categories,
         addCategory,
-        deleteCategory
-    }
+        deleteCategory,
+        refreshCategoryKey
+    };
 })();
