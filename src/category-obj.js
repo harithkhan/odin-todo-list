@@ -21,10 +21,13 @@ export const categoryObj = (function() {
         delete categories[oldTitle]; //Delete old obj
     };
 
+    const setDescription = (key, newDescription) => categories[key].description = newDescription;
+
     return { 
         getCategories,
         addCategory,
         deleteCategory,
-        renameTitle
+        renameTitle,
+        setDescription
     };
 })();
