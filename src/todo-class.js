@@ -4,7 +4,7 @@ export default class ToDo {
     constructor(title, 
         description = "N/A", 
         duePeriod = "N/A", 
-        priority, 
+        priority = 0, 
         notes = "N/A", 
         isComplete = false, 
     ) {
