@@ -1,5 +1,3 @@
-import { categoryObj } from "./category-obj";
-
 export class Category {
     constructor(title, description) {
         this._title = title;
@@ -16,9 +14,7 @@ export class Category {
         return this._toDo;
     };
     set title(newTitle) {
-        const oldTitle = this._title;
         this._title = newTitle;
-        categoryObj.refreshCategoryKey(oldTitle, newTitle);
     };
     set description(newDescription) {
         this._description = newDescription;

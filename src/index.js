@@ -1,7 +1,5 @@
-import { categoryObj } from "./category-obj";
+import { categoryObj as cat} from "./category-obj";
 
-categoryObj.addCategory("Chores", "Things to do around the house");
-
-categoryObj.categories.Chores.title = "House Chores";
-
-console.log(categoryObj.categories);
+cat.addCategory("Chores", "Things to do around the house");
+cat.renameTitle("Chores", "House Chores");
+console.log(cat.getCategories());

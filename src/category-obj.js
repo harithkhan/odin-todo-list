@@ -14,17 +14,17 @@ export const categoryObj = (function() {
 
     const deleteCategory = (title) => delete categories[title];    
 
-    const refreshCategoryKey = function(oldKey, newKey) {
-        if (oldKey !== newKey) {
-            categories[newKey] = categories[oldKey];
-            delete categories[oldKey];
-        };
+    const renameTitle = function(oldTitle, newTitle) {
+        categories[oldTitle].title = newTitle;
+        const oldObj = categories[oldTitle];
+        categories[newTitle] = oldObj; //Create a new obj
+        delete categories[oldTitle]; //Delete old obj
     };
 
     return { 
         getCategories,
         addCategory,
         deleteCategory,
-        refreshCategoryKey
+        renameTitle
     };
 })();
