@@ -5,7 +5,7 @@ export default class ToDo {
         title, 
         description = "N/A", 
         due = "N/A", 
-        priority = 0, 
+        priority = "-", 
         notes = "N/A", 
         checklist = {},
         isComplete = false 
