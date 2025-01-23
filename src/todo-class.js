@@ -1,12 +1,13 @@
 import { format } from "date-fns";
 
 export default class ToDo {
-    constructor(title, 
+    constructor(
+        title, 
         description = "N/A", 
         due = "N/A", 
         priority = 0, 
         notes = "N/A", 
-        isComplete = false, 
+        isComplete = false 
     ) {
         this._title = title;
         this._description = description;

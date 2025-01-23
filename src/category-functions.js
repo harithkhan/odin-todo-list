@@ -1,7 +1,7 @@
 import { Category } from "./category-class";
 import { toDoHub } from "./todo-hub";
 
-//Exported functions that manipulate Class Category
+//Exported functions that manipulate object toDoHub related to class Category
 const addCategory = function(title, description) {
     toDoHub[title] = new Category(title, description);
 };
