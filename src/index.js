@@ -2,8 +2,8 @@ import { getData } from "./todo-hub";
 import * as catFunction from "./category-functions";
 import * as toDoFunction from "./todo-functions";
 
-catFunction.addCategory("Chores", "Things to do around the house");
-catFunction.setDue("Chores", "3:55pm Thursday, 23 Jan 2025");
+catFunction.add("Chores", "Things to do around the house");
+catFunction.due("Chores", "3:55pm Thursday, 23 Jan 2025");
 
 toDoFunction.add(
     undefined, 
@@ -45,6 +45,6 @@ toDoFunction.add(
     undefined
 );
 
-// toDoFunction.assign("Pickleball", "General");
+
 
 console.log(getData());
