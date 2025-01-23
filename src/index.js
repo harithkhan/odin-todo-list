@@ -4,7 +4,6 @@ import * as toDoFunction from "./todo-functions";
 import ToDo from "./todo-class";
 
 catFunction.addCategory("Chores", "Things to do around the house");
-catFunction.setDescription("Chores", "This is the new description.");
 catFunction.setDue("Chores", "3:55pm Thursday, 23 Jan 2025");
 
 toDoFunction.add(
@@ -47,7 +46,6 @@ toDoFunction.add(
     undefined
 )
 
-toDoFunction.rename("Gym", "Powerlift");
+toDoFunction.description("Laundry", "Clean entire family's clothes.");
 
 console.log(getData());
-console.log(getData().Exercise._toDo.Powerlift instanceof ToDo);

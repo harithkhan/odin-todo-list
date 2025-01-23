@@ -1,6 +1,7 @@
 import { toDoHub as hub } from "./todo-hub.js";
 import ToDo from "./todo-class.js";
 import { Category } from "./category-class.js";
+import { ca } from "date-fns/locale";
 
 //Exported functions that manipulate object toDoHub, but only related to class ToDo
 const add = function(
@@ -56,6 +57,11 @@ const rename = function(oldTitle, newTitle) {
 
 const del = (category, toDoKey) => delete hub[category]._toDo[toDoKey];
 
+const description = function(target, newDescription) {
+    for (let category in hub) {
+        const toDoObj = hub[category]._toDo[target]
+        if (toDoObj) { toDoObj.description = newDescription } 
+    };
+};
 
-
-export { add, rename, del };
+export { add, rename, del, description };
