@@ -59,5 +59,8 @@ checklistFunction.add("Gym", "Bicep Curls");
 checklistFunction.del("Gym", "Squats");
 checklistFunction.del("Gym", "Pull-ups");
 
+checklistFunction.isComplete("Gym", "Upright rows", true);
+checklistFunction.isComplete("Gym", "Leg raises", true);
+
 console.log(getData().Exercise.toDo.Gym);
 console.log(getData().Chores.toDo);

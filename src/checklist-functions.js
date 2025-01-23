@@ -35,21 +35,28 @@ const del = function(target, item) {
     // Refresh keys
     let newKey = 1;
     for (let key in getToDo(target)) {
-        console.log(`${key}: ${getToDo(target)[key].item}`);
         const oldObj = getToDo(target)[key];
         getToDo(target)[newKey] = oldObj;
         if (key !== String(newKey)) { 
-            console.log(`${getToDo(target)[key].item} was deleted`)
             delete getToDo(target)[key];      
         };
         ++newKey;
     };
 }; 
 
-//Add functions: delete (need to refresh keys), isComplete
+const isComplete = function(target, item, status) {
+    for (let key in getToDo(target)) {
+        //if item is in getTodo(target)[key]
+        if (getToDo(target)[key].item === item) {
+            getToDo(target)[key].isComplete = status;
+        };
+        //getTodo(target)[key].isComplete = status
+    };
+};
 
 export { 
     add,
     rename,
-    del
+    del,
+    isComplete
 };
