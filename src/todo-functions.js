@@ -69,9 +69,17 @@ const description = function(target, newDescription) {
     };
 };
 
+const due = function(target, newDue) {
+    for (let category in hub) {
+        const toDoObj = hub[category]._toDo[target];
+        if (toDoObj) { toDoObj.due = newDue};
+    };
+};
+
 export { 
     add, 
     rename, 
     del, 
-    description 
+    description,
+    due 
 };
