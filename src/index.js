@@ -55,5 +55,7 @@ checklistFunction.add("Laundry", "Taylor's laundry");
 checklistFunction.rename("Gym", "Upright rows", "Deadlifts");
 checklistFunction.rename("Laundry", "Dad's laundry", "My laundry")
 
+checklistFunction.del("Gym", "Deadlifts");
+
 console.log(getData().Exercise);
 console.log(getData().Chores.toDo);

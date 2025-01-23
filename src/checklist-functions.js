@@ -1,7 +1,7 @@
 import { toDoHub as hub } from "./todo-hub.js";
 import Checklist from "./checklist-class.js";
 
-//Function to help isolate the target object. "target" should be key of _toDo
+//Function to help isolate the target object, see functions below. "target" should be key of _toDo
 const getToDo = function(target) { 
     for (let category in hub) { 
         for (let key in hub[category]) { 
@@ -16,9 +16,8 @@ const add = function(target, item, isComplete) {
     getToDo(target)._checklist[key] = new Checklist(item, isComplete); 
 }
 
-const rename = function (target, oldItem, newItem) {
+const rename = function(target, oldItem, newItem) {
     for (let key in getToDo(target)._checklist) {
-        console.log(key)
         let toRename = getToDo(target)._checklist[key]._item;
         if (toRename === oldItem) {
             getToDo(target)._checklist[key]._item = newItem;
@@ -26,9 +25,19 @@ const rename = function (target, oldItem, newItem) {
     };
 };
 
-//Add functions: rename, delete, isComplete
+const del = function(target, item) {
+    for (let key in getToDo(target)._checklist) {
+        let toDelete = getToDo(target)._checklist[key]._item;
+        if (toDelete === item) {
+            delete getToDo(target)._checklist[key]
+        };
+    };
+} 
+
+//Add functions: delete (need to refresh keys), isComplete
 
 export { 
     add,
-    rename
+    rename,
+    del
 };
