@@ -7,6 +7,7 @@ export default class ToDo {
         due = "N/A", 
         priority = 0, 
         notes = "N/A", 
+        checklist = {},
         isComplete = false 
     ) {
         this._title = title;
@@ -15,6 +16,7 @@ export default class ToDo {
         this._priority = priority;
         this._notes = notes;
         this._isComplete = isComplete;
+        this._checklist = checklist;
         this._whenCreated = format(new Date(), "h:mma, EEEE, d MMM yyyy");
     };
 
@@ -51,6 +53,13 @@ export default class ToDo {
     };
     set notes(newNotes) {
         this._notes = newNotes;
+    };
+
+    get checklist() {
+        return this._checklist;
+    };
+    set checklist(newChecklist) {
+        this._checklist = newChecklist;
     };
 
     get isComplete() {
