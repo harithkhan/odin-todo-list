@@ -51,3 +51,4 @@ checklistFunction.add("Gym", "Squats");
 checklistFunction.add("Gym", "Pull-ups");
 
 console.log(getData().Exercise);
+console.log(getData());

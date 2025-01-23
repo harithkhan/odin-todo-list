@@ -3,20 +3,20 @@ import Checklist from "./checklist-class.js";
 
 const add = function(target, item, isComplete) {
     for (let category in hub) { //Iterate through categories
-        for (let key in hub[category]) { //Iterate through category keys
-            if (key === "_toDo") { 
-                const targetObj = hub[category][key][target]; //Lock in target Object
-                if (targetObj) {
-                    //Use counter to set the key of new checklist property 
-                    let counter = Object.keys(targetObj._checklist).length === 0 
-                    ? 1 //Start the first key at 1
-                    : Object.keys(targetObj._checklist).length + 1;
-                    targetObj._checklist[counter] = new Checklist(item, isComplete); 
-                };
+        for (let key in hub[category]) { //Iterate through category key
+            const targetObj = hub[category][key][target]; //Lock in target Object
+            if (key === "_toDo" && targetObj) { 
+                //Use counter to set the key of new checklist property 
+                let counter = Object.keys(targetObj._checklist).length + 1;
+                //Create new checklist    
+                targetObj._checklist[counter] = new Checklist(item, isComplete); 
+            
             };
         };
     };
 };
+
+//Add functions: rename, delete, isComplete
 
 export { 
     add
