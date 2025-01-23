@@ -49,6 +49,8 @@ toDoFunction.add(
 checklistFunction.add("Gym", "Upright rows");
 checklistFunction.add("Gym", "Squats");
 checklistFunction.add("Gym", "Pull-ups");
+checklistFunction.add("Laundry", "Dad's laundry");
+checklistFunction.add("Laundry", "Taylor's laundry");
 
 console.log(getData().Exercise);
 console.log(getData());
