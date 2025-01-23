@@ -9,8 +9,8 @@ const addCategory = function(title, description) {
 const deleteCategory = (title) => delete toDoHub[title];    
 
 const setTitle = function(oldTitle, newTitle) {
-    toDoHub[oldTitle].title = newTitle;
-    const oldObj = toDoHub[oldTitle];
+    toDoHub[oldTitle].title = newTitle; //Change the title in the current obj to new name
+    const oldObj = toDoHub[oldTitle]; 
     toDoHub[newTitle] = oldObj; //Create a new obj
     delete toDoHub[oldTitle]; //Delete old obj
 };

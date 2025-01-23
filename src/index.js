@@ -47,7 +47,7 @@ toDoFunction.add(
     undefined
 )
 
-toDoFunction.rename("Exercise", "Gym", "Powerlift");
+toDoFunction.rename("Gym", "Powerlift");
 
 console.log(getData());
 console.log(getData().Exercise._toDo.Powerlift instanceof ToDo);
