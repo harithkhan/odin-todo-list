@@ -16,8 +16,19 @@ const add = function(target, item, isComplete) {
     getToDo(target)._checklist[key] = new Checklist(item, isComplete); 
 }
 
+const rename = function (target, oldItem, newItem) {
+    for (let key in getToDo(target)._checklist) {
+        console.log(key)
+        let toRename = getToDo(target)._checklist[key]._item;
+        if (toRename === oldItem) {
+            getToDo(target)._checklist[key]._item = newItem;
+        };
+    };
+};
+
 //Add functions: rename, delete, isComplete
 
 export { 
-    add
-}
+    add,
+    rename
+};
