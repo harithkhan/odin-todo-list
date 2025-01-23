@@ -72,14 +72,40 @@ const description = function(target, newDescription) {
 const due = function(target, newDue) {
     for (let category in hub) {
         const toDoObj = hub[category]._toDo[target];
-        if (toDoObj) { toDoObj.due = newDue};
+        if (toDoObj) { toDoObj.due = newDue };
     };
 };
+
+const priority = function(target, newPriority) {
+    for (let category in hub) {
+        const toDoObj = hub[category]._toDo[target];
+        if (toDoObj) { toDoObj.priority = newPriority };
+    };
+};
+
+const notes = function(target, newNotes) {
+    for (let category in hub) {
+        const toDoObj = hub[category]._toDo[target];
+        if (toDoObj) { toDoObj.notes = newNotes };
+    };
+};
+
+const isComplete = function (target, newStatus) {
+    for (let category in hub) {
+        const toDoObj = hub[category]._toDo[target];
+        if (toDoObj) { toDoObj.isComplete = newStatus };
+    };
+};
+
+//Functions to add: priority, notes, isComplete, 
 
 export { 
     add, 
     rename, 
     del, 
     description,
-    due 
+    due,
+    priority,
+    notes,
+    isComplete 
 };
