@@ -22,7 +22,7 @@ const add = function(
             isComplete
         );
     } else if (toDoHub.hasOwnProperty(category)) {
-        toDoHub.category.toDo = new ToDo(
+        toDoHub[category].toDo = new ToDo(
             title, 
             description, 
             due, 
@@ -31,8 +31,8 @@ const add = function(
             isComplete
         );
     } else if (!toDoHub.hasOwnProperty(category)) {
-        toDoHub.category = new Category(category); //Create a new category if the provided one doesn't exist
-        toDoHub.category.toDo = new ToDo(
+        toDoHub[category] = new Category(category); //Create a new category if the provided one doesn't exist
+        toDoHub[category].toDo = new ToDo(
             title, 
             description, 
             due, 

@@ -16,4 +16,24 @@ toDoFunction.add(
     undefined
 );
 
+toDoFunction.add(
+    "Chores",
+    "Laundry",
+    "Harith and Taylor's clothes",
+    undefined,
+    undefined,
+    undefined,
+    undefined
+)
+
+toDoFunction.add(
+    "Exercise",
+    "Pickleball",
+    "Book Pickleball court",
+    undefined,
+    undefined,
+    undefined,
+    undefined
+)
+
 console.log(getData());
