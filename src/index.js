@@ -46,16 +46,18 @@ toDoFunction.add(
     undefined
 );
 
-checklistFunction.add("Gym", "Upright rows");
-checklistFunction.add("Gym", "Squats");
-checklistFunction.add("Gym", "Pull-ups");
 checklistFunction.add("Laundry", "Dad's laundry");
 checklistFunction.add("Laundry", "Taylor's laundry");
 
-checklistFunction.rename("Gym", "Upright rows", "Deadlifts");
-checklistFunction.rename("Laundry", "Dad's laundry", "My laundry")
+checklistFunction.add("Gym", "Upright rows");
+checklistFunction.add("Gym", "Squats");
+checklistFunction.add("Gym", "Pull-ups");
+checklistFunction.add("Gym", "Leg raises");
+checklistFunction.add("Gym", "Bicep Curls");
 
-checklistFunction.del("Gym", "Deadlifts");
 
-console.log(getData().Exercise);
+checklistFunction.del("Gym", "Squats");
+checklistFunction.del("Gym", "Pull-ups");
+
+console.log(getData().Exercise.toDo.Gym);
 console.log(getData().Chores.toDo);
