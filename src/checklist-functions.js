@@ -46,11 +46,9 @@ const del = function(target, item) {
 
 const isComplete = function(target, item, status) {
     for (let key in getToDo(target)) {
-        //if item is in getTodo(target)[key]
         if (getToDo(target)[key].item === item) {
             getToDo(target)[key].isComplete = status;
         };
-        //getTodo(target)[key].isComplete = status
     };
 };
 
