@@ -43,5 +43,7 @@ const add = function(
     };
 };
 
+const del = (category, toDoKey) => delete toDoHub[category]._toDo[toDoKey];
 
-export { add };
+
+export { add, del };

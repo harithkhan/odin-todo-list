@@ -36,4 +36,16 @@ toDoFunction.add(
     undefined
 )
 
+toDoFunction.add(
+    "Exercise",
+    "Gym",
+    "Lift some weights.",
+    undefined,
+    undefined,
+    undefined,
+    undefined
+)
+
+toDoFunction.del("Exercise", "Pickleball");
+
 console.log(getData());
