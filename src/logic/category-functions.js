@@ -6,18 +6,18 @@ const add = function(title, description) {
     hub[title] = new Category(title, description);
 };
 
-const del = (title) => delete toDoHub[title];    
+const del = (title) => delete hub[title];    
 
 const rename = function(oldTitle, newTitle) {
-    toDoHub[oldTitle].title = newTitle; //Change the title in the current obj to new name
-    const oldObj = toDoHub[oldTitle]; 
-    toDoHub[newTitle] = oldObj; //Create a new obj
+    hub[oldTitle].title = newTitle; //Change the title in the current obj to new name
+    const oldObj = hub[oldTitle]; 
+    hub[newTitle] = oldObj; //Create a new obj
     delete hub[oldTitle]; //Delete old obj
 };
 
-const description = (key, newDescription) => toDoHub[key].description = newDescription;
+const description = (key, newDescription) => hub[key].description = newDescription;
 
-const due = (key, newDue) => toDoHub[key].due = newDue;
+const due = (key, newDue) => hub[key].due = newDue;
 
 export {
     add,
