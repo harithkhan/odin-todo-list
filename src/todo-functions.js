@@ -1,6 +1,7 @@
-import { toDoHub } from "./todo-hub.js";
+import { toDoHub as hub } from "./todo-hub.js";
 import ToDo from "./todo-class.js";
 import { Category } from "./category-class.js";
+import { ca } from "date-fns/locale";
 
 //Exported functions that manipulate object toDoHub, but only related to class ToDo
 const add = function(
@@ -13,7 +14,7 @@ const add = function(
     isComplete
 ) {
     if (!category || category === "General") {
-        toDoHub.General.toDo[title] = new ToDo(
+        hub.General.toDo[title] = new ToDo(
             title, 
             description, 
             due, 
@@ -21,8 +22,8 @@ const add = function(
             notes, 
             isComplete
         );
-    } else if (toDoHub.hasOwnProperty(category)) {
-        toDoHub[category].toDo[title] = new ToDo(
+    } else if (hub.hasOwnProperty(category)) {
+        hub[category].toDo[title] = new ToDo(
             title, 
             description, 
             due, 
@@ -30,9 +31,9 @@ const add = function(
             notes, 
             isComplete
         );
-    } else if (!toDoHub.hasOwnProperty(category)) {
-        toDoHub[category] = new Category(category); //Create a new category if the provided one doesn't exist
-        toDoHub[category].toDo[title] = new ToDo(
+    } else if (!hub.hasOwnProperty(category)) {
+        hub[category] = new Category(category); //Create a new category if the provided one doesn't exist
+        hub[category].toDo[title] = new ToDo(
             title, 
             description, 
             due, 
@@ -43,7 +44,14 @@ const add = function(
     };
 };
 
-const del = (category, toDoKey) => delete toDoHub[category]._toDo[toDoKey];
+const rename = function(category, oldTitle, newTitle) {
+    hub[category]._toDo[oldTitle].title = newTitle; //Change the title in the current obj to new name
+    const oldObj = hub[category]._toDo[oldTitle];
+    hub[category]._toDo[newTitle] = oldObj //Create a new obj with new title name
+    delete hub[category]._toDo[oldTitle] //Delete old obj
+};
+
+const del = (category, toDoKey) => delete hub[category]._toDo[toDoKey];
 
 
-export { add, del };
+export { add, rename, del };

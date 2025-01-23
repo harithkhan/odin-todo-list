@@ -1,6 +1,7 @@
 import { getData } from "./todo-hub";
 import * as catFunction from "./category-functions";
 import * as toDoFunction from "./todo-functions";
+import ToDo from "./todo-class";
 
 catFunction.addCategory("Chores", "Things to do around the house");
 catFunction.setDescription("Chores", "This is the new description.");
@@ -46,6 +47,7 @@ toDoFunction.add(
     undefined
 )
 
-toDoFunction.del("Exercise", "Pickleball");
+toDoFunction.rename("Exercise", "Gym", "Powerlift");
 
 console.log(getData());
+console.log(getData().Exercise._toDo.Powerlift instanceof ToDo);
