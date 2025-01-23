@@ -1,7 +1,8 @@
-import * as hub from "./category-obj";
+import { getData } from "./todo-hub";
+import * as catFunction from "./category-functions";
 
-hub.addCategory("Chores", "Things to do around the house");
-hub.renameTitle("Chores", "House Chores");
-hub.setDescription("House Chores", "This is the new description.");
-hub.setDue("House Chores", "3:55pm Thursday, 23 Jan 2025");
-console.log(hub.getData());
+catFunction.addCategory("Chores", "Things to do around the house");
+catFunction.setTitle("Chores", "House Chores");
+catFunction.setDescription("House Chores", "This is the new description.");
+catFunction.setDue("House Chores", "3:55pm Thursday, 23 Jan 2025");
+console.log(getData());
