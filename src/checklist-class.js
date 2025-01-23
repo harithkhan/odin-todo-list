@@ -1,13 +1,13 @@
-export class Checklist {
-    constructor(description = "N/A", isComplete = false) {
-        this._description = description;
+export default class Checklist {
+    constructor(item = "N/A", isComplete = false) {
+        this._item = item;
         this._isComplete = isComplete;
     };
-    get description() {
-        return this._description;
+    get item() {
+        return this._item;
     };
-    set description(newDescription) {
-        this._description = newDescription;
+    set item(newitem) {
+        this._item = newitem;
     };
     get isComplete() {
         return this._isComplete;

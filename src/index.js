@@ -1,6 +1,7 @@
 import { getData } from "./todo-hub";
 import * as catFunction from "./category-functions";
 import * as toDoFunction from "./todo-functions";
+import * as checklistFunction from "./checklist-functions"
 
 catFunction.add("Chores", "Things to do around the house");
 catFunction.due("Chores", "3:55pm Thursday, 23 Jan 2025");
@@ -45,6 +46,8 @@ toDoFunction.add(
     undefined
 );
 
+checklistFunction.add("Gym", "Upright rows");
+checklistFunction.add("Gym", "Squats");
+checklistFunction.add("Gym", "Pull-ups");
 
-
-console.log(getData());
+console.log(getData().Exercise);
