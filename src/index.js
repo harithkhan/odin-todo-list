@@ -45,10 +45,6 @@ toDoFunction.add(
     undefined
 );
 
-toDoFunction.due("Gym", "4pm, Thursday, 23 Jan 2025");
-toDoFunction.priority("Gym", "2");
-toDoFunction.notes("Gym", "I need to increase my volume");
-toDoFunction.isComplete("Gym", true);
-
+// toDoFunction.assign("Pickleball", "General");
 
 console.log(getData());

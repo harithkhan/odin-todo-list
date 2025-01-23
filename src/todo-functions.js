@@ -55,6 +55,16 @@ const rename = function(oldTitle, newTitle) {
     };
 };
 
+const assign = function(target, newCategory) {
+    for (let category in hub) {
+        const toDoObj = hub[category]._toDo[target];
+        if (toDoObj) { 
+            hub[newCategory]._toDo[target] = toDoObj; //Assign toDo into new category
+            delete hub[category]._toDo[target]; //Delete old toDo object from old category
+        };
+    };
+}
+
 const del = function(target) {
     for (let category in hub) {
         const toDoObj = hub[category]._toDo[target];
@@ -101,7 +111,8 @@ const isComplete = function (target, newStatus) {
 
 export { 
     add, 
-    rename, 
+    rename,
+    assign, 
     del, 
     description,
     due,
