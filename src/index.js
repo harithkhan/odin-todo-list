@@ -47,5 +47,6 @@ toDoFunction.add(
 )
 
 toDoFunction.description("Laundry", "Clean entire family's clothes.");
+toDoFunction.del("Gym");
 
 console.log(getData());

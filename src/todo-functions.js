@@ -55,13 +55,23 @@ const rename = function(oldTitle, newTitle) {
     };
 };
 
-const del = (category, toDoKey) => delete hub[category]._toDo[toDoKey];
-
-const description = function(target, newDescription) {
+const del = function(target) {
     for (let category in hub) {
-        const toDoObj = hub[category]._toDo[target]
-        if (toDoObj) { toDoObj.description = newDescription } 
+        const toDoObj = hub[category]._toDo[target];
+        if (toDoObj) { delete hub[category]._toDo[target] };
     };
 };
 
-export { add, rename, del, description };
+const description = function(target, newDescription) {
+    for (let category in hub) {
+        const toDoObj = hub[category]._toDo[target];
+        if (toDoObj) { toDoObj.description = newDescription } ;
+    };
+};
+
+export { 
+    add, 
+    rename, 
+    del, 
+    description 
+};
