@@ -32,7 +32,14 @@ const del = function(target, item) {
             delete getToDo(target)._checklist[key]
         };
     };
-} 
+    //Refresh keys
+    // let newKey = 1;
+    // for (let key in getToDo(target)._checklist) {
+    //     const oldObj = getToDo(target)._checklist[key];
+    //     getToDo(target)._checklist[newKey] = oldObj;
+    //     ++newKey;
+    // };
+}; 
 
 //Add functions: delete (need to refresh keys), isComplete
 
