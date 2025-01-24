@@ -97,6 +97,26 @@ main {
     grid-template-columns: 1fr 4fr;
 }
 
+/* Category container */
+.category-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem 1rem 2rem;
+}
+
+.category-header {
+    font-family: var(--font-headers);
+    margin-bottom: 0.5rem;
+}
+
+.cat-button {
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    display: flex;
+}
+
+/* To do container */
 .todo-display {
     width: 40rem;
     height: 25rem;
