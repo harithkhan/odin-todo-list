@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 /* Reset */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -40,7 +41,9 @@ h1, h2, h3, h4, h5, h6 {
 /* Reset Over */
 /* General */
 
-
+body {
+    font-family: -apple-system, "Indie Flower", Arial, Helvetica, sans-serif;
+}
 
 /* Header */
 header {
@@ -50,4 +53,9 @@ header {
 }
 .header-container {
     text-decoration: none;
+    color: black;
+}
+
+.header-text {
+    font-family: "Indie Flower";
 }

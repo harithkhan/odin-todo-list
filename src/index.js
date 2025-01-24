@@ -1,3 +1,4 @@
+import "./style.css";
 import { getData } from "./logic/todo-hub";
 import * as catFunction from "./logic/category-functions";
 import * as toDoFunction from "./logic/todo-functions";
