@@ -40,9 +40,34 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Reset Over */
 /* General */
+:root {
+    --bg-lightest: #fdfcea;
+    --bg-lighter: #fcf9c8;
+    --bg-light: #fbf193;
+    --bg-regular: #f9e151;
+    --bg-dark: #f3ca06;
+    --bg--darker: #e4b40d;
+    --bf-darkest: #c48b04;
+    --text-light: #c48b04;
+    --text-regular: #9b630b;
+    --text-dark: #7f4e12;
+    --text-darkest: #6b4117;
+}
 
 body {
     font-family: -apple-system, "Inter", Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.app-container {
+    min-width: 80rem;
+    min-height: 30rem;
+    background-color: var(--bg-lightest);
+    border-radius: 40px;
+    margin: 2rem;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
 }
 
 /* Header */
@@ -50,6 +75,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 8rem;
 }
 .header-container {
     text-decoration: none;
@@ -58,4 +84,32 @@ header {
 
 .header-text {
     font-family: "Indie Flower";
+    font-size: 3rem;
 }
+
+/* Footer Styling */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .credit {
+    display: flex;
+    gap: 0.3rem;
+  }
+  
+  footer a {
+    text-decoration: none;
+    color: var(--text-darkest);
+    transition: color 0.3s ease; 
+  }
+  
+  footer a:hover {
+    color: var(--text-light);
+    }
+  
+  .credit img {
+    height: 1.2rem;
+    width: 1.2rem;
+  }
