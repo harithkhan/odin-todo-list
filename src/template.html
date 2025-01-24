@@ -23,22 +23,26 @@
             </div>
             <div class="todo-container">
                 <div class="todo-display">
-                    <div class="todo-display-item">
-                        <form class="general-category-form">
-                            <input type="text" name="cat-general" id="cat-general" value="General">
-                        </form>
+                    <div class="todo-display-item-container">
+                        <div class="todo-display-item">
+                            <form class="general-category-form">
+                                <input type="text" name="cat-general" id="cat-general" value="General">
+                            </form>
+                        </div>
+                        <div class="todo-display-item">
+                            <button class="checkbox" type="checkbox-button" aria-pressed="false"></button>
+                            <form class="todo-1-form">
+                                <input type="text" name="todo-1" id="todo-1" value="5 deep breaths">
+                            </form>
+                        </div>
                     </div>
-                    <div class="todo-display-item">
-                        <button class="checkbox" type="checkbox-button" aria-pressed="false"></button>
-                        <form class="todo-1-form">
-                            <input type="text" name="todo-1" id="todo-1" value="5 deep breaths">
-                        </form>
-                    </div>
-                    <div class="todo-add-todo">
-                        <button class="add-todo" type="button">Add To Do...</button>
-                    </div>
-                    <div class="todo-add-cat">
-                        <button class="add-cat" type="button">Add Category...</button>
+                    <div class="todo-display-button-container">
+                        <div class="todo-add-todo">
+                            <button class="add-todo" type="button">Add To Do...</button>
+                        </div>
+                        <div class="todo-add-cat">
+                            <button class="add-cat" type="button">Add Category...</button>
+                        </div>
                     </div>
                 </div>
             </div>  
