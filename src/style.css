@@ -64,7 +64,7 @@ body {
 }
 
 .app-container {
-    min-width: 80rem;
+    min-width: 60rem;
     min-height: 35rem;
     background-color: var(--bg-lightest);
     border-radius: 40px;
@@ -98,7 +98,7 @@ main {
 }
 
 .todo-display {
-    width: 58rem;
+    width: 40rem;
     height: 25rem;
     margin-left: 1rem;
     margin-bottom: 3rem;
@@ -141,8 +141,6 @@ main {
     margin-bottom: 0.3rem;
     margin-left: 1rem;           
     border-radius: 50%;
-    -webkit-appearance: none;
-    -moz-appearance: none;
 }
 
 .checkbox[aria-pressed="true"] {
