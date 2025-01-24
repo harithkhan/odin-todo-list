@@ -126,7 +126,9 @@ main {
     grid-template-rows: repeat(4, 3rem);
 }
 
-.todo-display-item {
+.todo-display-item,
+.todo-add-todo,
+.todo-add-cat {
     border-bottom: 1px solid black; 
     display: flex;
     align-items: end;
