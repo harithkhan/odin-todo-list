@@ -26,7 +26,8 @@ export const displayHub = function() {
         //Append due
         const catDue = document.createElement("p");
         catDue.className = "cat-due";
-        catDue.textContent = `(Due: ${getData()[category].due})`;
+        const dueDate = getData()[category].due;
+        catDue.textContent = dueDate !== "N/A" ? `(Due: ${dueDate})`: "";
         catDisplayContainer.appendChild(catDue);
 
         //Append edit button
@@ -75,7 +76,8 @@ export const displayHub = function() {
             //Append due
             const toDoDue = document.createElement("p");
             toDoDue.className = "todo-due";
-            toDoDue.textContent = `(Due: ${getData()[category].due})`;
+            const toDoDueDate = getData()[category].toDo[toDoObj].due
+            toDoDue.textContent = toDoDueDate !== "N/A" ? `(Due: ${toDoDueDate})`: "";
             toDoDisplayContainer.appendChild(toDoDue);
 
             //Append edit button
@@ -103,6 +105,30 @@ export const displayHub = function() {
             toDoDeleteIcon.alt = "Icon of delete buttom";
             toDoDeleteIcon.src = binIcon;
             toDoDeleteButton.appendChild(toDoDeleteIcon);
-        };        
+        };
+        //Append todo button container and its elements
+        const todoButtonContainer = document.createElement("div");
+        todoButtonContainer.className = "todo-button-container";
+        todoDisplay.appendChild(todoButtonContainer);
+
+        const addToDo = document.createElement("div");
+        addToDo.className = "todo-add-todo";
+        todoButtonContainer.appendChild(addToDo);
+
+        const addToDoButton = document.createElement("button");
+        addToDoButton.type = "button";
+        addToDoButton.className = "add-todo";
+        addToDoButton.textContent = "Add To Do...";
+        addToDo.appendChild(addToDoButton);
+
+        const addCat = document.createElement("div");
+        addCat.className = "todo-add-cat";
+        todoButtonContainer.appendChild(addCat);
+
+        const addCatButton = document.createElement("button");
+        addCatButton.type = "button";
+        addCatButton.className = "add-cat";
+        addCatButton.textContent = "Add Category...";
+        addCat.appendChild(addCatButton);
     };
 };
