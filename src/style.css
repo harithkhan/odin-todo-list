@@ -135,17 +135,19 @@ main {
 
 .todo-item,
 .todo-add-todo,
-.todo-add-cat {
+.todo-add-cat,
+.todo-form {
     border-bottom: 1px solid black; 
     display: flex;
     align-items: end;
     gap: 1rem;
 }
 
-.general-category-form,
-.todo-1-form {
-    height: 100%;
-    /*Add display flex, column direction for easy appending when expanded */
+.todo-form-title {
+    background-color: inherit;
+    border: none;
+    margin-left: 3rem;
+    padding-left: 1rem;
 }
 
 .cat-display {

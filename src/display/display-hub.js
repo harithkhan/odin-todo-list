@@ -1,6 +1,7 @@
 import editIcon from "../img/edit.png";
 import binIcon from "../img/bin.png";
 import { getData } from "../logic/todo-hub";
+import { handleAddToDoClick } from "./add-todo";
 
 const todoDisplay = document.querySelector(".todo-display");
 
@@ -11,6 +12,7 @@ export const displayHub = function() {
 
         const todoItemContainer = document.createElement("div");
         todoItemContainer.className = "todo-item-container";
+        todoItemContainer.dataset.category = category;
         todoDisplay.appendChild(todoItemContainer);
 
         const catDisplayContainer = document.createElement("div");
@@ -109,16 +111,20 @@ export const displayHub = function() {
         //Append todo button container and its elements
         const todoButtonContainer = document.createElement("div");
         todoButtonContainer.className = "todo-button-container";
+        todoButtonContainer.dataset.category = category;
         todoDisplay.appendChild(todoButtonContainer);
 
         const addToDo = document.createElement("div");
         addToDo.className = "todo-add-todo";
+        addToDo.dataset.category = category;
         todoButtonContainer.appendChild(addToDo);
 
         const addToDoButton = document.createElement("button");
         addToDoButton.type = "button";
         addToDoButton.className = "add-todo";
-        addToDoButton.textContent = "Add To Do...";
+        addToDoButton.textContent = "Add To Do";
+        addToDoButton.dataset.category = category;
+        addToDoButton.addEventListener("click", handleAddToDoClick);
         addToDo.appendChild(addToDoButton);
 
         const addCat = document.createElement("div");
@@ -128,7 +134,7 @@ export const displayHub = function() {
         const addCatButton = document.createElement("button");
         addCatButton.type = "button";
         addCatButton.className = "add-cat";
-        addCatButton.textContent = "Add Category...";
+        addCatButton.textContent = "Add Category";
         addCat.appendChild(addCatButton);
     };
 };
