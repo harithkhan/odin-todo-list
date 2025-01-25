@@ -2,6 +2,7 @@ import editIcon from "../img/edit.png";
 import binIcon from "../img/bin.png";
 import { getData } from "../logic/todo-hub";
 import { handleAddToDoClick } from "./add-todo";
+import { handleAddCatClick } from "./add-cat";
 
 const todoDisplay = document.querySelector(".todo-display");
 
@@ -129,12 +130,15 @@ export const displayHub = function() {
 
         const addCat = document.createElement("div");
         addCat.className = "todo-add-cat";
+        addCat.dataset.category = category;
         todoButtonContainer.appendChild(addCat);
 
         const addCatButton = document.createElement("button");
         addCatButton.type = "button";
         addCatButton.className = "add-cat";
         addCatButton.textContent = "Add Category";
+        addCatButton.dataset.category = category;
+        addCatButton.addEventListener("click", handleAddCatClick);
         addCat.appendChild(addCatButton);
     };
 };
