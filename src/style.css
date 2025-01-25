@@ -189,7 +189,7 @@ main {
     background-color: inherit;
     border: none;
     font-family: var(--font-general);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     padding-top: 1.4rem;
     cursor: text;
 }
@@ -201,7 +201,22 @@ main {
     cursor: text;
 }
 
-.edit-button,
+.cat-edit-button,
+.todo-edit-button {
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 0.3rem;
+}
+
+.cat-edit-button {
+    margin-left: 8rem;
+}
+
+.todo-edit-button {
+    margin-left: 4rem;
+}
+
 .delete-button {
     background-color: inherit;
     border: none;
