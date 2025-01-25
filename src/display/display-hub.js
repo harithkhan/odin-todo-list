@@ -6,6 +6,7 @@ const todoDisplay = document.querySelector(".todo-display");
 
 export const displayHub = function() {
     todoDisplay.innerHTML = "";
+
     for (let category in getData()) {
 
         const todoItemContainer = document.createElement("div");
@@ -53,5 +54,55 @@ export const displayHub = function() {
         catDeleteIcon.alt = "Icon of delete buttom";
         catDeleteIcon.src = binIcon;
         catDeleteButton.appendChild(catDeleteIcon);
-    }
-}
+
+        for (let toDoObj in getData()[category].toDo) {
+            const toDoDisplayContainer = document.createElement("div");
+            toDoDisplayContainer.className = "todo-item";
+            todoItemContainer.appendChild(toDoDisplayContainer);
+
+            const checkbox = document.createElement("button");
+            checkbox.className = "checkbox";
+            checkbox.type = "checkbox-button";
+            checkbox.setAttribute("aria-pressed", "false");
+            toDoDisplayContainer.appendChild(checkbox);
+
+            //Append toDo header
+            const toDoHeader = document.createElement("p");
+            toDoHeader.className = "todo-display-header";
+            toDoHeader.textContent = toDoObj;
+            toDoDisplayContainer.appendChild(toDoHeader);
+
+            //Append due
+            const toDoDue = document.createElement("p");
+            toDoDue.className = "todo-due";
+            toDoDue.textContent = `(Due: ${getData()[category].due})`;
+            toDoDisplayContainer.appendChild(toDoDue);
+
+            //Append edit button
+            const toDoEditButton = document.createElement("button");
+            toDoEditButton.className = "todo-edit-button";
+            toDoEditButton.type = "button";
+            toDoDisplayContainer.appendChild(toDoEditButton);
+
+            //Append edit icon
+            const toDoEditIcon = document.createElement("img");
+            toDoEditIcon.className = "edit-icon";
+            toDoEditIcon.alt = "Icon of edit button";
+            toDoEditIcon.src = editIcon;
+            toDoEditButton.appendChild(toDoEditIcon);
+
+            //Append delete button
+            const toDoDeleteButton = document.createElement("button");
+            toDoDeleteButton.className = "todo-delete-button";
+            toDoDeleteButton.type = "button";
+            toDoDisplayContainer.appendChild(toDoDeleteButton);
+
+            //Append delete icon
+            const toDoDeleteIcon = document.createElement("img");
+            toDoDeleteIcon.className = "delete-icon";
+            toDoDeleteIcon.alt = "Icon of delete buttom";
+            toDoDeleteIcon.src = binIcon;
+            toDoDeleteButton.appendChild(toDoDeleteIcon);
+        };        
+    };
+};
