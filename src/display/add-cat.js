@@ -15,6 +15,7 @@ export function handleAddCatClick(event) {
     catForm.className = "todo-form";
     catForm.dataset.category = category;
     catForm.addEventListener("submit", toDoSubmit);
+    catForm.addEventListener("mouseleave", handleMouseLeave);
     toDoButtonContainer.appendChild(catForm);
 
     const newCatTitle = document.createElement("input");
@@ -26,6 +27,26 @@ export function handleAddCatClick(event) {
     newCatTitle.dataset.category = category;
     catForm.appendChild(newCatTitle);
     newCatTitle.focus();
+};
+
+function handleMouseLeave(event) {
+    const category = event.target.dataset.category;
+    event.target.removeEventListener("click", handleMouseLeave);
+    event.target.remove();
+
+    const catButtonContainer = document.querySelector(`div.todo-button-container[data-category="${category}"]`);
+    const addCat = document.createElement("div");
+    addCat.className = "todo-add-cat";
+    addCat.dataset.category = category;
+    catButtonContainer.appendChild(addCat);
+
+    const addCatButton = document.createElement("button");
+    addCatButton.type = "button";
+    addCatButton.className = "add-cat";
+    addCatButton.textContent = "Add Category";
+    addCatButton.dataset.category = category;
+    addCatButton.addEventListener("click", handleAddCatClick);
+    addCat.appendChild(addCatButton);
 };
 
 function toDoSubmit(event) {
@@ -101,9 +122,6 @@ function toDoSubmit(event) {
     catDeleteIcon.alt = "Icon of delete buttom";
     catDeleteIcon.src = binIcon;
     catDeleteButton.appendChild(catDeleteIcon);
-
-
-
 
      //Append todo button container and its elements
     const newToDoItemContainer = document.querySelector(`.todo-item-container[data-category="${formTitle}"]`)
