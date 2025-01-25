@@ -161,6 +161,7 @@ main {
 
 .cat-due {
     font-size: 0.8rem;
+    min-width: 6rem;
 }
 
 .checkbox {
@@ -191,6 +192,7 @@ main {
 
 .todo-due {
     font-size: 0.8rem;
+    min-width: 6rem;
 }
 
 .cat-edit-button,

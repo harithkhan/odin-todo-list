@@ -1,5 +1,6 @@
 import { add } from "../logic/todo-functions" 
 import { displayHub } from "./display-hub";
+
 export function handleAddToDoClick(event) {
     const toDoButtonContainer = document.querySelectorAll(".todo-button-container");
     const addToDoContainer = document.querySelectorAll(".todo-add-todo");
@@ -14,11 +15,13 @@ export function handleAddToDoClick(event) {
     for (let element of toDoButtonContainer) {
         if (element.dataset.category === event.target.dataset.category) {
 
+            const category = element.dataset.category
             const toDoForm = document.createElement("form");
             toDoForm.autocomplete = "off";
             toDoForm.className = "todo-form";
-            toDoForm.dataset.category = element.dataset.category;
-            toDoForm.addEventListener("submit", toDoSubmit)
+            toDoForm.dataset.category = category;
+            toDoForm.addEventListener("submit", toDoSubmit);
+            toDoForm.addEventListener("mouseleave", handleMouseLeave);
             element.prepend(toDoForm);
 
             const newToDoTitle = document.createElement("input");
@@ -27,11 +30,31 @@ export function handleAddToDoClick(event) {
             newToDoTitle.id = "todo-form-title";
             newToDoTitle.name = "todo-form-title";
             newToDoTitle.placeholder = "Title";
-            newToDoTitle.dataset.category = element.dataset.category;
+            newToDoTitle.dataset.category = category;
             toDoForm.appendChild(newToDoTitle);
             newToDoTitle.focus();
         };
     };
+};
+
+function handleMouseLeave(event) {
+    const category = event.target.dataset.category;
+    event.target.removeEventListener("click", handleMouseLeave);
+    event.target.remove();
+
+    const todoButtonContainer = document.querySelector(`div.todo-button-container[data-category="${category}"]`);
+    const addToDo = document.createElement("div");
+    addToDo.className = "todo-add-todo";
+    addToDo.dataset.category = category;
+    todoButtonContainer.prepend(addToDo);
+
+    const addToDoButton = document.createElement("button");
+    addToDoButton.type = "button";
+    addToDoButton.className = "add-todo";
+    addToDoButton.textContent = "Add To Do";
+    addToDoButton.dataset.category = category;
+    addToDoButton.addEventListener("click", handleAddToDoClick);
+    addToDo.appendChild(addToDoButton);
 };
 
 function toDoSubmit(event) {
@@ -43,4 +66,5 @@ function toDoSubmit(event) {
     const category = event.target.dataset.category;
     add(category, formTitle);
     displayHub();
-}
+};
+
