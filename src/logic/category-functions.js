@@ -2,8 +2,8 @@ import { Category } from "./category-class";
 import { toDoHub as hub } from "./todo-hub";
 
 //Exported functions that manipulate object toDoHub, but only related to class Category
-const add = function(title, description) {
-    hub[title] = new Category(title, description);
+const add = function(title, description, due) {
+    hub[title] = new Category(title, description, due);
 };
 
 const del = (title) => delete hub[title];    

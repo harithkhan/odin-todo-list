@@ -126,19 +126,19 @@ main {
     flex-direction: column;
 }
 
-.todo-display-item-container,
-.todo-display-button-container {
+.todo-item-container,
+.todo-button-container {
     display: grid;
     grid-template-rows: repeat(2, 3rem);
 }
 
-.todo-display-item,
+.todo-item,
 .todo-add-todo,
 .todo-add-cat {
     border-bottom: 1px solid black; 
     display: flex;
     align-items: end;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .general-category-form,
@@ -147,10 +147,8 @@ main {
     /*Add display flex, column direction for easy appending when expanded */
 }
 
-.cat-display-button {
+.cat-display {
     height: 100%;
-    background-color: inherit;
-    border: none;
     font-family: var(--font-headers);
     font-size: 2.2rem;
     font-weight: 600;
@@ -158,11 +156,8 @@ main {
     cursor: text;
 }
 
-.cat-due-button {
+.cat-due {
     font-size: 0.8rem;
-    background-color: inherit;
-    border: none;
-    cursor: text;
 }
 
 .checkbox {
@@ -184,21 +179,15 @@ main {
     border-color: #333;
 }
 
-.todo-display-button {
+.todo-display-header {
     height: 100%;
-    background-color: inherit;
-    border: none;
-    font-family: var(--font-general);
     font-size: 1.1rem;
     padding-top: 1.4rem;
     cursor: text;
 }
 
-.todo-due-button {
+.todo-due {
     font-size: 0.8rem;
-    background-color: inherit;
-    border: none;
-    cursor: text;
 }
 
 .cat-edit-button,
@@ -217,7 +206,8 @@ main {
     margin-left: 4rem;
 }
 
-.delete-button {
+.cat-delete-button,
+.todo-delete-button {
     background-color: inherit;
     border: none;
     cursor: pointer;
