@@ -158,8 +158,11 @@ main {
     cursor: text;
 }
 
-.due-display-cat {
+.cat-due-button {
     font-size: 0.8rem;
+    background-color: inherit;
+    border: none;
+    cursor: text;
 }
 
 .checkbox {
@@ -191,8 +194,11 @@ main {
     cursor: text;
 }
 
-.due-display-todo {
+.todo-due-button {
     font-size: 0.8rem;
+    background-color: inherit;
+    border: none;
+    cursor: text;
 }
 
 .edit-button,
