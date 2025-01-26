@@ -127,6 +127,17 @@ export function handleEditToDoClick(event) {
     editToDoForm.appendChild(notes);
 
     //Append Submit button
+    const submitButton = document.createElement("button");
+    submitButton.className = "todo-submit-button";
+    submitButton.dataset.category = category;
+    submitButton.type = "submit";
+    const submitIcon = document.createElement("img");
+    submitIcon.alt = "Icon of submit button";
+    submitIcon.className = "submit-icon"
+    submitIcon.src = submitIconPath;
+    submitIcon.dataset.category = category;
+    submitButton.appendChild(submitIcon);
+    editToDoForm.appendChild(submitButton);
 };
 
 function handleCloseClick(event) {
