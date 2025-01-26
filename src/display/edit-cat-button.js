@@ -3,6 +3,7 @@ import editIconPath from "../img/edit.png";
 import submitIconPath from "../img/checked.png";
 import closeIconPath from "../img/close.png";
 import { rename, description, due } from "../logic/category-functions";
+import { parseISO, format } from "date-fns";
 
 export const handleEditCatClick = function(event) {
 
@@ -109,9 +110,11 @@ function catEditSubmit(event) {
     const form = event.target;
     const formData = new FormData(form);
     const formTitle = formData.get("edit-cat-title");
+
     const formDue = formData.get("edit-cat-due");
-    //Use proper date format here by declaring const forDueFormatted
     const formDueValidated = !formDue ? "N/A": formDue;
+    const dateObj = formDueValidated === "N/A" ? "N/A": parseISO(formDue); 
+    const formDueFormatted = dateObj === "N/A" ? "N/A" : format(dateObj, "h:mma, dd/MM/yyyy");
     const formDescription = formData.get("edit-cat-description");
 
     //Update App Data
@@ -123,7 +126,12 @@ function catEditSubmit(event) {
     rename(oldTitle, formTitle);
 
     const currentKey = formTitle !== oldTitle ? formTitle : oldTitle;
-    due(currentKey, formDueValidated);
+    if (!formDue) {
+        due(currentKey, "N/A");
+      } else {
+        due(currentKey, formDueFormatted);
+      };
+
     description(currentKey, formDescription);
 
     form.remove();
@@ -138,7 +146,7 @@ function catEditSubmit(event) {
 
     const newCatDue = document.querySelector(`.cat-due[data-category="${oldTitle}"]`);
     newCatDue.dataset.category = currentKey;
-    const newFormDueDisplay = formDueValidated !== "N/A" ? `(Due: ${formDueValidated})`: "";
+    const newFormDueDisplay = formDueValidated !== "N/A" ? `(Due: ${formDueFormatted})`: "";
     newCatDue.textContent = newFormDueDisplay;
 
     //Place Edit button back
