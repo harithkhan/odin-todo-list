@@ -36,7 +36,7 @@ export function handleEditToDoClick(event) {
     editToDoForm.autocomplete = "off";
     editToDoForm.className = "edit-todo-form";
     editToDoForm.dataset.title = title;
-    editToDoForm.dataset.formCategory;
+    editToDoForm.dataset.category = formCategory;
     toDoContainer.insertAdjacentElement("afterend", editToDoForm);
     editToDoForm.addEventListener("submit", toDoEditSubmit);
 
@@ -70,12 +70,12 @@ export function handleEditToDoClick(event) {
     const editToDoCategory = document.createElement("select");
     editToDoCategory.id = "edit-todo-cat";
     editToDoCategory.name = "edit-todo-cat";
-    editToDoCategory.value = formCategory;
     for (let category in getData()) {
         const selectOption = document.createElement("option");
         selectOption.value = category;
         selectOption.textContent = category;
         editToDoCategory.appendChild(selectOption);
+        if (formCategory === category) selectOption.selected = true;
     };
     editToDoForm.appendChild(editToDoCategory);
 
