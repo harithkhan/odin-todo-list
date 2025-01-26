@@ -111,6 +111,15 @@ export function handleEditToDoClick(event) {
     editToDoForm.appendChild(editPriority);
 
     //Append notes input
+    const notes = document.createElement("input");
+    notes.type = "text";
+    notes.id = "notes";
+    notes.name = "notes";
+    const currentNotes = getData()[formCategory].toDo[title].notes;
+    const notesDisplay = currentNotes === "N/A" ? "": currentNotes;
+    notes.value = notesDisplay;
+    notes.placeholder = "Notes";
+    editToDoForm.appendChild(notes);
 };
 
 function handleCloseClick(event) {
