@@ -75,6 +75,13 @@ export function handleEditToDoClick(event) {
     const editToDoCategory = document.createElement("select");
     editToDoCategory.id = "edit-todo-cat";
     editToDoCategory.name = "edit-todo-cat";
+    const catPlaceholder = document.createElement("option");
+    catPlaceholder.disabled = true;
+    catPlaceholder.className = "cat-placeholder";
+    catPlaceholder.textContent = "Category"
+    catPlaceholder.value = "";
+    editToDoCategory.appendChild(catPlaceholder);
+
     for (let category in getData()) {
         const selectOption = document.createElement("option");
         selectOption.value = category;
@@ -88,7 +95,17 @@ export function handleEditToDoClick(event) {
     const editPriority = document.createElement("select");
     editPriority.id = "edit-priority";
     editPriority.name = "edit-priority";
-    editPriority.value = getData()[formCategory].toDo[title].priority;
+    const currentPriority = getData()[formCategory].toDo[title].priority;
+    const priorityDisplay = currentPriority === "-" ? "": currentPriority;
+    console.log(priorityDisplay)
+    editPriority.value = priorityDisplay;
+
+    const priorityPlaceholder = document.createElement("option");
+    priorityPlaceholder.classname = "priority-placeholder";
+    priorityPlaceholder.value = "";
+    priorityPlaceholder.textContent = "Priority";
+    priorityPlaceholder.disabled = true;
+    editPriority.appendChild(priorityPlaceholder);
 
     const priorityNull = document.createElement("option");
     priorityNull.className = "priority-null"
@@ -168,6 +185,14 @@ function handleCloseClick(event) {
     toDoEditButton.addEventListener("click", handleEditToDoClick);
 };
 
-function toDoEditSubmit() {
+function toDoEditSubmit(event) {
+    const form = event.target;
+    const formData = new FormData(form);
 
-}
+    //Submit Title
+    //Submit Due
+    //Submit Description
+    //Submit Category
+    //Submit Priority
+    //Submit Notes
+};
