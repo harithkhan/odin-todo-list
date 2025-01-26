@@ -127,10 +127,10 @@ function catEditSubmit(event) {
 
     const currentKey = formTitle !== oldTitle ? formTitle : oldTitle;
     if (!formDue) {
-        due(currentKey, "N/A");
-      } else {
-        due(currentKey, formDueFormatted);
-      };
+      due(currentKey, "N/A");
+    } else {
+      due(currentKey, formDueFormatted);
+    };
 
     description(currentKey, formDescription);
 

@@ -194,8 +194,18 @@ function toDoEditSubmit(event) {
     const formTitle = formData.get("edit-todo-title");
     rename(oldTitle, formTitle);
     
-
     //Submit Due
+    const formDue = formData.get("edit-todo-due");
+    const formDueValidated = !formDue ? "N/A": formDue;
+    const dateObj = formDueValidated === "N/A" ? "N/A": parseISO(formDue); 
+    const formDueFormatted = dateObj === "N/A" ? "N/A" : format(dateObj, "h:mma, dd/MM/yyyy");
+    const currentKey = formTitle !== oldTitle ? formTitle : oldTitle;
+    if (!formDue) {
+        due(currentKey, "N/A");
+    } else {
+        due(currentKey, formDueFormatted);
+    };
+
     //Submit Description
     //Submit Category
     //Submit Priority
