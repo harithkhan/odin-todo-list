@@ -2,7 +2,7 @@ import { getData } from "../logic/todo-hub";
 import editIconPath from "../img/edit.png";
 import submitIconPath from "../img/checked.png";
 import closeIconPath from "../img/close.png";
-import { add, rename, assign, description, due, priority, notes } from "../logic/todo-functions";
+import { rename, assign, description, due, priority, notes } from "../logic/todo-functions";
 import { parseISO, format } from "date-fns";
 
 export function handleEditToDoClick(event) {
@@ -34,7 +34,22 @@ export function handleEditToDoClick(event) {
     editToDoForm.className = "edit-todo-form";
     editToDoForm.dataset.title = title;
     toDoContainer.insertAdjacentElement("afterend", editToDoForm);
-    // editToDoForm.addEventListener("submit", toDoEditSubmit);
+    editToDoForm.addEventListener("submit", toDoEditSubmit);
+
+    //Append title input
+    const editToDoTitle = document.createElement("input");
+    editToDoTitle.type = "text";
+    editToDoTitle.name = "edit-todo-title";
+    editToDoTitle.id = "edit-todo-title";
+    editToDoTitle.value = title;
+    editToDoForm.appendChild(editToDoTitle);
+    editToDoTitle.focus();
+
+    //Append due input
+    //Append description input
+    //Append assign input
+    //Append priority input
+    //Append notes input
 };
 
 function handleCloseClick(event) {
@@ -61,3 +76,7 @@ function handleCloseClick(event) {
     const toDoDeleteButton = document.querySelector(`.todo-delete-button[data-title="${title}"]`);
     toDoDeleteButton.insertAdjacentElement("beforebegin", toDoEditButton);
 };
+
+function toDoEditSubmit() {
+
+}
