@@ -200,6 +200,7 @@ main {
 .cat-edit-button,
 .cat-submit-button,
 .cat-close-button,
+.todo-close-button,
 .todo-edit-button {
     background-color: inherit;
     border: none;
@@ -212,7 +213,8 @@ main {
     margin-left: 8rem;
 }
 
-.todo-edit-button {
+.todo-edit-button,
+.todo-close-button {
     margin-left: 4rem;
 }
 

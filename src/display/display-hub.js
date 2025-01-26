@@ -4,6 +4,7 @@ import { getData } from "../logic/todo-hub";
 import { handleAddToDoClick } from "./add-todo";
 import { handleAddCatClick } from "./add-cat";
 import { handleEditCatClick } from "./edit-cat-button";
+import { handleEditToDoClick } from "./edit-todo-button";
 
 const todoDisplay = document.querySelector(".todo-display");
 
@@ -70,6 +71,7 @@ export const displayHub = function() {
         for (let toDoObj in getData()[category].toDo) {
             const toDoDisplayContainer = document.createElement("div");
             toDoDisplayContainer.className = "todo-item";
+            toDoDisplayContainer.dataset.title = toDoObj;
             todoItemContainer.appendChild(toDoDisplayContainer);
 
             const checkbox = document.createElement("button");
@@ -95,19 +97,23 @@ export const displayHub = function() {
             const toDoEditButton = document.createElement("button");
             toDoEditButton.className = "todo-edit-button";
             toDoEditButton.type = "button";
+            toDoEditButton.dataset.title = toDoObj;
             toDoDisplayContainer.appendChild(toDoEditButton);
+            toDoEditButton.addEventListener("click", handleEditToDoClick);
 
             //Append edit icon
             const toDoEditIcon = document.createElement("img");
             toDoEditIcon.className = "edit-icon";
             toDoEditIcon.alt = "Icon of edit button";
             toDoEditIcon.src = editIcon;
+            toDoEditIcon.dataset.title = toDoObj;
             toDoEditButton.appendChild(toDoEditIcon);
 
             //Append delete button
             const toDoDeleteButton = document.createElement("button");
             toDoDeleteButton.className = "todo-delete-button";
             toDoDeleteButton.type = "button";
+            toDoDeleteButton.dataset.title = toDoObj;
             toDoDisplayContainer.appendChild(toDoDeleteButton);
 
             //Append delete icon
