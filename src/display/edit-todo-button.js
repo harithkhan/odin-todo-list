@@ -71,7 +71,6 @@ export function handleEditToDoClick(event) {
     editToDoCategory.id = "edit-todo-cat";
     editToDoCategory.name = "edit-todo-cat";
     editToDoCategory.value = formCategory;
-
     for (let category in getData()) {
         const selectOption = document.createElement("option");
         selectOption.value = category;
@@ -81,6 +80,36 @@ export function handleEditToDoClick(event) {
     editToDoForm.appendChild(editToDoCategory);
 
     //Append priority input
+    const editPriority = document.createElement("select");
+    editPriority.id = "edit-priority";
+    editPriority.name = "edit-priority";
+    editPriority.value = getData()[formCategory].toDo[title].priority;
+
+    const priorityNull = document.createElement("option");
+    priorityNull.className = "priority-null"
+    priorityNull.value = "-";
+    priorityNull.textContent = "-";
+    editPriority.appendChild(priorityNull);
+
+    const priorityLow = document.createElement("option");
+    priorityLow.className = "priority-low";
+    priorityLow.value = "Low";
+    priorityLow.textContent = "Low";
+    editPriority.appendChild(priorityLow);
+
+    const priorityMedium = document.createElement("option");
+    priorityMedium.className = "priority-Medium";
+    priorityMedium.value = "Medium";
+    priorityMedium.textContent = "Medium";
+    editPriority.appendChild(priorityMedium);
+
+    const priorityHigh = document.createElement("option");
+    priorityHigh.className = "priority-High";
+    priorityHigh.value = "High";
+    priorityHigh.textContent = "High";
+    editPriority.appendChild(priorityHigh);
+    editToDoForm.appendChild(editPriority);
+
     //Append notes input
 };
 
