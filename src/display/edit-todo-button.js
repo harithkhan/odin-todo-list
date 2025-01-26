@@ -41,8 +41,8 @@ function handleCloseClick(event) {
     const closeButton = event.target.closest(".todo-close-button");
     const title = closeButton.dataset.title;
     const toDoContainer = document.querySelector(`.todo-item[data-title="${title}"]`);
-    // const editToDoForm = document.querySelector(`.edit-cat-form[data-category="${category}"]`);
-    // editToDoForm.remove();
+    const editToDoForm = document.querySelector(`.edit-todo-form[data-title="${title}"]`);
+    editToDoForm.remove();
     closeButton.remove();
 
     const toDoEditButton = document.createElement("button");
