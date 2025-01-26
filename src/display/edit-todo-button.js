@@ -67,6 +67,19 @@ export function handleEditToDoClick(event) {
     editToDoForm.appendChild(editToDoDescription);
 
     //Append assign input
+    const editToDoCategory = document.createElement("select");
+    editToDoCategory.id = "edit-todo-cat";
+    editToDoCategory.name = "edit-todo-cat";
+    editToDoCategory.value = formCategory;
+
+    for (let category in getData()) {
+        const selectOption = document.createElement("option");
+        selectOption.value = category;
+        selectOption.textContent = category;
+        editToDoCategory.appendChild(selectOption);
+    };
+    editToDoForm.appendChild(editToDoCategory);
+
     //Append priority input
     //Append notes input
 };
