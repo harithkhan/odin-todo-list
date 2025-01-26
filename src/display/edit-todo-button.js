@@ -62,7 +62,9 @@ export function handleEditToDoClick(event) {
     editToDoDescription.type = "text";
     editToDoDescription.name = "edit-todo-description";
     editToDoDescription.id = "edit-todo-description";
-    editToDoDescription.value = getData()[formCategory].description === "N/A" ? null : getData()[formCategory].description;
+    const currentDescription = getData()[formCategory].toDo[title].description;
+    const descriptionDisplay = currentDescription === "N/A" ? "": currentDescription;
+    editToDoDescription.value = descriptionDisplay;
     editToDoDescription.placeholder = "Description";
     editToDoForm.appendChild(editToDoDescription);
 
@@ -142,9 +144,9 @@ function handleCloseClick(event) {
     toDoEditIcon.dataset.title = title;
     toDoEditButton.appendChild(toDoEditIcon);
 
-    toDoEditButton.addEventListener("click", handleEditToDoClick);
     const toDoDeleteButton = document.querySelector(`.todo-delete-button[data-title="${title}"]`);
     toDoDeleteButton.insertAdjacentElement("beforebegin", toDoEditButton);
+    toDoEditButton.addEventListener("click", handleEditToDoClick);
 };
 
 function toDoEditSubmit() {
