@@ -46,7 +46,7 @@ const add = function(
 
 const rename = function(oldTitle, newTitle) {
     for (let category in hub) {
-        if (hub[category]._toDo[oldTitle]) { //Find the target obj in its category
+        if (hub[category]._toDo[oldTitle] && oldTitle !== newTitle) { //Find the target obj in its category
             hub[category]._toDo[oldTitle].title = newTitle; //Change the title in the current obj to new name
             const oldObj = hub[category]._toDo[oldTitle];
             hub[category]._toDo[newTitle] = oldObj //Create a new obj with new title name
