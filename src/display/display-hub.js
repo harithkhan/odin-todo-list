@@ -3,6 +3,7 @@ import binIcon from "../img/bin.png";
 import { getData } from "../logic/todo-hub";
 import { handleAddToDoClick } from "./add-todo";
 import { handleAddCatClick } from "./add-cat";
+import { handleEditCatClick } from "./edit-cat-button";
 
 const todoDisplay = document.querySelector(".todo-display");
 
@@ -18,17 +19,20 @@ export const displayHub = function() {
 
         const catDisplayContainer = document.createElement("div");
         catDisplayContainer.className = "todo-item";
+        catDisplayContainer.dataset.category = category;
         todoItemContainer.appendChild(catDisplayContainer);
 
         //Append h2 cat header
         const catDisplay = document.createElement("h2");
         catDisplay.className = "cat-display";
+        catDisplay.dataset.category = category;
         catDisplay.textContent = category;
         catDisplayContainer.appendChild(catDisplay);
 
         //Append due
         const catDue = document.createElement("p");
         catDue.className = "cat-due";
+        catDue.dataset.category = category;
         const dueDate = getData()[category].due;
         catDue.textContent = dueDate !== "N/A" ? `(Due: ${dueDate})`: "";
         catDisplayContainer.appendChild(catDue);
@@ -37,6 +41,8 @@ export const displayHub = function() {
         const catEditButton = document.createElement("button");
         catEditButton.className = "cat-edit-button";
         catEditButton.type = "button";
+        catEditButton.dataset.category = category;
+        catEditButton.addEventListener("click", handleEditCatClick);
         catDisplayContainer.appendChild(catEditButton);
 
         //Append edit icon
@@ -44,12 +50,14 @@ export const displayHub = function() {
         catEditIcon.className = "edit-icon";
         catEditIcon.alt = "Icon of edit button";
         catEditIcon.src = editIcon;
+        catEditIcon.dataset.category = category;
         catEditButton.appendChild(catEditIcon);
 
         //Append delete button
         const catDeleteButton = document.createElement("button");
         catDeleteButton.className = "cat-delete-button";
         catDeleteButton.type = "button";
+        catDeleteButton.dataset.category = category;
         catDisplayContainer.appendChild(catDeleteButton);
 
         //Append delete icon

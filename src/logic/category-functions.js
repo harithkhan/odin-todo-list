@@ -9,11 +9,15 @@ const add = function(title, description, due) {
 const del = (title) => delete hub[title];    
 
 const rename = function(oldTitle, newTitle) {
-    hub[oldTitle].title = newTitle; //Change the title in the current obj to new name
-    const oldObj = hub[oldTitle]; 
-    hub[newTitle] = oldObj; //Create a new obj
-    delete hub[oldTitle]; //Delete old obj
-};
+    if (oldTitle === newTitle) return; // Skip if title didn't change
+  
+    if (hub[oldTitle]) {
+      hub[oldTitle].title = newTitle; // Update title property
+      const oldObj = hub[oldTitle];
+      hub[newTitle] = oldObj; // Create new key with updated title
+      delete hub[oldTitle]; // Remove old key
+    };
+  };
 
 const description = (key, newDescription) => hub[key].description = newDescription;
 
