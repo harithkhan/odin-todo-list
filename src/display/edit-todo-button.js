@@ -207,6 +207,9 @@ function toDoEditSubmit(event) {
     };
 
     //Submit Description
+    const formDescription = formData.get("edit-todo-description");
+    description(currentKey, formDescription);
+
     //Submit Category
     //Submit Priority
     //Submit Notes
