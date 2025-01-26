@@ -282,6 +282,14 @@ main {
     grid-auto-rows: 3rem;
 }
 
+#edit-todo-title {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+#edit-todo-due {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
 /* Footer Styling */
 footer {
     display: flex;

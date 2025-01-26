@@ -46,6 +46,13 @@ export function handleEditToDoClick(event) {
     editToDoTitle.focus();
 
     //Append due input
+    const editToDoDue = document.createElement("input");
+    editToDoDue.type = "datetime-local";
+    editToDoDue.name = "edit-todo-due";
+    editToDoDue.id = "edit-todo-due";
+    editToDoDue.value = "-";
+    editToDoForm.appendChild(editToDoDue);
+
     //Append description input
     //Append assign input
     //Append priority input
