@@ -9,6 +9,7 @@ export function handleEditToDoClick(event) {
 
     const editButton = event.target.closest(".todo-edit-button");
     const title = editButton.dataset.title;
+    const category = event.target.dataset.category;
     const toDoContainer = document.querySelector(`.todo-item[data-title="${title}"]`);
     editButton.removeEventListener("click", handleEditToDoClick);
     editButton.remove();  
@@ -17,12 +18,14 @@ export function handleEditToDoClick(event) {
     const closeButton = document.createElement("button");
     closeButton.className = "todo-close-button";
     closeButton.dataset.title = title;
+    closeButton.dataset.category = category;
     closeButton.type = "button";
     const closeIcon = document.createElement("img");
     closeIcon.alt = "Icon of close button";
     closeIcon.className = "close-icon";
     closeIcon.src = closeIconPath;
     closeIcon.dataset.title = title;
+    closeIcon.dataset.category = category;
     closeButton.appendChild(closeIcon);
 
     const toDoDeleteButton = document.querySelector(`.todo-delete-button[data-title="${title}"]`);
@@ -122,11 +125,14 @@ export function handleEditToDoClick(event) {
     notes.value = notesDisplay;
     notes.placeholder = "Notes";
     editToDoForm.appendChild(notes);
+
+    //Append Submit button
 };
 
 function handleCloseClick(event) {
     const closeButton = event.target.closest(".todo-close-button");
     const title = closeButton.dataset.title;
+    const category = event.target.dataset.category;
     const toDoContainer = document.querySelector(`.todo-item[data-title="${title}"]`);
     const editToDoForm = document.querySelector(`.edit-todo-form[data-title="${title}"]`);
     editToDoForm.remove();
@@ -136,12 +142,14 @@ function handleCloseClick(event) {
     toDoEditButton.className = "todo-edit-button";
     toDoEditButton.type = "button";
     toDoEditButton.dataset.title = title;
+    toDoEditButton.dataset.category = category;
 
     const toDoEditIcon = document.createElement("img");
     toDoEditIcon.alt = "Icon of edit button";
     toDoEditIcon.className = "edit-icon";
     toDoEditIcon.src = editIconPath;
     toDoEditIcon.dataset.title = title;
+    toDoEditIcon.dataset.category = category;
     toDoEditButton.appendChild(toDoEditIcon);
 
     const toDoDeleteButton = document.querySelector(`.todo-delete-button[data-title="${title}"]`);
