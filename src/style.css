@@ -274,6 +274,14 @@ main {
     cursor: pointer;
 }
 
+/* Edit todo forms */
+.edit-todo-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 3rem;
+    grid-auto-rows: 3rem;
+}
+
 /* Footer Styling */
 footer {
     display: flex;
