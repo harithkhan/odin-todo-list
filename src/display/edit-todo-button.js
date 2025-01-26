@@ -190,9 +190,51 @@ function toDoEditSubmit(event) {
     const formData = new FormData(form);
 
     //Submit Title
+    const oldTitle = event.target.dataset.title;
+    const formTitle = formData.get("edit-todo-title");
+    rename(oldTitle, formTitle);
+    
+
     //Submit Due
     //Submit Description
     //Submit Category
     //Submit Priority
     //Submit Notes
+    console.log(getData());
+    form.remove();
+
+    // //Updade display data
+    // const newToDoItem = document.querySelector(`.todo-item[data-category="${oldTitle}"`);
+    // newToDoItem.dataset.category = currentKey;
+
+    // const newCatDisplay = document.querySelector(`.cat-display[data-category="${oldTitle}"]`);
+    // newCatDisplay.dataset.category = currentKey;
+    // newCatDisplay.textContent = currentKey;
+
+    // const newCatDue = document.querySelector(`.cat-due[data-category="${oldTitle}"]`);
+    // newCatDue.dataset.category = currentKey;
+    // const newFormDueDisplay = formDueValidated !== "N/A" ? `(Due: ${formDueFormatted})`: "";
+    // newCatDue.textContent = newFormDueDisplay;
+
+    // //Place Edit button back
+    // const closeButton = document.querySelector(`.cat-close-button[data-category="${oldTitle}"]`);
+    // closeButton.remove();
+
+    // const category = currentKey;
+    // const catEditButton = document.createElement("button");
+    // catEditButton.className = "cat-edit-button";
+    // catEditButton.type = "button";
+    // catEditButton.dataset.category = category;
+
+    // const catEditIcon = document.createElement("img");
+    // catEditIcon.alt = "Icon of edit button";
+    // catEditIcon.className = "edit-icon";
+    // catEditIcon.src = editIconPath;
+    // catEditIcon.dataset.category = category;
+    // catEditButton.appendChild(catEditIcon);
+
+    // const catDeleteButton = document.querySelector(`.cat-delete-button[data-category="${oldTitle}"]`);
+    // catDeleteButton.dataset.category = category;
+    // catDeleteButton.insertAdjacentElement("beforebegin", catEditButton);
+    // catEditButton.addEventListener("click", handleEditCatClick);
 };
