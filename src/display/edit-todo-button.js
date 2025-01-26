@@ -10,6 +10,7 @@ export function handleEditToDoClick(event) {
     const editButton = event.target.closest(".todo-edit-button");
     const title = editButton.dataset.title;
     const toDoContainer = document.querySelector(`.todo-item[data-title="${title}"]`);
+    editButton.removeEventListener("click", handleEditToDoClick);
     editButton.remove();  
 
     //Add close button with icon
@@ -30,9 +31,12 @@ export function handleEditToDoClick(event) {
 
     //Append a new form
     const editToDoForm = document.createElement("form");
+    const formCategory = event.target.dataset.category;
+
     editToDoForm.autocomplete = "off";
     editToDoForm.className = "edit-todo-form";
     editToDoForm.dataset.title = title;
+    editToDoForm.dataset.formCategory;
     toDoContainer.insertAdjacentElement("afterend", editToDoForm);
     editToDoForm.addEventListener("submit", toDoEditSubmit);
 
@@ -54,6 +58,14 @@ export function handleEditToDoClick(event) {
     editToDoForm.appendChild(editToDoDue);
 
     //Append description input
+    const editToDoDescription = document.createElement("input");
+    editToDoDescription.type = "text";
+    editToDoDescription.name = "edit-todo-description";
+    editToDoDescription.id = "edit-todo-description";
+    editToDoDescription.value = getData()[formCategory].description === "N/A" ? null : getData()[formCategory].description;
+    editToDoDescription.placeholder = "Description";
+    editToDoForm.appendChild(editToDoDescription);
+
     //Append assign input
     //Append priority input
     //Append notes input

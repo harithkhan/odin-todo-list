@@ -98,6 +98,7 @@ export const displayHub = function() {
             toDoEditButton.className = "todo-edit-button";
             toDoEditButton.type = "button";
             toDoEditButton.dataset.title = toDoObj;
+            toDoEditButton.dataset.category = category;
             toDoDisplayContainer.appendChild(toDoEditButton);
             toDoEditButton.addEventListener("click", handleEditToDoClick);
 
@@ -107,6 +108,7 @@ export const displayHub = function() {
             toDoEditIcon.alt = "Icon of edit button";
             toDoEditIcon.src = editIcon;
             toDoEditIcon.dataset.title = toDoObj;
+            toDoEditIcon.dataset.category = category;
             toDoEditButton.appendChild(toDoEditIcon);
 
             //Append delete button
@@ -114,6 +116,7 @@ export const displayHub = function() {
             toDoDeleteButton.className = "todo-delete-button";
             toDoDeleteButton.type = "button";
             toDoDeleteButton.dataset.title = toDoObj;
+            toDoDeleteButton.dataset.category = category;
             toDoDisplayContainer.appendChild(toDoDeleteButton);
 
             //Append delete icon
@@ -121,6 +124,7 @@ export const displayHub = function() {
             toDoDeleteIcon.className = "delete-icon";
             toDoDeleteIcon.alt = "Icon of delete buttom";
             toDoDeleteIcon.src = binIcon;
+            toDoDeleteIcon.dataset.category = category;
             toDoDeleteButton.appendChild(toDoDeleteIcon);
         };
         //Append todo button container and its elements

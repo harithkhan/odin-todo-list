@@ -10,6 +10,8 @@ export const handleEditCatClick = function(event) {
     const editButton = event.target.closest(".cat-edit-button");
     const category = editButton.dataset.category;
     const catContainer = document.querySelector(`.todo-item[data-category="${category}"]`);
+    //Remove edit button event listener temporarily
+    editButton.removeEventListener("click", handleEditCatClick);
     editButton.remove();
 
     //Add close button with icon
@@ -60,8 +62,6 @@ export const handleEditCatClick = function(event) {
     editCatDescription.id = "edit-cat-description";
     editCatDescription.value = getData()[category].description === "N/A" ? null : getData()[category].description;
     editCatDescription.placeholder = "Description";
-    //Remove edit button event listener temporarily
-    editButton.removeEventListener("click", handleEditCatClick);
     editCatForm.appendChild(editCatDescription);
 
     //Add submit button to form with icon
