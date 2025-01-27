@@ -186,6 +186,7 @@ function handleCloseClick(event) {
 };
 
 function toDoEditSubmit(event) {
+    event.preventDefault();
     const form = event.target;
     const formData = new FormData(form);
 
@@ -222,9 +223,8 @@ function toDoEditSubmit(event) {
     priority(currentKey, formPriority);
     
     //Submit Notes
-    
-
-    console.log(getData());
+    const formNotes = formData.get("notes");
+    notes(currentKey, formNotes);
     form.remove();
 
     // //Updade display data
