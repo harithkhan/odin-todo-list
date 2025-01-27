@@ -211,8 +211,13 @@ function toDoEditSubmit(event) {
     description(currentKey, formDescription);
 
     //Submit Category
+    const formCategory = formData.get("edit-todo-cat");
+    console.log(formCategory);
+    assign(currentKey, formCategory);
+
     //Submit Priority
     //Submit Notes
+    
     console.log(getData());
     form.remove();
 
