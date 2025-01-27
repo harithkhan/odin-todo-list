@@ -7,6 +7,7 @@ import { handleEditCatClick } from "./edit-cat-button";
 import { handleEditToDoClick } from "./edit-todo-button";
 import { displayCatIcons } from "./icon-hover";
 import { displayToDoIcons } from "./icon-hover";
+import { deleteCat } from "./delete";
 
 const todoDisplay = document.querySelector(".todo-display");
 
@@ -65,12 +66,14 @@ export const displayHub = function() {
             catDeleteButton.type = "button";
             catDeleteButton.dataset.category = category;
             catDisplayContainer.appendChild(catDeleteButton);
+            catDeleteButton.addEventListener("click", deleteCat);
 
             //Append delete icon
             const catDeleteIcon = document.createElement("img");
             catDeleteIcon.className = "delete-icon";
             catDeleteIcon.alt = "Icon of delete buttom";
             catDeleteIcon.src = binIcon;
+            catDeleteIcon.dataset.category = category;
             catDeleteButton.appendChild(catDeleteIcon);
 
             for (let toDoObj in getData()[category].toDo) {

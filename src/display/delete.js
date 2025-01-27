@@ -1,10 +1,12 @@
-import 
+import { getData } from "../logic/todo-hub";
 
 export function deleteCat(event) {
     const category = event.target.dataset.category;    
-    const deleteButton = document.querySelector(`cat-delete-button[data-category="${category}"]`);
-    const catContainer = document.querySelector(`todo-item[data-category="${category}"]`);
+    const catContainer = document.querySelector(`.todo-item-container[data-category="${category}"]`);
     catContainer.remove();  
+    const addButtonsContainer = document.querySelector(`.todo-button-container[data-category="${category}"]`);
+    addButtonsContainer.remove();
+
 };
 
 export function deleteToDo(event) {
