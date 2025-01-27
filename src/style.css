@@ -208,16 +208,6 @@ main {
     margin-bottom: 0.3rem;
 }
 
-.cat-edit-button,
-.cat-close-button {
-    margin-left: 8rem;
-}
-
-.todo-edit-button,
-.todo-close-button {
-    margin-left: 4rem;
-}
-
 .cat-delete-button,
 .todo-delete-button {
     background-color: inherit;
@@ -245,6 +235,10 @@ main {
     cursor: text;
     margin-left: 2.3rem;
     font-size: 0.9rem;
+}
+
+.hidden {
+    display: none;
 }
 
 /* Edit Forms */

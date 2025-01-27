@@ -5,6 +5,7 @@ import { handleAddToDoClick } from "./add-todo";
 import { handleAddCatClick } from "./add-cat";
 import { handleEditCatClick } from "./edit-cat-button";
 import { handleEditToDoClick } from "./edit-todo-button";
+import { displayCatIcons, removeCatIcons } from "./icon-hover";
 
 const todoDisplay = document.querySelector(".todo-display");
 
@@ -22,6 +23,7 @@ export const displayHub = function() {
         catDisplayContainer.className = "todo-item";
         catDisplayContainer.dataset.category = category;
         todoItemContainer.appendChild(catDisplayContainer);
+        catDisplayContainer.addEventListener("mouseenter", displayCatIcons);
 
         //Append h2 cat header
         const catDisplay = document.createElement("h2");
@@ -41,6 +43,7 @@ export const displayHub = function() {
         //Append edit button
         const catEditButton = document.createElement("button");
         catEditButton.className = "cat-edit-button";
+        catEditButton.classList.add("hidden");
         catEditButton.type = "button";
         catEditButton.dataset.category = category;
         catEditButton.addEventListener("click", handleEditCatClick);
@@ -57,6 +60,7 @@ export const displayHub = function() {
         //Append delete button
         const catDeleteButton = document.createElement("button");
         catDeleteButton.className = "cat-delete-button";
+        catDeleteButton.classList.add("hidden");
         catDeleteButton.type = "button";
         catDeleteButton.dataset.category = category;
         catDisplayContainer.appendChild(catDeleteButton);
@@ -98,6 +102,7 @@ export const displayHub = function() {
             //Append edit button
             const toDoEditButton = document.createElement("button");
             toDoEditButton.className = "todo-edit-button";
+            toDoEditButton.classList.add("hidden");
             toDoEditButton.type = "button";
             toDoEditButton.dataset.title = toDoObj;
             toDoEditButton.dataset.category = category;
@@ -116,6 +121,7 @@ export const displayHub = function() {
             //Append delete button
             const toDoDeleteButton = document.createElement("button");
             toDoDeleteButton.className = "todo-delete-button";
+            toDoDeleteButton.classList.add("hidden");
             toDoDeleteButton.type = "button";
             toDoDeleteButton.dataset.title = toDoObj;
             toDoDeleteButton.dataset.category = category;
