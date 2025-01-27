@@ -84,6 +84,7 @@ export const displayHub = function() {
             const toDoHeader = document.createElement("p");
             toDoHeader.className = "todo-display-header";
             toDoHeader.textContent = toDoObj;
+            toDoHeader.dataset.title = toDoObj;
             toDoDisplayContainer.appendChild(toDoHeader);
 
             //Append due
@@ -91,6 +92,7 @@ export const displayHub = function() {
             toDoDue.className = "todo-due";
             const toDoDueDate = getData()[category].toDo[toDoObj].due
             toDoDue.textContent = toDoDueDate !== "N/A" ? `(Due: ${toDoDueDate})`: "";
+            toDoDue.dataset.title = toDoObj;
             toDoDisplayContainer.appendChild(toDoDue);
 
             //Append edit button

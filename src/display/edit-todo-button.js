@@ -227,20 +227,21 @@ function toDoEditSubmit(event) {
     notes(currentKey, formNotes);
     form.remove();
 
-    // //Updade display data
-    // const newToDoItem = document.querySelector(`.todo-item[data-category="${oldTitle}"`);
-    // newToDoItem.dataset.category = currentKey;
+    //Update display data
+    const newToDoItem = document.querySelector(`.todo-item[data-title="${oldTitle}"`);
+    newToDoItem.dataset.title = currentKey;
 
-    // const newCatDisplay = document.querySelector(`.cat-display[data-category="${oldTitle}"]`);
-    // newCatDisplay.dataset.category = currentKey;
-    // newCatDisplay.textContent = currentKey;
+    const newToDoDisplay = document.querySelector(`.todo-display-header[data-title="${oldTitle}"]`);
+    newToDoDisplay.dataset.title = currentKey;
+    newToDoDisplay.textContent = currentKey;
 
-    // const newCatDue = document.querySelector(`.cat-due[data-category="${oldTitle}"]`);
-    // newCatDue.dataset.category = currentKey;
-    // const newFormDueDisplay = formDueValidated !== "N/A" ? `(Due: ${formDueFormatted})`: "";
-    // newCatDue.textContent = newFormDueDisplay;
+    const newToDoDue = document.querySelector(`.todo-due[data-title="${oldTitle}"]`);
+    newToDoDue.dataset.title = currentKey;
+    const newFormDueDisplay = formDueValidated !== "N/A" ? `(Due: ${formDueFormatted})`: "";
+    newToDoDue.textContent = newFormDueDisplay;
+        //Update what happens when category is reassigned
 
-    // //Place Edit button back
+    //Place Edit button back
     // const closeButton = document.querySelector(`.cat-close-button[data-category="${oldTitle}"]`);
     // closeButton.remove();
 
