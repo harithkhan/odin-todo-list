@@ -77,6 +77,7 @@ export const displayHub = function() {
             const toDoDisplayContainer = document.createElement("div");
             toDoDisplayContainer.className = "todo-item";
             toDoDisplayContainer.dataset.title = toDoObj;
+            toDoDisplayContainer.dataset.category = category;
             todoItemContainer.appendChild(toDoDisplayContainer);
             toDoDisplayContainer.addEventListener("mouseenter", displayToDoIcons);
 
