@@ -28,8 +28,14 @@ const moveToTrash = function(event) {
   const data = getData();
   const oldObj = data[category];
   const oldToDos = oldObj.toDo;
-  data.Trash[category] = new Category(oldObj.title, oldObj.description, oldObj.due);
-  data.Trash[category].toDo = oldToDos;
+  if (!data.Trash[category]) {
+    data.Trash[category] = new Category(oldObj.title, oldObj.description, oldObj.due);
+    data.Trash[category].toDo = oldToDos;
+  } else if (data.Trash[category]) {
+    for (let title in data[category].toDo) {
+      data.Trash[category].toDo[title] = data[category].toDo[title];
+    };
+  };
   delete data[category];
 };
 
