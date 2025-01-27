@@ -58,7 +58,7 @@ export function handleEditToDoClick(event) {
     editToDoDue.type = "datetime-local";
     editToDoDue.name = "edit-todo-due";
     editToDoDue.id = "edit-todo-due";
-    editToDoDue.value = "-";
+    editToDoDue.value = getData()[category].toDo[title].due;
     editToDoForm.appendChild(editToDoDue);
 
     //Append description input
@@ -66,7 +66,6 @@ export function handleEditToDoClick(event) {
     editToDoDescription.type = "text";
     editToDoDescription.name = "edit-todo-description";
     editToDoDescription.id = "edit-todo-description";
-    console.log(formCategory);
     const currentDescription = getData()[formCategory].toDo[title].description;
     const descriptionDisplay = currentDescription === "N/A" ? "": currentDescription;
     editToDoDescription.value = descriptionDisplay;

@@ -53,7 +53,7 @@ export const handleEditCatClick = function(event) {
     editCatDue.type = "datetime-local";
     editCatDue.name = "edit-cat-due";
     editCatDue.id = "edit-cat-due";
-    editCatDue.value = "-";
+    editCatDue.value = getData()[category].due;
     editCatForm.appendChild(editCatDue);
 
     //Append description input
