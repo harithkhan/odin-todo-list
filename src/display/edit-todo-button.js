@@ -4,6 +4,7 @@ import submitIconPath from "../img/checked.png";
 import closeIconPath from "../img/close.png";
 import { rename, assign, description, due, priority, notes } from "../logic/todo-functions";
 import { parseISO, format } from "date-fns";
+import { displayToDoIcons } from "./icon-hover";
 
 export function handleEditToDoClick(event) {
 
@@ -162,7 +163,6 @@ function handleCloseClick(event) {
     const closeButton = event.target.closest(".todo-close-button");
     const title = closeButton.dataset.title;
     const category = event.target.dataset.category;
-    const toDoContainer = document.querySelector(`.todo-item[data-title="${title}"]`);
     const editToDoForm = document.querySelector(`.edit-todo-form[data-title="${title}"]`);
     editToDoForm.remove();
     closeButton.remove();
@@ -184,6 +184,10 @@ function handleCloseClick(event) {
     const toDoDeleteButton = document.querySelector(`.todo-delete-button[data-title="${title}"]`);
     toDoDeleteButton.insertAdjacentElement("beforebegin", toDoEditButton);
     toDoEditButton.addEventListener("click", handleEditToDoClick);
+
+    //Reattach previous event listeners
+    const toDoContainer = document.querySelector(`.todo-item[data-title="${title}"]`);
+    toDoContainer.addEventListener("mouseenter", displayToDoIcons);
 };
 
 function toDoEditSubmit(event) {
@@ -273,4 +277,8 @@ function toDoEditSubmit(event) {
     toDoDeleteButton.dataset.category = newFormCategory;
     toDoDeleteButton.insertAdjacentElement("beforebegin", toDoEditButton);
     toDoEditButton.addEventListener("click", handleEditToDoClick);
+
+    //Reattach previous event listeners
+    const toDoContainer = document.querySelector(`.todo-item[data-title="${title}"]`);
+    toDoContainer.addEventListener("mouseenter", displayToDoIcons);
 };

@@ -13,7 +13,6 @@ export function displayCatIcons(event) {
         ) {
             catContainer.removeEventListener("mouseleave", removeCatIcons);
         };
-        
     });
 };
 
@@ -27,3 +26,32 @@ export function removeCatIcons(event) {
     catContainer.removeEventListener("mouseleave", removeCatIcons);
     catContainer.addEventListener("mouseenter", displayCatIcons);
 };
+
+export function displayToDoIcons(event) {
+    const title = event.target.dataset.title;
+    const toDoContainer = document.querySelector(`.todo-item[data-title="${title}"]`);
+    const editButton = document.querySelector(`.todo-edit-button[data-title="${title}"]`);
+    editButton.classList.remove("hidden");
+    const deleteButton = document.querySelector(`.todo-delete-button[data-title="${title}"]`);
+    deleteButton.classList.remove("hidden");
+    toDoContainer.removeEventListener("mouseenter", displayToDoIcons);
+    toDoContainer.addEventListener("mouseleave", removeToDoIcons);
+    toDoContainer.addEventListener("click", (event) => {
+        if (event.target.closest(`.todo-edit-button[data-title="${title}"]`) === editButton 
+        || event.target.closest(`.todo-delete-button[data-title="${title}"]`) === deleteButton
+        ) {
+            toDoContainer.removeEventListener("mouseleave", removeToDoIcons);
+        };
+    });
+};
+
+export function removeToDoIcons(event) {
+    const title = event.target.dataset.title;
+    const toDoContainer = document.querySelector(`.todo-item[data-title="${title}"]`);
+    const editButton = document.querySelector(`.todo-edit-button[data-title="${title}"]`);
+    editButton.classList.add("hidden");
+    const deleteButton = document.querySelector(`.todo-delete-button[data-title="${title}"]`);
+    deleteButton.classList.add("hidden");
+    toDoContainer.removeEventListener("mouseleave", removeToDoIcons);
+    toDoContainer.addEventListener("mouseenter", displayToDoIcons);
+}

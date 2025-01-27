@@ -5,7 +5,8 @@ import { handleAddToDoClick } from "./add-todo";
 import { handleAddCatClick } from "./add-cat";
 import { handleEditCatClick } from "./edit-cat-button";
 import { handleEditToDoClick } from "./edit-todo-button";
-import { displayCatIcons, removeCatIcons } from "./icon-hover";
+import { displayCatIcons } from "./icon-hover";
+import { displayToDoIcons } from "./icon-hover";
 
 const todoDisplay = document.querySelector(".todo-display");
 
@@ -77,6 +78,7 @@ export const displayHub = function() {
             toDoDisplayContainer.className = "todo-item";
             toDoDisplayContainer.dataset.title = toDoObj;
             todoItemContainer.appendChild(toDoDisplayContainer);
+            toDoDisplayContainer.addEventListener("mouseenter", displayToDoIcons);
 
             const checkbox = document.createElement("button");
             checkbox.className = "checkbox";
