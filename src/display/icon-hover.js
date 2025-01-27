@@ -12,7 +12,6 @@ export function displayCatIcons(event) {
         || event.target.closest(`.cat-delete-button[data-category="${category}"]`) === deleteButton
         ) {
             catContainer.removeEventListener("mouseleave", removeCatIcons);
-            console.log("ping");
         };
         
     });

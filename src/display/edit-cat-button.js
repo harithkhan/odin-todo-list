@@ -4,6 +4,7 @@ import submitIconPath from "../img/checked.png";
 import closeIconPath from "../img/close.png";
 import { rename, description, due } from "../logic/category-functions";
 import { parseISO, format } from "date-fns";
+import { displayCatIcons } from "./icon-hover";
 
 export const handleEditCatClick = function(event) {
 
@@ -81,7 +82,7 @@ export const handleEditCatClick = function(event) {
 function handleCloseClick(event) {
     const closeButton = event.target.closest(".cat-close-button");
     const category = closeButton.dataset.category;
-    const catContainer = document.querySelector(`.todo-item[data-category="${category}"]`);
+    
     const editCatForm = document.querySelector(`.edit-cat-form[data-category="${category}"]`);
     editCatForm.remove();
     closeButton.remove();
@@ -101,6 +102,9 @@ function handleCloseClick(event) {
     catEditButton.addEventListener("click", handleEditCatClick);
     const catDeleteButton = document.querySelector(`.cat-delete-button[data-category="${category}"]`);
     catDeleteButton.insertAdjacentElement("beforebegin", catEditButton);
+    //Reattach previous event listeners
+    const catContainer = document.querySelector(`.todo-item[data-category="${category}"]`);
+    catContainer.addEventListener("mouseenter", displayCatIcons);
 };
 
 function catEditSubmit(event) {
@@ -170,4 +174,8 @@ function catEditSubmit(event) {
     catDeleteButton.dataset.category = category;
     catDeleteButton.insertAdjacentElement("beforebegin", catEditButton);
     catEditButton.addEventListener("click", handleEditCatClick);
+
+    //Reattach previous event listeners
+    const catContainer = document.querySelector(`.todo-item[data-category="${category}"]`);
+    catContainer.addEventListener("mouseenter", displayCatIcons);
 };
