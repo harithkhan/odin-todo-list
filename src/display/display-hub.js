@@ -26,7 +26,9 @@ export const displayHub = function() {
             catDisplayContainer.className = "todo-item";
             catDisplayContainer.dataset.category = category;
             todoItemContainer.appendChild(catDisplayContainer);
-            catDisplayContainer.addEventListener("mouseenter", displayCatIcons);
+            if (category !== "General") {
+                catDisplayContainer.addEventListener("mouseenter", displayCatIcons);
+            };
 
             //Append h2 cat header
             const catDisplay = document.createElement("h2");
@@ -44,38 +46,40 @@ export const displayHub = function() {
             catDisplayContainer.appendChild(catDue);
 
             //Append edit button
-            const catEditButton = document.createElement("button");
-            catEditButton.className = "cat-edit-button";
-            catEditButton.classList.add("hidden");
-            catEditButton.type = "button";
-            catEditButton.dataset.category = category;
-            catEditButton.addEventListener("click", handleEditCatClick);
-            catDisplayContainer.appendChild(catEditButton);
+            if (category !== "General") {
+                const catEditButton = document.createElement("button");
+                catEditButton.className = "cat-edit-button";
+                catEditButton.classList.add("hidden");
+                catEditButton.type = "button";
+                catEditButton.dataset.category = category;
+                catEditButton.addEventListener("click", handleEditCatClick);
+                catDisplayContainer.appendChild(catEditButton);
 
-            //Append edit icon
-            const catEditIcon = document.createElement("img");
-            catEditIcon.className = "edit-icon";
-            catEditIcon.alt = "Icon of edit button";
-            catEditIcon.src = editIcon;
-            catEditIcon.dataset.category = category;
-            catEditButton.appendChild(catEditIcon);
+                //Append edit icon
+                const catEditIcon = document.createElement("img");
+                catEditIcon.className = "edit-icon";
+                catEditIcon.alt = "Icon of edit button";
+                catEditIcon.src = editIcon;
+                catEditIcon.dataset.category = category;
+                catEditButton.appendChild(catEditIcon);
 
-            //Append delete button
-            const catDeleteButton = document.createElement("button");
-            catDeleteButton.className = "cat-delete-button";
-            catDeleteButton.classList.add("hidden");
-            catDeleteButton.type = "button";
-            catDeleteButton.dataset.category = category;
-            catDisplayContainer.appendChild(catDeleteButton);
-            catDeleteButton.addEventListener("click", deleteCat);
+                //Append delete button
+                const catDeleteButton = document.createElement("button");
+                catDeleteButton.className = "cat-delete-button";
+                catDeleteButton.classList.add("hidden");
+                catDeleteButton.type = "button";
+                catDeleteButton.dataset.category = category;
+                catDisplayContainer.appendChild(catDeleteButton);
+                catDeleteButton.addEventListener("click", deleteCat);
 
-            //Append delete icon
-            const catDeleteIcon = document.createElement("img");
-            catDeleteIcon.className = "delete-icon";
-            catDeleteIcon.alt = "Icon of delete buttom";
-            catDeleteIcon.src = binIcon;
-            catDeleteIcon.dataset.category = category;
-            catDeleteButton.appendChild(catDeleteIcon);
+                //Append delete icon
+                const catDeleteIcon = document.createElement("img");
+                catDeleteIcon.className = "delete-icon";
+                catDeleteIcon.alt = "Icon of delete buttom";
+                catDeleteIcon.src = binIcon;
+                catDeleteIcon.dataset.category = category;
+                catDeleteButton.appendChild(catDeleteIcon);
+            };
 
             for (let toDoObj in getData()[category].toDo) {
                 const toDoDisplayContainer = document.createElement("div");
