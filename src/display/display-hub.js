@@ -8,6 +8,7 @@ import { handleEditToDoClick } from "./edit-todo-button";
 import { displayCatIcons } from "./icon-hover";
 import { displayToDoIcons } from "./icon-hover";
 import { deleteCat } from "./delete";
+import { deleteToDo } from "./delete";
 
 const todoDisplay = document.querySelector(".todo-display");
 
@@ -132,12 +133,14 @@ export const displayHub = function() {
                 toDoDeleteButton.dataset.title = toDoObj;
                 toDoDeleteButton.dataset.category = category;
                 toDoDisplayContainer.appendChild(toDoDeleteButton);
+                toDoDeleteButton.addEventListener("click", deleteToDo);
 
                 //Append delete icon
                 const toDoDeleteIcon = document.createElement("img");
                 toDoDeleteIcon.className = "delete-icon";
                 toDoDeleteIcon.alt = "Icon of delete buttom";
                 toDoDeleteIcon.src = binIcon;
+                toDoDeleteIcon.dataset.title = toDoObj;
                 toDoDeleteIcon.dataset.category = category;
                 toDoDeleteButton.appendChild(toDoDeleteIcon);
             };

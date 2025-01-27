@@ -1,3 +1,4 @@
+import { ca } from "date-fns/locale";
 import { getData } from "../logic/todo-hub";
 
 export function deleteCat(event) {
@@ -12,5 +13,15 @@ export function deleteCat(event) {
 };
 
 export function deleteToDo(event) {
-
+    const category = event.target.dataset.category;
+    const title = event.target.dataset.title;
+    const toDoContainer = document.querySelector(`.todo-item[data-title="${title}"]`);
+    toDoContainer.remove();
+    const data = getData();
+    if (!data.Trash[category]) {
+        data.Trash[category] = { toDo: {} };
+    };
+    data.Trash[category].toDo[title] = data[category].toDo[title];
+    delete data[category].toDo[title];
+    console.log(getData())
 };
