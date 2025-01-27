@@ -3,6 +3,7 @@ import { getData } from "../logic/todo-hub";
 import { handleAddToDoClick } from "./add-todo";
 import editIcon from "../img/edit.png";
 import binIcon from "../img/bin.png";
+import { displayCatIcons } from "./icon-hover";
 
 export function handleAddCatClick(event) {
     const category = event.target.dataset.category;
@@ -79,9 +80,11 @@ function toDoSubmit(event) {
     todoItemContainer.className = "todo-item-container";
     todoItemContainer.dataset.category = formTitle;
     toDoButtonContainer.insertAdjacentElement("afterend", todoItemContainer);
+    todoItemContainer.addEventListener("mouseenter", displayCatIcons);
 
     const catDisplayContainer = document.createElement("div");
     catDisplayContainer.className = "todo-item";
+    catDisplayContainer.dataset.category = formTitle;
     todoItemContainer.appendChild(catDisplayContainer);
 
     //Append h2 cat header
@@ -100,7 +103,9 @@ function toDoSubmit(event) {
     //Append edit button
     const catEditButton = document.createElement("button");
     catEditButton.className = "cat-edit-button";
+    catEditButton.classList.add("hidden");
     catEditButton.type = "button";
+    catEditButton.dataset.category = formTitle;
     catDisplayContainer.appendChild(catEditButton);
 
     //Append edit icon
@@ -108,12 +113,15 @@ function toDoSubmit(event) {
     catEditIcon.className = "edit-icon";
     catEditIcon.alt = "Icon of edit button";
     catEditIcon.src = editIcon;
+    catEditIcon.dataset.category = formTitle;
     catEditButton.appendChild(catEditIcon);
 
     //Append delete button
     const catDeleteButton = document.createElement("button");
     catDeleteButton.className = "cat-delete-button";
+    catDeleteButton.classList.add("hidden");
     catDeleteButton.type = "button";
+    catDeleteButton.dataset.category = formTitle;
     catDisplayContainer.appendChild(catDeleteButton);
 
     //Append delete icon
@@ -121,6 +129,7 @@ function toDoSubmit(event) {
     catDeleteIcon.className = "delete-icon";
     catDeleteIcon.alt = "Icon of delete buttom";
     catDeleteIcon.src = binIcon;
+    catDeleteIcon.dataset.category = formTitle;
     catDeleteButton.appendChild(catDeleteIcon);
 
      //Append todo button container and its elements

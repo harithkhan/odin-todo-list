@@ -54,4 +54,4 @@ export function removeToDoIcons(event) {
     deleteButton.classList.add("hidden");
     toDoContainer.removeEventListener("mouseleave", removeToDoIcons);
     toDoContainer.addEventListener("mouseenter", displayToDoIcons);
-}
+};
