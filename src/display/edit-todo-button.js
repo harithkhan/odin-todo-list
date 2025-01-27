@@ -65,6 +65,7 @@ export function handleEditToDoClick(event) {
     editToDoDescription.type = "text";
     editToDoDescription.name = "edit-todo-description";
     editToDoDescription.id = "edit-todo-description";
+    console.log(formCategory);
     const currentDescription = getData()[formCategory].toDo[title].description;
     const descriptionDisplay = currentDescription === "N/A" ? "": currentDescription;
     editToDoDescription.value = descriptionDisplay;
@@ -248,26 +249,28 @@ function toDoEditSubmit(event) {
         targetCategory.insertAdjacentElement("afterend", currentToDoContainer);
     };
 
-
     //Place Edit button back
-    // const closeButton = document.querySelector(`.cat-close-button[data-category="${oldTitle}"]`);
-    // closeButton.remove();
+    const closeButton = document.querySelector(`.todo-close-button[data-title="${oldTitle}"]`);
+    closeButton.remove();
 
-    // const category = currentKey;
-    // const catEditButton = document.createElement("button");
-    // catEditButton.className = "cat-edit-button";
-    // catEditButton.type = "button";
-    // catEditButton.dataset.category = category;
+    const title = currentKey;
+    const toDoEditButton = document.createElement("button");
+    toDoEditButton.className = "todo-edit-button";
+    toDoEditButton.type = "button";
+    toDoEditButton.dataset.title = title;
+    toDoEditButton.dataset.category = newFormCategory;
 
-    // const catEditIcon = document.createElement("img");
-    // catEditIcon.alt = "Icon of edit button";
-    // catEditIcon.className = "edit-icon";
-    // catEditIcon.src = editIconPath;
-    // catEditIcon.dataset.category = category;
-    // catEditButton.appendChild(catEditIcon);
+    const toDoEditIcon = document.createElement("img");
+    toDoEditIcon.alt = "Icon of edit button";
+    toDoEditIcon.className = "edit-icon";
+    toDoEditIcon.src = editIconPath;
+    toDoEditIcon.dataset.title = title;
+    toDoEditIcon.dataset.category = newFormCategory;
+    toDoEditButton.appendChild(toDoEditIcon);
 
-    // const catDeleteButton = document.querySelector(`.cat-delete-button[data-category="${oldTitle}"]`);
-    // catDeleteButton.dataset.category = category;
-    // catDeleteButton.insertAdjacentElement("beforebegin", catEditButton);
-    // catEditButton.addEventListener("click", handleEditCatClick);
+    const toDoDeleteButton = document.querySelector(`.todo-delete-button[data-title="${oldTitle}"]`);
+    toDoDeleteButton.dataset.title = title;
+    toDoDeleteButton.dataset.category = newFormCategory;
+    toDoDeleteButton.insertAdjacentElement("beforebegin", toDoEditButton);
+    toDoEditButton.addEventListener("click", handleEditToDoClick);
 };
