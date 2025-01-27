@@ -239,7 +239,15 @@ function toDoEditSubmit(event) {
     newToDoDue.dataset.title = currentKey;
     const newFormDueDisplay = formDueValidated !== "N/A" ? `(Due: ${formDueFormatted})`: "";
     newToDoDue.textContent = newFormDueDisplay;
-        //Update what happens when category is reassigned
+
+    if (oldFormCategory !== newFormCategory) {
+        const currentToDoContainer = document.querySelector(`.todo-item[data-title="${currentKey}"]`);
+        console.log(currentToDoContainer)
+        currentToDoContainer.remove();
+        const targetCategory = document.querySelector(`.todo-item[data-category="${newFormCategory}"]`);   
+        targetCategory.insertAdjacentElement("afterend", currentToDoContainer);
+    };
+
 
     //Place Edit button back
     // const closeButton = document.querySelector(`.cat-close-button[data-category="${oldTitle}"]`);
