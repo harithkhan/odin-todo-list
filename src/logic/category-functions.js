@@ -31,7 +31,6 @@ const moveToTrash = function(event) {
   data.Trash[category] = new Category(oldObj.title, oldObj.description, oldObj.due);
   data.Trash[category].toDo = oldToDos;
   delete data[category];
-
 };
 
 export {

@@ -1,6 +1,7 @@
 import { toDoHub as hub } from "./todo-hub.js";
 import ToDo from "./todo-class.js";
 import { Category } from "./category-class.js";
+import { getData } from "./todo-hub.js";
 import { ca } from "date-fns/locale";
 
 //Exported functions that manipulate object toDoHub, but only related to class ToDo
@@ -108,7 +109,39 @@ const isComplete = function (target, newStatus) {
     };
 };
 
-//Functions to add: priority, notes, isComplete, 
+const moveToTrash = function(event) {
+    const category = event.target.dataset.category;
+    const title = event.target.dataset.title;
+    const data = getData();
+    const toTrash = data[category].toDo[title];
+
+    if (data.Trash[category]) {
+        data.Trash[category].toDo[title] = new ToDo(
+            toTrash.title, 
+            toTrash.description, 
+            toTrash.due, 
+            toTrash.priority, 
+            toTrash.notes, 
+            toTrash.checklist, 
+            toTrash.isComplete
+        );
+        data.Trash[category].toDo[title].whenCreated = toTrash.whenCreated;
+    } else if (!data.Trash[category]) {
+        const catObj = data[category];
+        data.Trash[category] = new Category(catObj.title, catObj.description, catObj.due);
+        data.Trash[category].toDo[title] = new ToDo(
+            toTrash.title, 
+            toTrash.description, 
+            toTrash.due, 
+            toTrash.priority, 
+            toTrash.notes, 
+            toTrash.checklist, 
+            toTrash.isComplete
+        );
+        data.Trash[category].toDo[title].whenCreated = toTrash.whenCreated;
+    };
+    delete data[category].toDo[title];
+};
 
 export { 
     add, 
@@ -119,5 +152,6 @@ export {
     due,
     priority,
     notes,
-    isComplete 
+    isComplete,
+    moveToTrash
 };
