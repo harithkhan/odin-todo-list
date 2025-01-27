@@ -213,16 +213,16 @@ function toDoEditSubmit(event) {
     //Submit Category
     const oldFormCategory = event.target.dataset.category;
     const newFormCategory = formData.get("edit-todo-cat");
-    console.log(`Old: ${oldFormCategory} New: ${newFormCategory}`);
     if (oldFormCategory !== newFormCategory) {
         assign(currentKey, newFormCategory);
     };
     
     //Submit Priority
-    // const formPriority = formData.get("edit-priority");
-    // priority(currentKey, formPriority);
+    const formPriority = formData.get("edit-priority");
+    priority(currentKey, formPriority);
     
     //Submit Notes
+    
 
     console.log(getData());
     form.remove();

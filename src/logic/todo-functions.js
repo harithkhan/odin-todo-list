@@ -68,42 +68,42 @@ const assign = function(target, newCategory) {
 
 const del = function(target) {
     for (let category in hub) {
-        const toDoObj = hub[category]._toDo[target];
+        const toDoObj = hub[category].toDo[target];
         if (toDoObj) { delete hub[category]._toDo[target] };
     };
 };
 
 const description = function(target, newDescription) {
     for (let category in hub) {
-        const toDoObj = hub[category]._toDo[target];
+        const toDoObj = hub[category].toDo[target];
         if (toDoObj) { toDoObj.description = newDescription } ;
     };
 };
 
 const due = function(target, newDue) {
     for (let category in hub) {
-        const toDoObj = hub[category]._toDo[target];
+        const toDoObj = hub[category].toDo[target];
         if (toDoObj) { toDoObj.due = newDue };
     };
 };
 
 const priority = function(target, newPriority) {
     for (let category in hub) {
-        const toDoObj = hub[category]._toDo[target];
+        const toDoObj = hub[category].toDo[target];
         if (toDoObj) { toDoObj.priority = newPriority };
     };
 };
 
 const notes = function(target, newNotes) {
     for (let category in hub) {
-        const toDoObj = hub[category]._toDo[target];
+        const toDoObj = hub[category].toDo[target];
         if (toDoObj) { toDoObj.notes = newNotes };
     };
 };
 
 const isComplete = function (target, newStatus) {
     for (let category in hub) {
-        const toDoObj = hub[category]._toDo[target];
+        const toDoObj = hub[category].toDo[target];
         if (toDoObj) { toDoObj.isComplete = newStatus };
     };
 };
