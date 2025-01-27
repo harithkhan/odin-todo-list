@@ -6,7 +6,9 @@ export function deleteCat(event) {
     catContainer.remove();  
     const addButtonsContainer = document.querySelector(`.todo-button-container[data-category="${category}"]`);
     addButtonsContainer.remove();
-
+    getData().Trash[category] = getData()[category];
+    delete getData()[category];
+    console.log(getData());
 };
 
 export function deleteToDo(event) {
