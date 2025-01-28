@@ -9,6 +9,7 @@ import { displayCatIcons } from "./icon-hover";
 import { displayToDoIcons } from "./icon-hover";
 import { deleteCat } from "./delete";
 import { deleteToDo } from "./delete";
+import { toggleComplete } from "./is-complete";
 
 const todoDisplay = document.querySelector(".todo-display");
 
@@ -89,11 +90,14 @@ export const displayHub = function() {
                 todoItemContainer.appendChild(toDoDisplayContainer);
                 toDoDisplayContainer.addEventListener("mouseenter", displayToDoIcons);
 
+                //Append checkbox
                 const checkbox = document.createElement("button");
                 checkbox.className = "checkbox";
                 checkbox.type = "checkbox-button";
                 checkbox.setAttribute("aria-pressed", "false");
+                checkbox.dataset.title = toDoObj;
                 toDoDisplayContainer.appendChild(checkbox);
+                checkbox.addEventListener("click", toggleComplete);
 
                 //Append toDo header
                 const toDoHeader = document.createElement("p");
