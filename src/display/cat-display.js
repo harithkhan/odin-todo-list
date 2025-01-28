@@ -4,11 +4,15 @@ import { displayHub } from "./display-hub";
 export function buildAllCats() {
     const catContainer = document.querySelector(".category-container");
     for (let category in hub()) {
-        if (category === "General") {
-            
+        if (category !== "General" && category !== "Trash") {
+            const catButton = document.createElement("button");
+            catButton.className = "cat-button";
+            catButton.type = "button";
+            catButton.textContent = category;
+            catButton.dataset.category = category;
+            const generalButton = document.getElementById("general-cat-button");
+            generalButton.insertAdjacentElement("afterend", catButton);
         } else if (category === "Trash") {
-
-        } else {
             const catButton = document.createElement("button");
             catButton.className = "cat-button";
             catButton.type = "button";
