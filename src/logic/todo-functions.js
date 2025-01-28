@@ -58,7 +58,7 @@ const rename = function(oldTitle, newTitle) {
 
 const assign = function(target, newCategory) {
     for (let category in hub) {
-        const toDoObj = hub[category].toDo[target];
+        const toDoObj = hub[category]?.toDo?.[target];
         if (toDoObj) { 
             hub[newCategory].toDo[target] = toDoObj; //Assign toDo into new category
             delete hub[category].toDo[target]; //Delete old toDo object from old category
