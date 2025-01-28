@@ -23,8 +23,7 @@ const description = (key, newDescription) => hub[key].description = newDescripti
 
 const due = (key, newDue) => hub[key].due = newDue;
 
-const moveToTrash = function(event) {
-  const category = event.target.dataset.category;
+const moveToTrash = function(category) {
   const data = getData();
   const oldObj = data[category];
   const oldToDos = oldObj.toDo;

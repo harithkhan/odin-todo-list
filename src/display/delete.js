@@ -11,7 +11,7 @@ export function deleteCat(event) {
     catContainer.remove();  
     const addButtonsContainer = document.querySelector(`.todo-button-container[data-category="${category}"]`);
     addButtonsContainer.remove();
-    moveCatToTrash(event);
+    moveCatToTrash(category);
     buildAllCats();
 };
 
