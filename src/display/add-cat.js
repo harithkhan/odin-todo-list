@@ -4,6 +4,8 @@ import { handleAddToDoClick } from "./add-todo";
 import editIcon from "../img/edit.png";
 import binIcon from "../img/bin.png";
 import { displayCatIcons } from "./icon-hover";
+import { handleEditCatClick } from "./edit-cat-button";
+import { moveToTrash } from "../logic/category-functions";
 
 export function handleAddCatClick(event) {
     const category = event.target.dataset.category;
@@ -80,11 +82,11 @@ function toDoSubmit(event) {
     todoItemContainer.className = "todo-item-container";
     todoItemContainer.dataset.category = formTitle;
     toDoButtonContainer.insertAdjacentElement("afterend", todoItemContainer);
-    todoItemContainer.addEventListener("mouseenter", displayCatIcons);
 
     const catDisplayContainer = document.createElement("div");
     catDisplayContainer.className = "todo-item";
     catDisplayContainer.dataset.category = formTitle;
+    catDisplayContainer.addEventListener("mouseenter", displayCatIcons);
     todoItemContainer.appendChild(catDisplayContainer);
 
     //Append h2 cat header
@@ -107,6 +109,7 @@ function toDoSubmit(event) {
     catEditButton.type = "button";
     catEditButton.dataset.category = formTitle;
     catDisplayContainer.appendChild(catEditButton);
+    catEditButton.addEventListener("click", handleEditCatClick);
 
     //Append edit icon
     const catEditIcon = document.createElement("img");
@@ -123,6 +126,7 @@ function toDoSubmit(event) {
     catDeleteButton.type = "button";
     catDeleteButton.dataset.category = formTitle;
     catDisplayContainer.appendChild(catDeleteButton);
+    catDeleteButton.addEventListener("click", moveToTrash);
 
     //Append delete icon
     const catDeleteIcon = document.createElement("img");

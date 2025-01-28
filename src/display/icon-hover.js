@@ -2,7 +2,7 @@ export function displayCatIcons(event) {
     const category = event.target.dataset.category;
     const catContainer = document.querySelector(`.todo-item[data-category="${category}"]`);
     const editButton = document.querySelector(`.cat-edit-button[data-category="${category}"]`);
-    editButton.classList.remove("hidden");
+    if (editButton) { editButton.classList.remove("hidden") };
     const deleteButton = document.querySelector(`.cat-delete-button[data-category="${category}"]`);
     deleteButton.classList.remove("hidden");
     catContainer.removeEventListener("mouseenter", displayCatIcons);
