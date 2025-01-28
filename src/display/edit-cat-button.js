@@ -148,7 +148,6 @@ function catEditSubmit(event) {
 
     const newCatDue = document.querySelector(`.cat-due[data-category="${oldTitle}"]`);
     newCatDue.dataset.category = currentKey;
-    const newFormDueDisplay = formDue ? `(Due: ${formDueFormatted})`: getData()[currentKey].due;
     const getNewFormDueDisplay = function() {
       if (formDue) {
         return `(Due: ${formDueFormatted})`

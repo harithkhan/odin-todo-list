@@ -205,11 +205,9 @@ function toDoEditSubmit(event) {
     const dateObj = formDueValidated === "N/A" ? "N/A": parseISO(formDue); 
     const formDueFormatted = dateObj === "N/A" ? "N/A" : format(dateObj, "h:mma, dd/MM/yyyy");
     const currentKey = formTitle !== oldTitle ? formTitle : oldTitle;
-    if (!formDue) {
-        due(currentKey, "N/A");
-    } else {
+    if (formDue) {
         due(currentKey, formDueFormatted);
-    };
+      };
 
     //Submit Description
     const formDescription = formData.get("edit-todo-description");
@@ -241,8 +239,16 @@ function toDoEditSubmit(event) {
 
     const newToDoDue = document.querySelector(`.todo-due[data-title="${oldTitle}"]`);
     newToDoDue.dataset.title = currentKey;
-    const newFormDueDisplay = formDueValidated !== "N/A" ? `(Due: ${formDueFormatted})`: "";
-    newToDoDue.textContent = newFormDueDisplay;
+    const getNewFormDueDisplay = function() {
+        if (formDue) {
+          return `(Due: ${formDueFormatted})`
+        } else if (!formDue) {
+          if (getData()[newFormCategory]?.toDo?.[currentKey].due === "N/A") {
+            return "";
+          } else return `(Due: ${getData()[newFormCategory]?.toDo?.[currentKey].due})`;
+        };
+      };
+    newToDoDue.textContent = getNewFormDueDisplay();
 
     if (oldFormCategory !== newFormCategory) {
         const currentToDoContainer = document.querySelector(`.todo-item[data-title="${currentKey}"]`);

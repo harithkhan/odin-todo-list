@@ -76,7 +76,7 @@ const del = function(target) {
 
 const description = function(target, newDescription) {
     for (let category in hub) {
-        const toDoObj = hub[category].toDo[target];
+        const toDoObj = hub[category]?.toDo?.[target];
         if (toDoObj) { toDoObj.description = newDescription } ;
     };
 };
@@ -90,14 +90,14 @@ const due = function(target, newDue) {
 
 const priority = function(target, newPriority) {
     for (let category in hub) {
-        const toDoObj = hub[category].toDo[target];
+        const toDoObj = hub[category]?.toDo?.[target];
         if (toDoObj) { toDoObj.priority = newPriority };
     };
 };
 
 const notes = function(target, newNotes) {
     for (let category in hub) {
-        const toDoObj = hub[category].toDo[target];
+        const toDoObj = hub[category]?.toDo?.[target];
         if (toDoObj) { toDoObj.notes = newNotes };
     };
 };
