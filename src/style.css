@@ -201,6 +201,7 @@ main {
 }
 
 .cat-edit-button,
+.cat-restore-button,
 .cat-submit-button,
 .cat-close-button,
 .todo-close-button,
@@ -221,7 +222,8 @@ main {
 
 .edit-icon,
 .delete-icon,
-.close-icon {
+.close-icon,
+.restore-icon {
     width: 1.3rem;
     height: 1.3rem;
 }

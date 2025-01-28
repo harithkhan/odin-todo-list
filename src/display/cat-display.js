@@ -2,12 +2,14 @@ import { getData as hub} from "../logic/todo-hub";
 import { displayHub } from "./display-hub";
 import editIcon from "../img/edit.png";
 import binIcon from "../img/bin.png";
+import restoreIcon from "../img/restore.png"
 import { displayCatIcons, displayToDoIcons } from "./icon-hover";
 import { handleEditCatClick } from "./edit-cat-button";
 import { handleEditToDoClick } from "./edit-todo-button";
 import { deleteCat, deleteToDo } from "./delete";
 import { toggleComplete } from "./is-complete";
 import { handleAddToDoClick } from "./add-todo";
+import { handleRestoreCatClick } from "./restore";
 
 export function buildAllCats() {
     const catContainer = document.getElementById("generated-cat-buttons");
@@ -213,7 +215,7 @@ export function showThisCat(event) {
             catDisplayContainer.className = "todo-item";
             catDisplayContainer.dataset.category = cat;
             todoItemContainer.appendChild(catDisplayContainer);
-            if (category !== "General") {
+            if (cat !== "General") {
                 catDisplayContainer.addEventListener("mouseenter", displayCatIcons);
             };
 
@@ -232,23 +234,23 @@ export function showThisCat(event) {
             catDue.textContent = dueDate !== "N/A" && dueDate ? `(Due: ${dueDate})`: "";
             catDisplayContainer.appendChild(catDue);
 
-            //Append edit button
+            //Append restore button
             if (cat !== "General" && cat !== "Trash") {
-                const catEditButton = document.createElement("button");
-                catEditButton.className = "cat-edit-button";
-                catEditButton.classList.add("hidden");
-                catEditButton.type = "button";
-                catEditButton.dataset.category = cat;
-                catEditButton.addEventListener("click", handleEditCatClick);
-                catDisplayContainer.appendChild(catEditButton);
+                const catRestoreButton = document.createElement("button");
+                catRestoreButton.className = "cat-restore-button";
+                catRestoreButton.classList.add("hidden");
+                catRestoreButton.type = "button";
+                catRestoreButton.dataset.category = cat;
+                catRestoreButton.addEventListener("click", handleRestoreCatClick);
+                catDisplayContainer.appendChild(catRestoreButton);
 
-                //Append edit icon
-                const catEditIcon = document.createElement("img");
-                catEditIcon.className = "edit-icon";
-                catEditIcon.alt = "Icon of edit button";
-                catEditIcon.src = editIcon;
-                catEditIcon.dataset.category = cat;
-                catEditButton.appendChild(catEditIcon);
+                //Append restore icon
+                const catRestoreIcon = document.createElement("img");
+                catRestoreIcon.className = "restore-icon";
+                catRestoreIcon.alt = "Icon of edit button";
+                catRestoreIcon.src = restoreIcon;
+                catRestoreIcon.dataset.category = cat;
+                catRestoreButton.appendChild(catRestoreIcon);
 
                 //Append delete button
                 const catDeleteButton = document.createElement("button");

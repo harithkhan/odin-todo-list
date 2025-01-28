@@ -3,6 +3,8 @@ export function displayCatIcons(event) {
     const catContainer = document.querySelector(`.todo-item[data-category="${category}"]`);
     const editButton = document.querySelector(`.cat-edit-button[data-category="${category}"]`);
     if (editButton) { editButton.classList.remove("hidden") };
+    const restoreButton = document.querySelector(`.cat-restore-button[data-category="${category}"]`);
+    if (restoreButton) { restoreButton.classList.remove("hidden") };
     const deleteButton = document.querySelector(`.cat-delete-button[data-category="${category}"]`);
     deleteButton.classList.remove("hidden");
     catContainer.removeEventListener("mouseenter", displayCatIcons);
@@ -20,7 +22,13 @@ export function removeCatIcons(event) {
     const category = event.target.dataset.category;
     const catContainer = document.querySelector(`.todo-item[data-category="${category}"]`);
     const editButton = document.querySelector(`.cat-edit-button[data-category="${category}"]`);
-    editButton.classList.add("hidden");
+    if (editButton) {
+        editButton.classList.add("hidden");
+    };
+    const restoreButton = document.querySelector(`.cat-restore-button[data-category="${category}"]`);
+    if (restoreButton) { 
+        restoreButton.classList.add("hidden"); 
+    };
     const deleteButton = document.querySelector(`.cat-delete-button[data-category="${category}"]`);
     deleteButton.classList.add("hidden");
     catContainer.removeEventListener("mouseleave", removeCatIcons);

@@ -49,7 +49,9 @@ const restore = function(category) {
   if (!getData()[category]) {
     const toRestore = getData().Trash[category];
     getData()[category] = toRestore;
+    delete getData().Trash[category];
   };
+  console.log(getData());
 };
 
 export {
