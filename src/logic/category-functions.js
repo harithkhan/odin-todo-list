@@ -39,11 +39,25 @@ const moveToTrash = function(event) {
   delete data[category];
 };
 
+const restore = function(category) {
+  if (getData()[category]) {
+    for (let toDoTitle in getData().Trash[category].toDo) {
+      const toRestore = getData().Trash[category].toDo.toDoTitle
+      getData()[category].toDo.toDoTitle = toRestore;
+    };
+  };
+  if (!getData()[category]) {
+    const toRestore = getData().Trash[category];
+    getData()[category] = toRestore;
+  };
+};
+
 export {
     add,
     del,
     rename,
     description,
     due,
-    moveToTrash
+    moveToTrash,
+    restore
 };
