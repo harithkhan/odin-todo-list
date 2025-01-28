@@ -6,6 +6,7 @@ import * as checklistFunction from "./logic/checklist-functions"
 import * as addTodo from "./display/add-todo"
 import { displayHub } from "./display/display-hub";
 import { buildAllCats } from "./display/cat-display";
+import { attachCatButtonListeners } from "./display/cat-display";
 
 //Test objects
 toDoFunction.add(undefined, "5 deep breaths", "Just relax", "28/02/2025");
@@ -16,7 +17,6 @@ toDoFunction.add("ToDo List Project", "Add logic to buttons");
 console.log(getData());
 displayHub();
 buildAllCats();
+attachCatButtonListeners();
 
-const showAllButton = document.getElementById("show-all-button");
-showAllButton.addEventListener("click", displayHub);
 
