@@ -268,6 +268,7 @@ function toDoEditSubmit(event) {
         currentToDoContainer.remove();
         const targetCategory = document.querySelector(`.todo-item[data-category="${newFormCategory}"]`);   
         targetCategory.insertAdjacentElement("afterend", currentToDoContainer);
+        currentToDoContainer.dataset.category = newFormCategory;
     };
 
     //Place Edit button back
