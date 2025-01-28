@@ -103,11 +103,11 @@ export const displayHub = function() {
                 //Append toDo header
                 const toDoHeader = document.createElement("p");
                 toDoHeader.className = "todo-display-header";
-                if (toDoObj.length > 50) {
+                if (toDoObj.length > 60) {
                     let shortenedTitle = "";
                     for (let character of toDoObj) {
                         shortenedTitle = shortenedTitle + character;
-                        if (shortenedTitle.length > 47) {
+                        if (shortenedTitle.length > 57) {
                             break;
                         };
                     };
