@@ -10,17 +10,10 @@ import { toggleComplete } from "./is-complete";
 import { handleAddToDoClick } from "./add-todo";
 
 export function buildAllCats() {
-    const catContainer = document.querySelector(".category-container");
+    const catContainer = document.getElementById("generated-cat-buttons");
+    catContainer.innerHTML = "";
     for (let category in hub()) {
         if (category !== "General" && category !== "Trash") {
-            const catButton = document.createElement("button");
-            catButton.className = "cat-button";
-            catButton.type = "button";
-            catButton.textContent = category;
-            catButton.dataset.category = category;
-            const generalButton = document.getElementById("general-cat-button");
-            generalButton.insertAdjacentElement("afterend", catButton);
-        } else if (category === "Trash") {
             const catButton = document.createElement("button");
             catButton.className = "cat-button";
             catButton.type = "button";
@@ -354,9 +347,11 @@ export function attachCatButtonListeners() {
     const generalCatButton = document.getElementById("general-cat-button");
     generalCatButton.addEventListener("click", showThisCat);
     for (let category in hub()) {
-        if (category !== "General") {
+        if (category !== "General" && category !== "Trash") {
             const button = document.querySelector(`.cat-button[data-category="${category}"]`);
             button.addEventListener("click", showThisCat);
         };
     };
+    const trashButton = document.getElementById("trash-button");
+    trashButton.addEventListener("click", showThisCat);
 };

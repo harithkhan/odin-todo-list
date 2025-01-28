@@ -116,6 +116,11 @@ main {
     display: flex;
 }
 
+#generated-cat-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
 /* To do container */
 .todo-display {
     width: 40rem;
