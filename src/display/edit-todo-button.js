@@ -98,7 +98,6 @@ export function handleEditToDoClick(event) {
     editPriority.name = "edit-priority";
     const currentPriority = getData()[formCategory].toDo[title].priority;
     const priorityDisplay = currentPriority === "-" ? "": currentPriority;
-    console.log(priorityDisplay)
     editPriority.value = priorityDisplay;
 
     const priorityPlaceholder = document.createElement("option");
@@ -112,24 +111,36 @@ export function handleEditToDoClick(event) {
     priorityNull.className = "priority-null"
     priorityNull.value = "-";
     priorityNull.textContent = "-";
+    if (priorityDisplay === "-") {
+        priorityNull.selected = true;
+    };
     editPriority.appendChild(priorityNull);
 
     const priorityLow = document.createElement("option");
     priorityLow.className = "priority-low";
     priorityLow.value = "Low";
     priorityLow.textContent = "Low";
+    if (priorityDisplay === "Low") {
+        priorityLow.selected = true;
+    };
     editPriority.appendChild(priorityLow);
 
     const priorityMedium = document.createElement("option");
     priorityMedium.className = "priority-Medium";
     priorityMedium.value = "Medium";
     priorityMedium.textContent = "Medium";
+    if (priorityDisplay === "Medium") {
+        priorityMedium.selected = true;
+    };
     editPriority.appendChild(priorityMedium);
 
     const priorityHigh = document.createElement("option");
     priorityHigh.className = "priority-High";
     priorityHigh.value = "High";
     priorityHigh.textContent = "High";
+    if (priorityDisplay === "High") {
+        priorityHigh.selected = true;
+    };
     editPriority.appendChild(priorityHigh);
     editToDoForm.appendChild(editPriority);
 
