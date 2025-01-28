@@ -20,7 +20,6 @@ export function deleteToDo(event) {
     const toDoContainer = document.querySelector(`.todo-item[data-title="${title}"]`);
     toDoContainer.remove();
     moveToDoToTrash(title);
-    console.log(getData())
 };
 
 export function permanentCatDelete(event) {

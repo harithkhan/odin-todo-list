@@ -65,7 +65,6 @@ const assign = function(target, newCategory) {
             break;
         };
     };
-    console.log(getData())
 };
 
 const del = function(target) {
@@ -117,7 +116,6 @@ const moveToTrash = function(title) {
     const data = getData();
     for (let category in data) {
         if (title === data[category]?.toDo?.[title]?.title) {
-            console.log("ping")
             const toTrash = data[category].toDo[title];
             if (data.Trash[category]) {
                 data.Trash[category].toDo[title] = new ToDo(
