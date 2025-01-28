@@ -157,6 +157,16 @@ export function handleEditToDoClick(event) {
     notes.placeholder = "Notes";
     editToDoForm.appendChild(notes);
 
+    //Append whenCreated disabled input
+    const whenCreated = document.createElement("input");
+    whenCreated.type = "text";
+    whenCreated.id = "when-created";
+    whenCreated.name = "when-created";
+    const whenCreatedData = getData()[formCategory].toDo[title].whenCreated;
+    whenCreated.value = `Created: ${whenCreatedData}`;
+    whenCreated.disabled = "true";
+    editToDoForm.appendChild(whenCreated);
+
     //Append Submit button
     const submitButton = document.createElement("button");
     submitButton.className = "todo-submit-button";

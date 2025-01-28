@@ -305,8 +305,12 @@ main {
     grid-area: 4 / 1 / 5 / 3;
 }
 
-.todo-submit-button {
+#when-created {
     grid-area: 5 / 1 / 6 / 3;
+}
+
+.todo-submit-button {
+    grid-area: 6 / 1 / 7 / 3;
     background-color: inherit;
     border: none;
     cursor: pointer;
