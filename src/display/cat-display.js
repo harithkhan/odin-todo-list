@@ -6,7 +6,7 @@ import restoreIcon from "../img/restore.png"
 import { displayCatIcons, displayToDoIcons } from "./icon-hover";
 import { handleEditCatClick } from "./edit-cat-button";
 import { handleEditToDoClick } from "./edit-todo-button";
-import { deleteCat, deleteToDo } from "./delete";
+import { deleteCat, deleteToDo, permanentCatDelete } from "./delete";
 import { toggleComplete } from "./is-complete";
 import { handleAddToDoClick } from "./add-todo";
 import { handleRestoreCatClick } from "./restore";
@@ -260,7 +260,7 @@ export function showThisCat(event) {
                 catDeleteButton.type = "button";
                 catDeleteButton.dataset.category = cat;
                 catDisplayContainer.appendChild(catDeleteButton);
-                catDeleteButton.addEventListener("click", deleteCat);
+                catDeleteButton.addEventListener("click", permanentCatDelete);
 
                 //Append delete icon
                 const catDeleteIcon = document.createElement("img");
