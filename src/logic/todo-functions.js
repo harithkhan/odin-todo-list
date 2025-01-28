@@ -104,9 +104,11 @@ const notes = function(target, newNotes) {
 
 const isComplete = function(target, newStatus) {
     for (let category in hub) {
-        const toDoObj = hub[category].toDo[target];
-        console.log(toDoObj)
-        if (toDoObj) { toDoObj.isComplete = newStatus };
+        const toDoObj = hub[category]?.toDo?.[target];
+        if (toDoObj) { 
+            toDoObj.isComplete = newStatus;
+            return;
+        };
     };
 };
 
