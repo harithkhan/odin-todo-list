@@ -65,7 +65,8 @@ const assign = function(target, newCategory) {
             break;
         };
     };
-}
+    console.log(getData())
+};
 
 const del = function(target) {
     for (let category in hub) {
@@ -112,38 +113,40 @@ const isComplete = function(target, newStatus) {
     };
 };
 
-const moveToTrash = function(event) {
-    const category = event.target.dataset.category;
-    const title = event.target.dataset.title;
+const moveToTrash = function(title) {
     const data = getData();
-    const toTrash = data[category].toDo[title];
-
-    if (data.Trash[category]) {
-        data.Trash[category].toDo[title] = new ToDo(
-            toTrash.title, 
-            toTrash.description, 
-            toTrash.due, 
-            toTrash.priority, 
-            toTrash.notes, 
-            toTrash.checklist, 
-            toTrash.isComplete
-        );
-        data.Trash[category].toDo[title].whenCreated = toTrash.whenCreated;
-    } else if (!data.Trash[category]) {
-        const catObj = data[category];
-        data.Trash[category] = new Category(catObj.title, catObj.description, catObj.due);
-        data.Trash[category].toDo[title] = new ToDo(
-            toTrash.title, 
-            toTrash.description, 
-            toTrash.due, 
-            toTrash.priority, 
-            toTrash.notes, 
-            toTrash.checklist, 
-            toTrash.isComplete
-        );
-        data.Trash[category].toDo[title].whenCreated = toTrash.whenCreated;
+    for (let category in data) {
+        if (title === data[category]?.toDo?.[title]?.title) {
+            console.log("ping")
+            const toTrash = data[category].toDo[title];
+            if (data.Trash[category]) {
+                data.Trash[category].toDo[title] = new ToDo(
+                    toTrash.title, 
+                    toTrash.description, 
+                    toTrash.due, 
+                    toTrash.priority, 
+                    toTrash.notes, 
+                    toTrash.checklist, 
+                    toTrash.isComplete
+                );
+                data.Trash[category].toDo[title].whenCreated = toTrash.whenCreated;
+            } else if (!data.Trash[category]) {
+                const catObj = data[category];
+                data.Trash[category] = new Category(catObj.title, catObj.description, catObj.due);
+                data.Trash[category].toDo[title] = new ToDo(
+                    toTrash.title, 
+                    toTrash.description, 
+                    toTrash.due, 
+                    toTrash.priority, 
+                    toTrash.notes, 
+                    toTrash.checklist, 
+                    toTrash.isComplete
+                );
+                data.Trash[category].toDo[title].whenCreated = toTrash.whenCreated;
+            };
+            delete data[category].toDo[title];
+        };
     };
-    delete data[category].toDo[title];
 };
 
 const restore = function(title) {

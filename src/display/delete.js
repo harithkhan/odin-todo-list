@@ -16,11 +16,11 @@ export function deleteCat(event) {
 };
 
 export function deleteToDo(event) {
-    const category = event.target.dataset.category;
     const title = event.target.dataset.title;
     const toDoContainer = document.querySelector(`.todo-item[data-title="${title}"]`);
     toDoContainer.remove();
-    moveToDoToTrash(event);
+    moveToDoToTrash(title);
+    console.log(getData())
 };
 
 export function permanentCatDelete(event) {
