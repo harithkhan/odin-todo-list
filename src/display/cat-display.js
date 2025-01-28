@@ -1,7 +1,7 @@
 import { getData as hub} from "../logic/todo-hub";
 import { displayHub } from "./display-hub";
 
-export function listAllCats() {
+export function buildAllCats() {
     const catContainer = document.querySelector(".category-container");
     for (let category in hub()) {
         if (category === "General") {
@@ -19,7 +19,9 @@ export function listAllCats() {
     };
 };
 
-export function showAllCats() {
+export function showThisCat(event) {
+    const button = event.target;
+    const category = event.target.dataset.category;
 
 };
 
