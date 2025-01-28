@@ -35,7 +35,17 @@ export const displayHub = function() {
             const catDisplay = document.createElement("h2");
             catDisplay.className = "cat-display";
             catDisplay.dataset.category = category;
-            catDisplay.textContent = category;
+            if (category.length > 30) {
+                let shortenedTitle = "";
+                for (let character of category) {
+                    shortenedTitle = shortenedTitle + character;
+                    if (shortenedTitle.length > 27) {
+                        break;
+                    };
+                };
+                shortenedTitle = shortenedTitle + "...";
+                catDisplay.textContent = shortenedTitle;
+            } else catDisplay.textContent = category;
             catDisplayContainer.appendChild(catDisplay);
 
             //Append due

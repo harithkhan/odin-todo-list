@@ -10,4 +10,5 @@ export const getData = () => toDoHub;
 add("General", "General/Default category.");//Initialize General category
 addToDo(undefined, "Toggle the checkbox on the left");
 addToDo(undefined, "I am just trying to write a long sentence to see if it breaks the DOM or not.")
+add("The Odin Project of Doom length too long")
 toDoHub["Trash"] = {};
