@@ -84,11 +84,13 @@ export function handleEditToDoClick(event) {
     editToDoCategory.appendChild(catPlaceholder);
 
     for (let category in getData()) {
-        const selectOption = document.createElement("option");
-        selectOption.value = category;
-        selectOption.textContent = category;
-        editToDoCategory.appendChild(selectOption);
-        if (formCategory === category) selectOption.selected = true;
+        if (category !== "Trash") {
+            const selectOption = document.createElement("option");
+            selectOption.value = category;
+            selectOption.textContent = category;
+            editToDoCategory.appendChild(selectOption);
+            if (formCategory === category) selectOption.selected = true;
+        };
     };
     editToDoForm.appendChild(editToDoCategory);
 
