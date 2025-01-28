@@ -44,8 +44,8 @@ const restore = function(category) {
     for (let toDoTitle in getData().Trash[category].toDo) {
       const toRestore = getData().Trash[category].toDo[toDoTitle];
       getData()[category].toDo[toDoTitle] = toRestore;
-      delete getData().Trash[category];
     };
+    delete getData().Trash[category];
   };
   if (!getData()[category]) {
     const toRestore = getData().Trash[category];
