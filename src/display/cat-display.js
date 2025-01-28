@@ -188,6 +188,7 @@ export function showThisCat(event) {
         };
     };
     if (category === "Trash") {
+        //Append Trash header
         const todoItemContainer = document.createElement("div");
         todoItemContainer.className = "todo-item-container";
         todoItemContainer.dataset.category = category;
@@ -198,7 +199,7 @@ export function showThisCat(event) {
         catDisplayContainer.dataset.category = category;
         todoItemContainer.appendChild(catDisplayContainer);
 
-        //Append h2 cat header
+        //Append Trash h2 cat header
         const catDisplay = document.createElement("h2");
         catDisplay.className = "cat-display";
         catDisplay.dataset.category = category;
@@ -212,6 +213,9 @@ export function showThisCat(event) {
             catDisplayContainer.className = "todo-item";
             catDisplayContainer.dataset.category = cat;
             todoItemContainer.appendChild(catDisplayContainer);
+            if (category !== "General") {
+                catDisplayContainer.addEventListener("mouseenter", displayCatIcons);
+            };
 
             //Append h2 cat header
             const catDisplay = document.createElement("h2");
