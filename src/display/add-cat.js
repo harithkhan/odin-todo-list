@@ -6,6 +6,7 @@ import binIcon from "../img/bin.png";
 import { displayCatIcons } from "./icon-hover";
 import { handleEditCatClick } from "./edit-cat-button";
 import { moveToTrash } from "../logic/category-functions";
+import { buildAllCats, attachCatButtonListeners } from "./cat-display";
 
 export function handleAddCatClick(event) {
     const category = event.target.dataset.category;
@@ -170,4 +171,6 @@ function toDoSubmit(event) {
     newAddCatButton.dataset.category = formTitle;
     newAddCatButton.addEventListener("click", handleAddCatClick);
     addCat.appendChild(newAddCatButton);
+    buildAllCats();
+    attachCatButtonListeners();
 };
