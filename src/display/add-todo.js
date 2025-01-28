@@ -1,5 +1,6 @@
 import { add } from "../logic/todo-functions" 
 import { displayHub } from "./display-hub";
+import { getData } from "../logic/todo-hub";
 
 export function handleAddToDoClick(event) {
     const toDoButtonContainer = document.querySelectorAll(".todo-button-container");
@@ -64,7 +65,9 @@ function toDoSubmit(event) {
     const formTitle = formData.get("todo-form-title");
     
     const category = event.target.dataset.category;
-    add(category, formTitle);
-    displayHub();
+    if (!(formTitle in getData()[category].toDo)) {
+        add(category, formTitle);
+        displayHub();
+    };
 };
 
