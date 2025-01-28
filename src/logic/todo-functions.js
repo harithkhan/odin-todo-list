@@ -146,6 +146,23 @@ const moveToTrash = function(event) {
     delete data[category].toDo[title];
 };
 
+const restore = function(title) {
+    for (let cat in hub.Trash) {
+        const target = hub.Trash[cat].toDo;
+        if (title in target && cat in hub) {
+            const toRestore = hub.Trash[cat].toDo[title];
+            hub[cat].toDo[title] = toRestore;
+        };
+        if (title in target && !hub.hasOwnProperty(cat)) {
+            hub[cat] = hub.Trash[cat];
+            const toRestore = hub.Trash[cat].toDo[title];
+            hub[cat].toDo[title] = toRestore;
+        }
+        delete hub.Trash[cat].toDo[title];
+    };
+    console.log(getData());
+  };
+
 export { 
     add, 
     rename,
@@ -156,5 +173,6 @@ export {
     priority,
     notes,
     isComplete,
-    moveToTrash
+    moveToTrash,
+    restore
 };

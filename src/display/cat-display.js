@@ -10,6 +10,7 @@ import { deleteCat, deleteToDo } from "./delete";
 import { toggleComplete } from "./is-complete";
 import { handleAddToDoClick } from "./add-todo";
 import { handleRestoreCatClick } from "./restore";
+import { handleRestoreToDoClick } from "./restore";
 
 export function buildAllCats() {
     const catContainer = document.getElementById("generated-cat-buttons");
@@ -305,24 +306,24 @@ export function showThisCat(event) {
                 toDoDue.dataset.category = cat;
                 toDoDisplayContainer.appendChild(toDoDue);
 
-                //Append edit button
-                const toDoEditButton = document.createElement("button");
-                toDoEditButton.className = "todo-edit-button";
-                toDoEditButton.classList.add("hidden");
-                toDoEditButton.type = "button";
-                toDoEditButton.dataset.title = toDoObj;
-                toDoEditButton.dataset.category = cat;
-                toDoDisplayContainer.appendChild(toDoEditButton);
-                toDoEditButton.addEventListener("click", handleEditToDoClick);
+                //Append restore button
+                const toDoRestoreButton = document.createElement("button");
+                toDoRestoreButton.className = "todo-restore-button";
+                toDoRestoreButton.classList.add("hidden");
+                toDoRestoreButton.type = "button";
+                toDoRestoreButton.dataset.title = toDoObj;
+                toDoRestoreButton.dataset.category = cat;
+                toDoDisplayContainer.appendChild(toDoRestoreButton);
+                toDoRestoreButton.addEventListener("click", handleRestoreToDoClick);
 
                 //Append edit icon
-                const toDoEditIcon = document.createElement("img");
-                toDoEditIcon.className = "edit-icon";
-                toDoEditIcon.alt = "Icon of edit button";
-                toDoEditIcon.src = editIcon;
-                toDoEditIcon.dataset.title = toDoObj;
-                toDoEditIcon.dataset.category = cat;
-                toDoEditButton.appendChild(toDoEditIcon);
+                const toDoRestoreIcon = document.createElement("img");
+                toDoRestoreIcon.className = "restore-icon";
+                toDoRestoreIcon.alt = "Icon of restore button";
+                toDoRestoreIcon.src = restoreIcon;
+                toDoRestoreIcon.dataset.title = toDoObj;
+                toDoRestoreIcon.dataset.category = cat;
+                toDoRestoreButton.appendChild(toDoRestoreIcon);
 
                 //Append delete button
                 const toDoDeleteButton = document.createElement("button");

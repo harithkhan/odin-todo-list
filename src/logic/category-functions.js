@@ -40,19 +40,18 @@ const moveToTrash = function(event) {
 };
 
 const restore = function(category) {
-  if (getData()[category]) {
-    for (let toDoTitle in getData().Trash[category].toDo) {
-      const toRestore = getData().Trash[category].toDo[toDoTitle];
-      getData()[category].toDo[toDoTitle] = toRestore;
+  if (hub[category]) {
+    for (let toDoTitle in hub.Trash[category].toDo) {
+      const toRestore = hub.Trash[category].toDo[toDoTitle];
+      hub[category].toDo[toDoTitle] = toRestore;
     };
-    delete getData().Trash[category];
+    delete hub.Trash[category];
   };
-  if (!getData()[category]) {
-    const toRestore = getData().Trash[category];
-    getData()[category] = toRestore;
-    delete getData().Trash[category];
+  if (!hub[category]) {
+    const toRestore = hub.Trash[category];
+    hub[category] = toRestore;
+    delete hub.Trash[category];
   };
-  console.log(getData());
 };
 
 export {

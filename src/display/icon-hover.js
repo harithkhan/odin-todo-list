@@ -42,6 +42,10 @@ export function displayToDoIcons(event) {
     if (editButton) {
         editButton.classList.remove("hidden");
     };
+    const restoreButton = document.querySelector(`.todo-restore-button[data-title="${title}"]`);
+    if (restoreButton) { 
+        restoreButton.classList.remove("hidden") 
+    };
     const deleteButton = document.querySelector(`.todo-delete-button[data-title="${title}"]`);
     deleteButton.classList.remove("hidden");
     toDoContainer.removeEventListener("mouseenter", displayToDoIcons);
@@ -61,6 +65,10 @@ export function removeToDoIcons(event) {
     const editButton = document.querySelector(`.todo-edit-button[data-title="${title}"]`);
     if (editButton) {
         editButton.classList.add("hidden");
+    };
+    const restoreButton = document.querySelector(`.todo-restore-button[data-title="${title}"]`);
+    if (restoreButton) { 
+        restoreButton.classList.add("hidden") 
     };
     const deleteButton = document.querySelector(`.todo-delete-button[data-title="${title}"]`);
     deleteButton.classList.add("hidden");

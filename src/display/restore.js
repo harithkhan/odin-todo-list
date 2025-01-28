@@ -1,4 +1,5 @@
 import { restore as restoreCat } from "../logic/category-functions";
+import { restore as restoreToDo } from "../logic/todo-functions";
 
 export function handleRestoreCatClick(event) {
     const restoreButton = event.target.closest(".cat-restore-button");
@@ -9,3 +10,8 @@ export function handleRestoreCatClick(event) {
         element.remove();
     });
 };
+
+export function handleRestoreToDoClick(event) {
+    const title = event.target.dataset.title;
+    restoreToDo(title);
+}

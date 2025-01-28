@@ -205,7 +205,8 @@ main {
 .cat-submit-button,
 .cat-close-button,
 .todo-close-button,
-.todo-edit-button {
+.todo-edit-button,
+.todo-restore-button {
     background-color: inherit;
     border: none;
     cursor: pointer;
