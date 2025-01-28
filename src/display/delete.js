@@ -1,7 +1,7 @@
 import { ca } from "date-fns/locale";
 import { moveToTrash as moveCatToTrash} from "../logic/category-functions";
 import { moveToTrash as moveToDoToTrash } from "../logic/todo-functions";
-import { buildAllCats } from "./cat-display";
+import { attachCatButtonListeners, buildAllCats } from "./cat-display";
 import { toDoHub as hub } from "../logic/todo-hub";
 import { getData } from "../logic/todo-hub";
 
@@ -13,6 +13,7 @@ export function deleteCat(event) {
     addButtonsContainer.remove();
     moveCatToTrash(category);
     buildAllCats();
+    attachCatButtonListeners();
 };
 
 export function deleteToDo(event) {
