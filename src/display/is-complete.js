@@ -24,5 +24,4 @@ export function toggleComplete(event) {
         toDoDue.style.textDecoration = "none";
         isComplete(title, false);
     };
-    console.log(getData())
 };
