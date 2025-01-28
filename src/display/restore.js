@@ -14,4 +14,8 @@ export function handleRestoreCatClick(event) {
 export function handleRestoreToDoClick(event) {
     const title = event.target.dataset.title;
     restoreToDo(title);
-}
+    const toRestore = document.querySelectorAll(`.todo-item[data-title="${title}"]`);
+    toRestore.forEach((element) => {
+        element.remove();
+    });
+};
