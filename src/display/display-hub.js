@@ -96,6 +96,7 @@ export const displayHub = function() {
                 checkbox.type = "checkbox-button";
                 checkbox.setAttribute("aria-pressed", "false");
                 checkbox.dataset.title = toDoObj;
+                checkbox.dataset.category = category;
                 toDoDisplayContainer.appendChild(checkbox);
                 checkbox.addEventListener("click", toggleComplete);
 
@@ -104,6 +105,7 @@ export const displayHub = function() {
                 toDoHeader.className = "todo-display-header";
                 toDoHeader.textContent = toDoObj;
                 toDoHeader.dataset.title = toDoObj;
+                toDoHeader.dataset.category = category;
                 toDoDisplayContainer.appendChild(toDoHeader);
 
                 //Append due
@@ -112,6 +114,7 @@ export const displayHub = function() {
                 const toDoDueDate = getData()[category].toDo[toDoObj].due
                 toDoDue.textContent = toDoDueDate !== "N/A" ? `(Due: ${toDoDueDate})`: "";
                 toDoDue.dataset.title = toDoObj;
+                toDoDue.dataset.category = category;
                 toDoDisplayContainer.appendChild(toDoDue);
 
                 //Append edit button
