@@ -42,8 +42,9 @@ const moveToTrash = function(event) {
 const restore = function(category) {
   if (getData()[category]) {
     for (let toDoTitle in getData().Trash[category].toDo) {
-      const toRestore = getData().Trash[category].toDo.toDoTitle
-      getData()[category].toDo.toDoTitle = toRestore;
+      const toRestore = getData().Trash[category].toDo[toDoTitle];
+      getData()[category].toDo[toDoTitle] = toRestore;
+      delete getData().Trash[category];
     };
   };
   if (!getData()[category]) {
