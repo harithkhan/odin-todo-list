@@ -6,7 +6,7 @@ import restoreIcon from "../img/restore.png"
 import { displayCatIcons, displayToDoIcons } from "./icon-hover";
 import { handleEditCatClick } from "./edit-cat-button";
 import { handleEditToDoClick } from "./edit-todo-button";
-import { deleteCat, deleteToDo, permanentCatDelete } from "./delete";
+import { deleteCat, deleteToDo, permanentCatDelete, permanentToDoDelete } from "./delete";
 import { toggleComplete } from "./is-complete";
 import { handleAddToDoClick } from "./add-todo";
 import { handleRestoreCatClick } from "./restore";
@@ -316,7 +316,7 @@ export function showThisCat(event) {
                 toDoDisplayContainer.appendChild(toDoRestoreButton);
                 toDoRestoreButton.addEventListener("click", handleRestoreToDoClick);
 
-                //Append edit icon
+                //Append restore icon
                 const toDoRestoreIcon = document.createElement("img");
                 toDoRestoreIcon.className = "restore-icon";
                 toDoRestoreIcon.alt = "Icon of restore button";
@@ -333,7 +333,7 @@ export function showThisCat(event) {
                 toDoDeleteButton.dataset.title = toDoObj;
                 toDoDeleteButton.dataset.category = cat;
                 toDoDisplayContainer.appendChild(toDoDeleteButton);
-                toDoDeleteButton.addEventListener("click", deleteToDo);
+                toDoDeleteButton.addEventListener("click", permanentToDoDelete);
 
                 //Append delete icon
                 const toDoDeleteIcon = document.createElement("img");
