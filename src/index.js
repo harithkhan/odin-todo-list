@@ -15,3 +15,6 @@ toDoFunction.add("ToDo List Project", "Add logic to buttons");
 console.log(getData());
 displayHub();
 
+const showAllButton = document.getElementById("show-all-button");
+showAllButton.addEventListener("click", displayHub);
+
