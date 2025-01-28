@@ -47,11 +47,11 @@ const add = function(
 
 const rename = function(oldTitle, newTitle) {
     for (let category in hub) {
-        if (hub[category]._toDo[oldTitle] && oldTitle !== newTitle) { //Find the target obj in its category
-            hub[category]._toDo[oldTitle].title = newTitle; //Change the title in the current obj to new name
-            const oldObj = hub[category]._toDo[oldTitle];
-            hub[category]._toDo[newTitle] = oldObj //Create a new obj with new title name
-            delete hub[category]._toDo[oldTitle] //Delete old obj
+        if (hub[category]?.toDo?.[oldTitle] && oldTitle !== newTitle) { //Find the target obj in its category
+            hub[category].toDo[oldTitle].title = newTitle; //Change the title in the current obj to new name
+            const oldObj = hub[category].toDo[oldTitle];
+            hub[category].toDo[newTitle] = oldObj //Create a new obj with new title name
+            delete hub[category].toDo[oldTitle] //Delete old obj
         };
     };
 };
@@ -83,7 +83,7 @@ const description = function(target, newDescription) {
 
 const due = function(target, newDue) {
     for (let category in hub) {
-        const toDoObj = hub[category].toDo[target];
+        const toDoObj = hub[category]?.toDo?.[target];
         if (toDoObj) { toDoObj.due = newDue };
     };
 };

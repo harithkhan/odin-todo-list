@@ -130,9 +130,7 @@ function catEditSubmit(event) {
     rename(oldTitle, formTitle);
 
     const currentKey = formTitle !== oldTitle ? formTitle : oldTitle;
-    if (!formDue) {
-      due(currentKey, "N/A");
-    } else {
+    if (formDue) {
       due(currentKey, formDueFormatted);
     };
 
@@ -150,8 +148,17 @@ function catEditSubmit(event) {
 
     const newCatDue = document.querySelector(`.cat-due[data-category="${oldTitle}"]`);
     newCatDue.dataset.category = currentKey;
-    const newFormDueDisplay = formDueValidated !== "N/A" ? `(Due: ${formDueFormatted})`: "";
-    newCatDue.textContent = newFormDueDisplay;
+    const newFormDueDisplay = formDue ? `(Due: ${formDueFormatted})`: getData()[currentKey].due;
+    const getNewFormDueDisplay = function() {
+      if (formDue) {
+        return `(Due: ${formDueFormatted})`
+      } else if (!formDue) {
+        if (getData()[currentKey].due === "N/A") {
+          return "";
+        } else return `(Due: ${getData()[currentKey].due})`;
+      };
+    };
+    newCatDue.textContent = getNewFormDueDisplay();
 
     //Place Edit button back
     const closeButton = document.querySelector(`.cat-close-button[data-category="${oldTitle}"]`);
