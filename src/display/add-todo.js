@@ -1,6 +1,12 @@
 import { add } from "../logic/todo-functions" 
 import { displayHub } from "./display-hub";
 import { getData } from "../logic/todo-hub";
+import { displayToDoIcons } from "./icon-hover";
+import { toggleComplete } from "./is-complete";
+import { handleEditToDoClick } from "./edit-todo-button";
+import { deleteToDo } from "./delete";
+import editIcon from "../img/edit.png";
+import binIcon from "../img/bin.png";
 
 export function handleAddToDoClick(event) {
     const toDoButtonContainer = document.querySelectorAll(".todo-button-container");
@@ -67,7 +73,89 @@ function toDoSubmit(event) {
     const category = event.target.dataset.category;
     if (!(formTitle in getData()[category].toDo)) {
         add(category, formTitle);
-        displayHub();
+        const toDoDisplayContainer = document.createElement("div");
+        toDoDisplayContainer.className = "todo-item";
+        toDoDisplayContainer.dataset.title = formTitle;
+        toDoDisplayContainer.dataset.category = category;
+        const todoItemContainer = document.querySelector(`.todo-item-container[data-category="${category}"]`);
+        todoItemContainer.appendChild(toDoDisplayContainer);
+        toDoDisplayContainer.addEventListener("mouseenter", displayToDoIcons);
+
+        //Append checkbox
+        const checkbox = document.createElement("button");
+        checkbox.className = "checkbox";
+        checkbox.type = "checkbox-button";
+        checkbox.setAttribute("aria-pressed", "false");
+        checkbox.dataset.title = formTitle;
+        checkbox.dataset.category = category;
+        toDoDisplayContainer.appendChild(checkbox);
+        checkbox.addEventListener("click", toggleComplete);
+
+        //Append toDo header
+        const toDoHeader = document.createElement("p");
+        toDoHeader.className = "todo-display-header";
+        if (formTitle.length > 60) {
+            let shortenedTitle = "";
+            for (let character of formTitle) {
+                shortenedTitle = shortenedTitle + character;
+                if (shortenedTitle.length > 57) {
+                    break;
+                };
+            };
+            shortenedTitle = shortenedTitle + "...";
+            toDoHeader.textContent = shortenedTitle;
+        } else toDoHeader.textContent = formTitle;
+        toDoHeader.dataset.title = formTitle;
+        toDoHeader.dataset.category = category;
+        toDoDisplayContainer.appendChild(toDoHeader);
+
+        //Append due
+        const toDoDue = document.createElement("p");
+        toDoDue.className = "todo-due";
+        const toDoDueDate = getData()[category].toDo[formTitle].due
+        toDoDue.textContent = toDoDueDate !== "N/A" ? `(Due: ${toDoDueDate})`: "";
+        toDoDue.dataset.title = formTitle;
+        toDoDue.dataset.category = category;
+        toDoDisplayContainer.appendChild(toDoDue);
+
+        //Append edit button
+        const toDoEditButton = document.createElement("button");
+        toDoEditButton.className = "todo-edit-button";
+        toDoEditButton.classList.add("hidden");
+        toDoEditButton.type = "button";
+        toDoEditButton.dataset.title = formTitle;
+        toDoEditButton.dataset.category = category;
+        toDoDisplayContainer.appendChild(toDoEditButton);
+        toDoEditButton.addEventListener("click", handleEditToDoClick);
+
+        //Append edit icon
+        const toDoEditIcon = document.createElement("img");
+        toDoEditIcon.className = "edit-icon";
+        toDoEditIcon.alt = "Icon of edit button";
+        toDoEditIcon.src = editIcon;
+        toDoEditIcon.dataset.title = formTitle;
+        toDoEditIcon.dataset.category = category;
+        toDoEditButton.appendChild(toDoEditIcon);
+
+        //Append delete button
+        const toDoDeleteButton = document.createElement("button");
+        toDoDeleteButton.className = "todo-delete-button";
+        toDoDeleteButton.classList.add("hidden");
+        toDoDeleteButton.type = "button";
+        toDoDeleteButton.dataset.title = formTitle;
+        toDoDeleteButton.dataset.category = category;
+        toDoDisplayContainer.appendChild(toDoDeleteButton);
+        toDoDeleteButton.addEventListener("click", deleteToDo);
+
+        //Append delete icon
+        const toDoDeleteIcon = document.createElement("img");
+        toDoDeleteIcon.className = "delete-icon";
+        toDoDeleteIcon.alt = "Icon of delete buttom";
+        toDoDeleteIcon.src = binIcon;
+        toDoDeleteIcon.dataset.title = formTitle;
+        toDoDeleteIcon.dataset.category = category;
+        toDoDeleteButton.appendChild(toDoDeleteIcon);
+        // displayHub();
     };
 };
 

@@ -139,9 +139,7 @@ function toDoSubmit(event) {
         catDeleteButton.appendChild(catDeleteIcon);
 
         //Append todo button container and its elements
-        const newToDoItemContainer = document.querySelector(`.todo-item-container[data-category="${formTitle}"]`)
-
-
+        const newToDoItemContainer = document.querySelector(`.todo-item-container[data-category="${formTitle}"]`);
         const newButtonContainer = document.createElement("div");
         newButtonContainer.className = "todo-button-container";
         newButtonContainer.dataset.category = formTitle;
