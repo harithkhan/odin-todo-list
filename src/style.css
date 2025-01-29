@@ -107,6 +107,7 @@ main {
 .category-header {
     font-family: var(--font-headers);
     margin-bottom: 0.5rem;
+    font-size: 1.6rem;
 }
 
 .cat-button {
@@ -115,6 +116,12 @@ main {
     cursor: pointer;
     display: flex;
     text-align: left;
+    font-family: var(--font-headers);
+    font-size: 1.4rem;
+}
+
+.cat-button:hover {
+    font-weight: 600;
 }
 
 #generated-cat-buttons {
@@ -171,7 +178,7 @@ main {
 .cat-display {
     height: 100%;
     font-family: var(--font-headers);
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 600;
     padding-top: 0.5rem;
     cursor: text;
@@ -205,6 +212,7 @@ main {
     font-size: 1.1rem;
     padding-top: 1.4rem;
     cursor: text;
+    color: rgba(0, 0, 0, 0.6)
 }
 
 .todo-due {
