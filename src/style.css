@@ -46,8 +46,8 @@ h1, h2, h3, h4, h5, h6 {
     --bg-light: #fbf193;
     --bg-regular: #f9e151;
     --bg-dark: #f3ca06;
-    --bg--darker: #e4b40d;
-    --bf-darkest: #c48b04;
+    --bg-darker: #e4b40d;
+    --bg-darkest: #c48b04;
     --text-light: #c48b04;
     --text-regular: #9b630b;
     --text-dark: #7f4e12;
@@ -283,6 +283,41 @@ main {
     grid-template-rows: 3rem;
     grid-auto-rows: 3rem;
     margin-top: 1rem;
+    gap: 0.2rem;
+    background-color: var(--bg-lightest);
+}
+
+#edit-todo-title,
+#edit-todo-due,
+#edit-todo-description,
+#edit-todo-cat,
+#edit-priority,
+#notes,
+#when-created {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding-left: 1rem;
+}
+
+#edit-todo-title:focus,
+#edit-todo-due:focus,
+#edit-todo-description:focus,
+#edit-todo-cat:focus,
+#edit-priority:focus,
+#notes:focus {
+    outline: none;
+    border: 2px solid var(--bg-darkest);
+}
+#edit-todo-title:hover,
+#edit-todo-due:hover,
+#edit-todo-description:hover,
+#edit-todo-cat:hover,
+#edit-priority:hover,
+#notes:hover,
+#when-created:hover {
+    background-color: var(--bg-lightest);
+    border: 2px solid var(--bg-darkest);
 }
 
 #edit-todo-title {
