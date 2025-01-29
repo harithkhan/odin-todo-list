@@ -255,6 +255,7 @@ main {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 3rem;
     grid-auto-rows: 3rem;
+    margin-top: 1rem;
 }
 
 #edit-cat-title {
@@ -281,6 +282,7 @@ main {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 3rem;
     grid-auto-rows: 3rem;
+    margin-top: 1rem;
 }
 
 #edit-todo-title {
