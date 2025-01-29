@@ -20,7 +20,17 @@ export function buildAllCats() {
             const catButton = document.createElement("button");
             catButton.className = "cat-button";
             catButton.type = "button";
-            catButton.textContent = category;
+            if (category.length > 16) {
+                let shortenedTitle = "";
+                for (let character of category) {
+                    shortenedTitle = shortenedTitle + character;
+                    if (shortenedTitle.length > 13) {
+                        break;
+                    };
+                };
+                shortenedTitle = shortenedTitle + "...";
+                catButton.textContent = shortenedTitle;
+            } else catButton.textContent = category;
             catButton.dataset.category = category;
             catContainer.appendChild(catButton);
         };
@@ -49,7 +59,18 @@ export function showThisCat(event) {
         const catDisplay = document.createElement("h2");
         catDisplay.className = "cat-display";
         catDisplay.dataset.category = category;
-        catDisplay.textContent = category;
+        catDisplay.dataset.category = category;
+            if (category.length > 30) {
+                let shortenedTitle = "";
+                for (let character of category) {
+                    shortenedTitle = shortenedTitle + character;
+                    if (shortenedTitle.length > 27) {
+                        break;
+                    };
+                };
+                shortenedTitle = shortenedTitle + "...";
+                catDisplay.textContent = shortenedTitle;
+            } else catDisplay.textContent = category;
         catDisplayContainer.appendChild(catDisplay);
 
         //Append due

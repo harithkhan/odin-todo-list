@@ -114,6 +114,7 @@ main {
     border: none;
     cursor: pointer;
     display: flex;
+    text-align: left;
 }
 
 #generated-cat-buttons {
