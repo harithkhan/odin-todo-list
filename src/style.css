@@ -239,9 +239,15 @@ main {
 .add-cat {
     background-color: inherit;
     border: none;
-    cursor: text;
+    cursor: pointer;
     margin-left: 2.7rem;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.add-todo:hover,
+.add-cat:hover {
+    color: rgba(0, 0, 0, 0.5)
 }
 
 .hidden {
