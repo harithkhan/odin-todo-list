@@ -310,6 +310,13 @@ main {
     box-shadow: 0px 0px 8px var(--bg-darker);
 }
 
+#edit-cat-title:hover:focus,
+#edit-cat-due:hover:focus,
+#edit-cat-description:hover:focus {
+    outline: none;
+    box-shadow: 0px 0px 8px var(--bg-darker);
+}
+
 #edit-cat-title {
     grid-area: 1 / 1 / 2 / 2;
 }
@@ -369,6 +376,16 @@ main {
 #notes:hover,
 #when-created:hover {
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+}
+
+#edit-todo-title:hover:focus,
+#edit-todo-due:hover:focus,
+#edit-todo-description:hover:focus,
+#edit-todo-cat:hover:focus,
+#edit-priority:hover:focus,
+#notes:hover:focus,
+#when-created:hover:focus {
+    box-shadow: 0px 0px 8px var(--bg-darker);
 }
 
 #edit-todo-title {
