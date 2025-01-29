@@ -320,7 +320,7 @@ main {
 #notes,
 #when-created {
     background-color: white;
-    border: 1px solid black;
+    border: none;
     border-radius: 8px;
     padding-left: 1rem;
 }
@@ -332,7 +332,7 @@ main {
 #edit-priority:focus,
 #notes:focus {
     outline: none;
-    border: 2px solid var(--bg-darkest);
+    box-shadow: 0px 0px 8px var(--bg-darker);
 }
 #edit-todo-title:hover,
 #edit-todo-due:hover,
@@ -341,8 +341,7 @@ main {
 #edit-priority:hover,
 #notes:hover,
 #when-created:hover {
-    background-color: var(--bg-lightest);
-    border: 2px solid var(--bg-darkest);
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
 }
 
 #edit-todo-title {

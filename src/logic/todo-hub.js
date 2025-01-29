@@ -8,5 +8,5 @@ export const getData = () => toDoHub;
 
 //Initialize General Category and Trash Object
 add("General", "General/Default category.");//Initialize General category
-addToDo(undefined, "Toggle the checkbox on the left");
+addToDo(undefined, "Toggle the checkbox");
 toDoHub["Trash"] = {};
