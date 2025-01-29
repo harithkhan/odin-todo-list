@@ -252,6 +252,14 @@ main {
     height: 1.3rem;
 }
 
+.edit-icon:hover,
+.delete-icon:hover,
+.close-icon:hover,
+.restore-icon:hover {
+    border-radius: 3px;
+    box-shadow: 0px 0px 8px rgba(196, 139, 4, 0.8), inset 0px 0px 20px rgba(196, 139, 4, 0.8);
+}
+
 .submit-icon {
     width: 1.6rem;
     height: 1.6rem;
