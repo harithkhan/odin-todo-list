@@ -95,6 +95,7 @@ function toDoSubmit(event) {
         const catDisplay = document.createElement("h2");
         catDisplay.className = "cat-display";
         catDisplay.textContent = formTitle;
+        catDisplay.dataset.category = formTitle;
         catDisplayContainer.appendChild(catDisplay);
 
         //Append due
@@ -102,6 +103,7 @@ function toDoSubmit(event) {
         catDue.className = "cat-due";
         const dueDate = getData()[category].due;
         catDue.textContent = dueDate !== "N/A" ? `(Due: ${dueDate})`: "";
+        catDue.dataset.category = formTitle;
         catDisplayContainer.appendChild(catDue);
 
         //Append edit button
