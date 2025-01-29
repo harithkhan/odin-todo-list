@@ -70,12 +70,7 @@ export const handleEditCatClick = function(event) {
     submitButton.className = "cat-submit-button";
     submitButton.dataset.category = category;
     submitButton.type = "submit";
-    const submitIcon = document.createElement("img");
-    submitIcon.alt = "Icon of submit button";
-    submitIcon.className = "submit-icon"
-    submitIcon.src = submitIconPath;
-    submitIcon.dataset.category = category;
-    submitButton.appendChild(submitIcon);
+    submitButton.textContent = "Submit"
     editCatForm.appendChild(submitButton);
 };
 

@@ -282,7 +282,7 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 3rem;
-    grid-auto-rows: 3rem;
+    grid-auto-rows: minmax(3rem, auto);
     margin-top: 1rem;
     gap: 0.2rem;
     background-color: var(--bg-lightest);
@@ -332,7 +332,17 @@ main {
 
 .cat-submit-button {
     grid-area: 3 / 1 / 4 / 3;
-    justify-self: center;
+    background-color: inherit;
+    border: 1px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 2rem;
+}
+
+.cat-submit-button:hover {
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
 }
 
 /* Edit todo forms */
@@ -340,7 +350,7 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 3rem;
-    grid-auto-rows: 3rem;
+    grid-auto-rows: min-max(3rem, auto);
     margin-top: 1rem;
     gap: 0.2rem;
     background-color: var(--bg-lightest);
@@ -357,6 +367,7 @@ main {
     border: none;
     border-radius: 8px;
     padding-left: 1rem;
+    height: 3rem;
 }
 
 #edit-todo-title:focus,
@@ -422,10 +433,16 @@ main {
 .todo-submit-button {
     grid-area: 6 / 1 / 7 / 3;
     background-color: inherit;
-    border: none;
+    border: 1px solid black;
+    border-radius: 8px;
     cursor: pointer;
-    margin-bottom: 0.3rem;
-    justify-self: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 2rem;
+}
+
+.todo-submit-button:hover {
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
 }
 
 /* Footer Styling */
