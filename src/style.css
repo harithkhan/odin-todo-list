@@ -256,6 +256,31 @@ main {
     grid-template-rows: 3rem;
     grid-auto-rows: 3rem;
     margin-top: 1rem;
+    gap: 0.2rem;
+    background-color: var(--bg-lightest);
+}
+
+#edit-cat-title,
+#edit-cat-due,
+#edit-cat-description {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding-left: 1rem;
+}
+
+#edit-cat-title:hover,
+#edit-cat-due:hover,
+#edit-cat-description:hover {
+    background-color: var(--bg-lightest);
+    border: 2px solid var(--bg-darkest);
+}
+
+#edit-cat-title:focus,
+#edit-cat-due:focus,
+#edit-cat-description:focus {
+    outline: none;
+    border: 2px solid var(--bg-darkest);
 }
 
 #edit-cat-title {
