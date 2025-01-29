@@ -209,10 +209,12 @@ main {
 
 .todo-display-header {
     height: 100%;
-    font-size: 1.1rem;
     padding-top: 1.4rem;
     cursor: text;
-    color: rgba(0, 0, 0, 0.6)
+    color: rgba(0, 0, 0, 0.6);
+    font-family: var(--font-headers);
+    font-size: 1.3rem;
+    font-style: italic;
 }
 
 .todo-due {
