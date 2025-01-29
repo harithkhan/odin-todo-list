@@ -11,15 +11,27 @@ import { toggleComplete } from "./is-complete";
 import { handleAddToDoClick } from "./add-todo";
 import { handleRestoreCatClick } from "./restore";
 import { handleRestoreToDoClick } from "./restore";
+import arrowIcon from "../img/next.png";
 
 export function buildAllCats() {
     const catContainer = document.getElementById("generated-cat-buttons");
     catContainer.innerHTML = "";
+    const catButtonContainer = document.querySelectorAll(".cat-button-container");
+    catButtonContainer.forEach((container) => {
+        container.addEventListener("mouseenter", handleMouseEnter);
+    });
     for (let category in hub()) {
         if (category !== "General" && category !== "Trash") {
+            const catButtonContainer = document.createElement("div");
+            catButtonContainer.className = "cat-button-container"
+            catButtonContainer.dataset.category = category;
+            catButtonContainer.dataset.button = category;
+            catContainer.appendChild(catButtonContainer);
             const catButton = document.createElement("button");
             catButton.className = "cat-button";
             catButton.type = "button";
+            catButton.dataset.category = category;
+            catButton.dataset.button = category;
             if (category.length > 16) {
                 let shortenedTitle = "";
                 for (let character of category) {
@@ -32,7 +44,14 @@ export function buildAllCats() {
                 catButton.textContent = shortenedTitle;
             } else catButton.textContent = category;
             catButton.dataset.category = category;
-            catContainer.appendChild(catButton);
+            const arrowImg = document.createElement("img");
+            arrowImg.className = "arrow-icon";
+            arrowImg.classList.add("hidden");
+            arrowImg.src = arrowIcon;
+            arrowImg.dataset.button = category;
+            catButtonContainer.appendChild(arrowImg);
+            catButtonContainer.appendChild(catButton);
+            catButtonContainer.addEventListener("mouseenter", handleMouseEnter)
         };
     };
 };
@@ -392,4 +411,22 @@ export function attachCatButtonListeners() {
     };
     const trashButton = document.getElementById("trash-button");
     trashButton.addEventListener("click", showThisCat);
+};
+
+function handleMouseEnter(event) {
+    const buttonData = event.target.dataset.button;
+    const buttonContainer = document.querySelector(`.cat-button-container[data-button="${buttonData}"]`);
+    const arrowIcon = document.querySelector(`.arrow-icon[data-button="${buttonData}"]`);
+    arrowIcon.classList.remove("hidden");
+    buttonContainer.removeEventListener("mouseenter", handleMouseEnter);
+    buttonContainer.addEventListener("mouseleave", handleMouseLeave);
+};
+
+function handleMouseLeave(event) {
+    const buttonData = event.target.dataset.button;
+    const buttonContainer = document.querySelector(`.cat-button-container[data-button="${buttonData}"]`);
+    const arrowIcon = document.querySelector(`.arrow-icon[data-button="${buttonData}"]`);
+    arrowIcon.classList.add("hidden");
+    buttonContainer.removeEventListener("mouseleave", handleMouseLeave);
+    buttonContainer.addEventListener("mouseenter", handleMouseEnter);
 };

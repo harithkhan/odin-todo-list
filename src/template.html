@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
+
 <body>
     <div class="app-container">
         <header>
@@ -15,10 +17,20 @@
         <main>
             <div class="category-container">
                 <h2 class="category-header">Categories</h2>
-                <button class="cat-button" id="show-all-button" type="button">Show all</button>
-                <button class="cat-button" id="general-cat-button" data-category="General" type="button">General</button>
+                <div class="cat-button-container" data-button="show-all">
+                    <img class="arrow-icon hidden" data-button="show-all" src="./img/next.png">
+                    <button class="cat-button" id="show-all-button" type="button" data-button="show-all">Show all</button>
+                </div>
+                <div class="cat-button-container" data-button="general">
+                    <img class="arrow-icon hidden" data-button="general" src="./img/next.png">
+                    <button class="cat-button" id="general-cat-button" data-button="general" data-category="General"
+                        type="button">General</button>
+                </div>
                 <div id="generated-cat-buttons"></div>
-                <button class="cat-button" id="trash-button" type="button" data-category="Trash">Trash</button>
+                <div class="cat-button-container" data-button="trash">
+                    <img class="arrow-icon hidden" data-button="trash" src="./img/next.png">
+                    <button class="cat-button" id="trash-button" type="button" data-category="Trash" data-button="trash">Trash</button>
+                </div>
             </div>
             <div class="todo-container">
                 <div class="todo-display">
@@ -54,11 +66,13 @@
                         </div>
                     </div>
                 </div>
-            </div>  
+            </div>
         </main>
     </div>
     <footer>
-        <div class="credit">Created by<a href="https://github.com/harithkhan">Harith Khan</a><img src="img/github-icon.png"></div>
+        <div class="credit">Created by<a href="https://github.com/harithkhan">Harith Khan</a><img
+                src="img/github-icon.png"></div>
     </footer>
 </body>
+
 </html>
