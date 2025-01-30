@@ -1,10 +1,10 @@
 import { getData } from "../logic/todo-hub";
 import editIconPath from "../img/edit.png";
-import submitIconPath from "../img/checked.png";
 import closeIconPath from "../img/close.png";
 import { rename, assign, description, due, priority, notes } from "../logic/todo-functions";
 import { parseISO, format } from "date-fns";
 import { displayToDoIcons } from "./icon-hover";
+import { updateLocalStorage } from "../logic/local-storage";
 
 export function handleEditToDoClick(event) {
 
@@ -304,4 +304,5 @@ function toDoEditSubmit(event) {
     //Reattach previous event listeners
     const toDoContainer = document.querySelector(`.todo-item[data-title="${title}"]`);
     toDoContainer.addEventListener("mouseenter", displayToDoIcons);
+    updateLocalStorage();
 };
