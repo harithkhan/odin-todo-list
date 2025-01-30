@@ -8,10 +8,9 @@ import { displayHub } from "./display/display-hub";
 import { buildAllCats } from "./display/cat-display";
 import { attachCatButtonListeners } from "./display/cat-display";
 import { updateLocalStorage } from "./logic/local-storage";
+import { loadLocalStorage } from "./logic/local-storage";
 
+loadLocalStorage();
 displayHub();
 buildAllCats();
 attachCatButtonListeners();
-updateLocalStorage();
-
-
