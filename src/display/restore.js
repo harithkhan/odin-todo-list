@@ -2,6 +2,7 @@ import { restore as restoreCat } from "../logic/category-functions";
 import { restore as restoreToDo } from "../logic/todo-functions";
 import { getData } from "../logic/todo-hub";
 import { buildAllCats } from "./cat-display";
+import { updateLocalStorage } from "../logic/local-storage";
 
 export function handleRestoreCatClick(event) {
     const restoreButton = event.target.closest(".cat-restore-button");
@@ -12,6 +13,7 @@ export function handleRestoreCatClick(event) {
         element.remove();
     });
     buildAllCats();
+    updateLocalStorage();
 };
 
 export function handleRestoreToDoClick(event) {
@@ -28,4 +30,5 @@ export function handleRestoreToDoClick(event) {
         const categoryHeader = document.querySelector(`.todo-item[data-category="${category}"]`);
         categoryHeader.remove();
     };
+    updateLocalStorage();
 };
