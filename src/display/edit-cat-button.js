@@ -1,10 +1,10 @@
 import { getData } from "../logic/todo-hub";
 import editIconPath from "../img/edit.png";
-import submitIconPath from "../img/checked.png";
 import closeIconPath from "../img/close.png";
 import { rename, description, due } from "../logic/category-functions";
 import { parseISO, format } from "date-fns";
 import { displayCatIcons } from "./icon-hover";
+import { updateLocalStorage } from "../logic/local-storage";
 
 export const handleEditCatClick = function(event) {
 
@@ -179,4 +179,5 @@ function catEditSubmit(event) {
     //Reattach previous event listeners
     const catContainer = document.querySelector(`.todo-item[data-category="${category}"]`);
     catContainer.addEventListener("mouseenter", displayCatIcons);
+    updateLocalStorage();
 };
