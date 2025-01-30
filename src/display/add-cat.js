@@ -7,6 +7,7 @@ import { displayCatIcons } from "./icon-hover";
 import { handleEditCatClick } from "./edit-cat-button";
 import { deleteCat } from "./delete";
 import { buildAllCats, attachCatButtonListeners } from "./cat-display";
+import { updateLocalStorage } from "../logic/local-storage";
 
 export function handleAddCatClick(event) {
     const category = event.target.dataset.category;
@@ -174,5 +175,6 @@ function toDoSubmit(event) {
         addCat.appendChild(newAddCatButton);
         buildAllCats();
         attachCatButtonListeners();
+        updateLocalStorage();
     };
 };
