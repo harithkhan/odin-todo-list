@@ -148,7 +148,7 @@ export function showThisCat(event) {
             const checkbox = document.createElement("button");
             checkbox.className = "checkbox";
             checkbox.type = "checkbox-button";
-            checkbox.setAttribute("aria-pressed", "false");
+            // checkbox.setAttribute("aria-pressed", "false");
             checkbox.dataset.title = toDoObj;
             checkbox.dataset.category = category;
             toDoDisplayContainer.appendChild(checkbox);
@@ -180,6 +180,16 @@ export function showThisCat(event) {
             toDoDue.dataset.title = toDoObj;
             toDoDue.dataset.category = category;
             toDoDisplayContainer.appendChild(toDoDue);
+
+            //Check if todo is completed, if yes then add line-through
+            if (hub()[category].toDo[toDoObj].isComplete == false) {
+                checkbox.setAttribute("aria-pressed", "false");
+            };
+            if (hub()[category].toDo[toDoObj].isComplete == true) {
+                checkbox.setAttribute("aria-pressed", "true");
+                toDoHeader.style.textDecoration = "line-through";
+                toDoDue.style.textDecoration = "line-through";
+            };
 
             //Append edit button
             const toDoEditButton = document.createElement("button");
