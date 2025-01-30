@@ -7,6 +7,7 @@ import { handleEditToDoClick } from "./edit-todo-button";
 import { deleteToDo } from "./delete";
 import editIcon from "../img/edit.png";
 import binIcon from "../img/bin.png";
+import { updateLocalStorage } from "../logic/local-storage";
 
 export function handleAddToDoClick(event) {
     const toDoButtonContainer = document.querySelectorAll(".todo-button-container");
@@ -155,7 +156,7 @@ function toDoSubmit(event) {
         toDoDeleteIcon.dataset.title = formTitle;
         toDoDeleteIcon.dataset.category = category;
         toDoDeleteButton.appendChild(toDoDeleteIcon);
-        // displayHub();
     };
+    updateLocalStorage();
 };
 

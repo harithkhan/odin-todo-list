@@ -15,4 +15,3 @@ loadLocalStorage();
 displayHub();
 buildAllCats();
 attachCatButtonListeners();
-console.log(getData());
