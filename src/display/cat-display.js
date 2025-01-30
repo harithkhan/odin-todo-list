@@ -156,11 +156,11 @@ export function showThisCat(event) {
             //Append toDo header
             const toDoHeader = document.createElement("p");
             toDoHeader.className = "todo-display-header";
-            if (toDoObj.length > 60) {
+            if (toDoObj.length > 53) {
                 let shortenedTitle = "";
                 for (let character of toDoObj) {
                     shortenedTitle = shortenedTitle + character;
-                    if (shortenedTitle.length > 57) {
+                    if (shortenedTitle.length > 50) {
                         break;
                     };
                 };
@@ -283,7 +283,17 @@ export function showThisCat(event) {
             const catDisplay = document.createElement("h2");
             catDisplay.className = "cat-display";
             catDisplay.dataset.category = cat;
-            catDisplay.textContent = cat;
+            if (cat.length > 30) {
+                let shortenedTitle = "";
+                for (let character of cat) {
+                    shortenedTitle = shortenedTitle + character;
+                    if (shortenedTitle.length > 27) {
+                        break;
+                    };
+                };
+                shortenedTitle = shortenedTitle + "...";
+                catDisplay.textContent = shortenedTitle;
+            } else catDisplay.textContent = cat;
             catDisplayContainer.appendChild(catDisplay);
 
             //Append due
@@ -342,7 +352,6 @@ export function showThisCat(event) {
                 const checkbox = document.createElement("button");
                 checkbox.className = "checkbox";
                 checkbox.type = "checkbox-button";
-                // checkbox.setAttribute("aria-pressed", "false");
                 checkbox.dataset.title = toDoObj;
                 checkbox.dataset.category = cat;
                 toDoDisplayContainer.appendChild(checkbox);
@@ -351,9 +360,19 @@ export function showThisCat(event) {
                 //Append toDo header
                 const toDoHeader = document.createElement("p");
                 toDoHeader.className = "todo-display-header";
-                toDoHeader.textContent = toDoObj;
                 toDoHeader.dataset.title = toDoObj;
                 toDoHeader.dataset.category = cat;
+                if (toDoObj.length > 53) {
+                    let shortenedTitle = "";
+                    for (let character of toDoObj) {
+                        shortenedTitle = shortenedTitle + character;
+                        if (shortenedTitle.length > 50) {
+                            break;
+                        };
+                    };
+                    shortenedTitle = shortenedTitle + "...";
+                    toDoHeader.textContent = shortenedTitle;
+                } else toDoHeader.textContent = toDoObj;
                 toDoDisplayContainer.appendChild(toDoHeader);
 
                 //Append due
