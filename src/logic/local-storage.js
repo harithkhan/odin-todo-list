@@ -34,6 +34,7 @@ export function loadLocalStorage() {
                 };
             } else if (category === "Trash") {
                 const trashCat = storedHub.Trash
+                toDoHub["Trash"] = {};
                 for (let toDoItem in trashCat) {
                     toDoHub["Trash"][toDoItem] = storedHub.Trash[toDoItem];
                 };

@@ -117,6 +117,7 @@ const moveToTrash = function(title) {
     for (let category in data) {
         if (title === data[category]?.toDo?.[title]?.title) {
             const toTrash = data[category].toDo[title];
+            console.log(data.Trash[category])
             if (data.Trash[category]) {
                 data.Trash[category].toDo[title] = new ToDo(
                     toTrash.title, 

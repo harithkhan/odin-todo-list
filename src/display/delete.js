@@ -4,6 +4,7 @@ import { moveToTrash as moveToDoToTrash } from "../logic/todo-functions";
 import { attachCatButtonListeners, buildAllCats } from "./cat-display";
 import { toDoHub as hub } from "../logic/todo-hub";
 import { getData } from "../logic/todo-hub";
+import { updateLocalStorage } from "../logic/local-storage";
 
 export function deleteCat(event) {
     const category = event.target.dataset.category;   
@@ -14,6 +15,7 @@ export function deleteCat(event) {
     moveCatToTrash(category);
     buildAllCats();
     attachCatButtonListeners();
+    updateLocalStorage();
 };
 
 export function deleteToDo(event) {
@@ -21,6 +23,7 @@ export function deleteToDo(event) {
     const toDoContainer = document.querySelector(`.todo-item[data-title="${title}"]`);
     toDoContainer.remove();
     moveToDoToTrash(title);
+    updateLocalStorage();
 };
 
 export function permanentCatDelete(event) {
@@ -30,6 +33,7 @@ export function permanentCatDelete(event) {
     removeFromDom.forEach((element) => {
         element.remove();
     });
+    updateLocalStorage();
 };
 
 export function permanentToDoDelete(event) {
@@ -39,9 +43,10 @@ export function permanentToDoDelete(event) {
     const removeFromDom = document.querySelector(`.todo-item[data-title="${title}"]`);
     removeFromDom.remove();
     const testObj = getData().Trash[category].toDo;
-        if (Object.keys(testObj).length === 0) {
-            delete getData().Trash[category];
-            const categoryHeader = document.querySelector(`.todo-item[data-category="${category}"]`);
-            categoryHeader.remove();
-        };
+    if (Object.keys(testObj).length === 0) {
+        delete getData().Trash[category];
+        const categoryHeader = document.querySelector(`.todo-item[data-category="${category}"]`);
+        categoryHeader.remove();
+    };
+    updateLocalStorage();
 };
