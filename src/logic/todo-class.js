@@ -16,8 +16,8 @@ export default class ToDo {
         this._due = due;
         this._priority = priority;
         this._notes = notes;
-        this._isComplete = isComplete;
         this._checklist = checklist;
+        this._isComplete = isComplete;
         this._whenCreated = whenCreated;
     };
 

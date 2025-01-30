@@ -27,8 +27,8 @@ export function loadLocalStorage() {
                         storedToDo._due,
                         storedToDo._priority,
                         storedToDo._notes,
-                        storedToDo._isComplete,
                         storedToDo._checklist,
+                        storedToDo._isComplete,
                         storedToDo._whenCreated
                     );
                 };
