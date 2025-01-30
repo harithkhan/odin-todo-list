@@ -5,7 +5,7 @@ import editIcon from "../img/edit.png";
 import binIcon from "../img/bin.png";
 import { displayCatIcons } from "./icon-hover";
 import { handleEditCatClick } from "./edit-cat-button";
-import { moveToTrash } from "../logic/category-functions";
+import { deleteCat } from "./delete";
 import { buildAllCats, attachCatButtonListeners } from "./cat-display";
 
 export function handleAddCatClick(event) {
@@ -130,7 +130,7 @@ function toDoSubmit(event) {
         catDeleteButton.type = "button";
         catDeleteButton.dataset.category = formTitle;
         catDisplayContainer.appendChild(catDeleteButton);
-        catDeleteButton.addEventListener("click", moveToTrash);
+        catDeleteButton.addEventListener("click", deleteCat);
 
         //Append delete icon
         const catDeleteIcon = document.createElement("img");

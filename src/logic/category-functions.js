@@ -1,5 +1,5 @@
 import { Category } from "./category-class";
-import { getData, toDoHub as hub } from "./todo-hub";
+import { toDoHub as hub } from "./todo-hub";
 
 //Exported functions that manipulate object toDoHub, but only related to class Category
 const add = function(title, description, due) {
@@ -24,7 +24,7 @@ const description = (key, newDescription) => hub[key].description = newDescripti
 const due = (key, newDue) => hub[key].due = newDue;
 
 const moveToTrash = function(category) {
-  const data = getData();
+  const data = hub;
   const oldObj = data[category];
   const oldToDos = oldObj.toDo;
   if (!data.Trash[category]) {

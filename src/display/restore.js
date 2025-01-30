@@ -1,6 +1,7 @@
 import { restore as restoreCat } from "../logic/category-functions";
 import { restore as restoreToDo } from "../logic/todo-functions";
 import { getData } from "../logic/todo-hub";
+import { buildAllCats } from "./cat-display";
 
 export function handleRestoreCatClick(event) {
     const restoreButton = event.target.closest(".cat-restore-button");
@@ -10,6 +11,7 @@ export function handleRestoreCatClick(event) {
     toRestore.forEach((element) => {
         element.remove();
     });
+    buildAllCats();
 };
 
 export function handleRestoreToDoClick(event) {
