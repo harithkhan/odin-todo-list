@@ -84,6 +84,13 @@ header {
 .header-container {
     text-decoration: none;
     color: black;
+    display: flex;
+    gap: 1rem;
+}
+
+.notes-icon {
+    width: 4rem;
+    height: 4rem;
 }
 
 .header-text {
