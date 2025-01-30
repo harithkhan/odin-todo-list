@@ -95,11 +95,11 @@ function toDoSubmit(event) {
         //Append toDo header
         const toDoHeader = document.createElement("p");
         toDoHeader.className = "todo-display-header";
-        if (formTitle.length > 60) {
+        if (formTitle.length > 53) {
             let shortenedTitle = "";
             for (let character of formTitle) {
                 shortenedTitle = shortenedTitle + character;
-                if (shortenedTitle.length > 57) {
+                if (shortenedTitle.length > 50) {
                     break;
                 };
             };

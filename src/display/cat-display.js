@@ -32,11 +32,11 @@ export function buildAllCats() {
             catButton.type = "button";
             catButton.dataset.category = category;
             catButton.dataset.button = category;
-            if (category.length > 16) {
+            if (category.length > 13) {
                 let shortenedTitle = "";
                 for (let character of category) {
                     shortenedTitle = shortenedTitle + character;
-                    if (shortenedTitle.length > 13) {
+                    if (shortenedTitle.length > 10) {
                         break;
                     };
                 };

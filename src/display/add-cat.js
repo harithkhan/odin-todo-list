@@ -95,7 +95,19 @@ function toDoSubmit(event) {
         //Append h2 cat header
         const catDisplay = document.createElement("h2");
         catDisplay.className = "cat-display";
-        catDisplay.textContent = formTitle;
+        if (formTitle.length > 30) {
+            let shortenedTitle = "";
+            for (let character of formTitle) {
+                shortenedTitle = shortenedTitle + character;
+                if (shortenedTitle.length > 27) {
+                    break;
+                };
+            };
+            shortenedTitle = shortenedTitle + "...";
+            catDisplay.textContent = shortenedTitle;
+        } else catDisplay.textContent = formTitle;
+        catDisplayContainer.appendChild(catDisplay);
+
         catDisplay.dataset.category = formTitle;
         catDisplayContainer.appendChild(catDisplay);
 
