@@ -7,9 +7,11 @@ import * as addTodo from "./display/add-todo"
 import { displayHub } from "./display/display-hub";
 import { buildAllCats } from "./display/cat-display";
 import { attachCatButtonListeners } from "./display/cat-display";
+import { updateLocalStorage } from "./logic/local-storage";
 
 displayHub();
 buildAllCats();
 attachCatButtonListeners();
+updateLocalStorage();
 
 
