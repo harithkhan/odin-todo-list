@@ -8,7 +8,8 @@ export default class ToDo {
         priority = "-", 
         notes = "N/A", 
         checklist = {},
-        isComplete = false 
+        isComplete = false,
+        whenCreated = format(new Date(), "h:mma, EEEE, d MMM yyyy")
     ) {
         this._title = title;
         this._description = description;
@@ -17,7 +18,7 @@ export default class ToDo {
         this._notes = notes;
         this._isComplete = isComplete;
         this._checklist = checklist;
-        this._whenCreated = format(new Date(), "h:mma, EEEE, d MMM yyyy");
+        this._whenCreated = whenCreated;
     };
 
     get title() {

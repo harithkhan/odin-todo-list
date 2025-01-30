@@ -7,6 +7,9 @@ export let toDoHub = {}; //Only export to category-functions and todo-functions,
 export const getData = () => toDoHub;
 
 //Initialize General Category and Trash Object
-add("General", "General/Default category.");//Initialize General category
-addToDo(undefined, "Toggle the checkbox");
-toDoHub["Trash"] = {};
+export function initializeDefaultHub() {
+    toDoHub = {};
+    add("General", "General/Default category.");//Initialize General category
+    addToDo(undefined, "Toggle the checkbox");
+    toDoHub["Trash"] = {};
+};
