@@ -35,8 +35,26 @@ export function loadLocalStorage() {
             } else if (category === "Trash") {
                 const trashCat = storedHub.Trash
                 toDoHub["Trash"] = {};
-                for (let toDoItem in trashCat) {
-                    toDoHub["Trash"][toDoItem] = storedHub.Trash[toDoItem];
+                for (let category in trashCat) {
+                    const storedCategory = trashCat[category];
+                    toDoHub["Trash"][category] = new Category(
+                        storedCategory._title,
+                        storedCategory._description,
+                        storedCategory._due
+                    );
+                    for (let toDoItem in storedCategory._toDo) {
+                        const storedToDo = storedCategory._toDo[toDoItem];
+                        toDoHub["Trash"][category].toDo[toDoItem] = new ToDo(
+                            storedToDo._title,
+                            storedToDo._description,
+                            storedToDo._due,
+                            storedToDo._priority,
+                            storedToDo._notes,
+                            storedToDo._checklist,
+                            storedToDo._isComplete,
+                            storedToDo._whenCreated
+                        );
+                    };
                 };
             };
         };
