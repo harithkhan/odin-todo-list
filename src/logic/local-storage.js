@@ -15,21 +15,21 @@ export function loadLocalStorage() {
             if (category !== "Trash") {
                 const storedCategory = storedHub[category];
                 toDoHub[category] = new Category(
-                    storedCategory.title,
-                    storedCategory.description,
-                    storedCategory.due
+                    storedCategory._title,
+                    storedCategory._description,
+                    storedCategory._due
                 );
-                for (let toDoItem in storedCategory.toDo) {
-                    const storedToDo = storedCategory.toDo[toDoItem];
+                for (let toDoItem in storedCategory._toDo) {
+                    const storedToDo = storedCategory._toDo[toDoItem];
                     toDoHub[category].toDo[toDoItem] = new ToDo(
-                        storedToDo.title,
-                        storedToDo.description,
-                        storedToDo.due,
-                        storedToDo.priority,
-                        storedToDo.notes,
-                        storedToDo.isComplete,
-                        storedToDo.checklist,
-                        storedToDo.whenCreated
+                        storedToDo._title,
+                        storedToDo._description,
+                        storedToDo._due,
+                        storedToDo._priority,
+                        storedToDo._notes,
+                        storedToDo._isComplete,
+                        storedToDo._checklist,
+                        storedToDo._whenCreated
                     );
                 };
             } else if (category === "Trash") {
