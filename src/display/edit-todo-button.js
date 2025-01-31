@@ -91,7 +91,18 @@ export function handleEditToDoClick(event) {
         if (category !== "Trash") {
             const selectOption = document.createElement("option");
             selectOption.value = category;
-            selectOption.textContent = category;
+            // selectOption.textContent = category;
+            if (category.length > 30) {
+                let shortenedTitle = "";
+                for (let character of category) {
+                    shortenedTitle = shortenedTitle + character;
+                    if (shortenedTitle.length > 27) {
+                        break;
+                    };
+                };
+                shortenedTitle = shortenedTitle + "...";
+                selectOption.textContent = shortenedTitle;
+            } else selectOption.textContent = category;
             editToDoCategory.appendChild(selectOption);
             if (formCategory === category) selectOption.selected = true;
         };
