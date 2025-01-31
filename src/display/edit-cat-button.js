@@ -15,6 +15,10 @@ export const handleEditCatClick = function(event) {
     editButton.removeEventListener("click", handleEditCatClick);
     editButton.remove();
 
+    //Remove trash button temporarily
+    const trashButton = document.querySelector(`.cat-delete-button[data-category="${category}"]`);
+    trashButton.classList.add("hidden");
+
     //Add close button with icon
     const closeButton = document.createElement("button");
     closeButton.className = "cat-close-button";
@@ -100,6 +104,9 @@ function handleCloseClick(event) {
     //Reattach previous event listeners
     const catContainer = document.querySelector(`.todo-item[data-category="${category}"]`);
     catContainer.addEventListener("mouseenter", displayCatIcons);
+    //Restore trash button
+    const trashButton = document.querySelector(`.cat-delete-button[data-category="${category}"]`);
+    trashButton.classList.remove("hidden");
 };
 
 function catEditSubmit(event) {
@@ -180,4 +187,8 @@ function catEditSubmit(event) {
     const catContainer = document.querySelector(`.todo-item[data-category="${category}"]`);
     catContainer.addEventListener("mouseenter", displayCatIcons);
     updateLocalStorage();
+
+    //Restore trash button
+    const trashButton = document.querySelector(`.cat-delete-button[data-category="${category}"]`);
+    trashButton.classList.remove("hidden");
 };

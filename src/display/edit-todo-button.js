@@ -15,6 +15,10 @@ export function handleEditToDoClick(event) {
     editButton.removeEventListener("click", handleEditToDoClick);
     editButton.remove();  
 
+    //Remove trash button temporarily
+    const trashButton = document.querySelector(`.todo-delete-button[data-title="${title}"]`);
+    trashButton.classList.add("hidden");
+
     //Add close button with icon
     const closeButton = document.createElement("button");
     closeButton.className = "todo-close-button";
@@ -205,6 +209,10 @@ function handleCloseClick(event) {
     //Reattach previous event listeners
     const toDoContainer = document.querySelector(`.todo-item[data-title="${title}"]`);
     toDoContainer.addEventListener("mouseenter", displayToDoIcons);
+
+    //Restore trash button
+    const trashButton = document.querySelector(`.todo-delete-button[data-title="${title}"]`);
+    trashButton.classList.remove("hidden");
 };
 
 function toDoEditSubmit(event) {
@@ -305,4 +313,8 @@ function toDoEditSubmit(event) {
     const toDoContainer = document.querySelector(`.todo-item[data-title="${title}"]`);
     toDoContainer.addEventListener("mouseenter", displayToDoIcons);
     updateLocalStorage();
+
+    //Restore trash button
+    const trashButton = document.querySelector(`.todo-delete-button[data-title="${title}"]`);
+    trashButton.classList.remove("hidden");
 };

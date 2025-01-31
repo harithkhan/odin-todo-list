@@ -62,5 +62,4 @@ export function loadLocalStorage() {
         console.error("Loading failed. Initializing fresh hub:", error);
         initializeDefaultHub();
     };
-    console.log(toDoHub);
 };
